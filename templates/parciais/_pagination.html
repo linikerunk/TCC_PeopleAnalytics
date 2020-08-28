@@ -1,0 +1,42 @@
+{% load static %}
+<div class="col mt-3 mb-3">
+    <div class="row">
+    
+    <div class="pagination" >
+        <ul class="pagination">
+            {% if obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">Início</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ obj.previous_page_number }}">Anterior</a>
+            </li>
+            {% endif %}
+    
+            {% for page in obj.paginator.page_range %}
+    
+            {% if obj.number == page %}
+            <li class="page-item active">
+                <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+            </li>
+            {% elif page > obj.number|add:'-3' and page < obj.number|add:'3' %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+            </li>
+            {% endif %}
+    
+            {% endfor %}
+    
+            {% if obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ obj.next_page_number }}">Próximo</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ obj.paginator.num_pages }}">Último</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    </div>
+    </div>
+    

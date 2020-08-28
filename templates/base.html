@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title> PeopleAnalytics | {% block titulo %}{% endblock %}</title>
+{% include 'parciais/_head.html' %}
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+{% include 'parciais/_nav.html' %}
+{% include 'parciais/_sidebar.html' %}
+{% include 'parciais/_wrapper-content.html' %}
+{% include 'parciais/_control-side.html' %}
+{% include 'parciais/_footer.html' %}
+</div>
+<!-- ./wrapper -->
+{% include 'parciais/_scripts.html' %}
+</body>
+</html>
