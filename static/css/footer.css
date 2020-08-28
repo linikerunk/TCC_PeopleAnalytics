@@ -1,0 +1,21 @@
+/** Files Styled reference the footer **/
+.main-footer.footer-custom {
+    background-color: #202020;
+    opacity: 1;
+    transition-timing-function: linear
+}
+
+.main-footer.footer-custom:hover {
+    opacity: 0.9;
+;
+}
+
+.footer-custom > p {
+    font-size: 15px;
+    color: #fafafa;
+}
+
+.footer-custom > p > strong {
+    font-size: 15px;
+    color: #fafafa;
+}
