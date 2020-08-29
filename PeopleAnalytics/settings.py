@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'stdimage',
     'users.apps.UsersConfig',
+    'performance.apps.PerformanceConfig',
+    'health.apps.HealthConfig',
+    'training.apps.TrainingConfig',
 ]
 
 MIDDLEWARE = [

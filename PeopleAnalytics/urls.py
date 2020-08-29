@@ -19,7 +19,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('painel/', admin.site.urls),
     path('', include('users.urls')),
+    path('', include('performance.urls')),
+    path('', include('training.urls')),
+    path('', include('health.urls')),
+    path('painel/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

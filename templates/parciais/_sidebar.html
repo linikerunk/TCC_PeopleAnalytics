@@ -17,9 +17,9 @@
           <img src="{% static 'img/users/user.jpg' %}" class="img-circle elevation-2 mt-2" alt="Employee">
         </div>
         <div class="info">
-          <a href="#" class="font-weight-bolder d-block">Alexander Pierce</a>
+          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">Alexander Pierce</a>
           <p class="font-weight-bolder mb-0 mt-1">
-            <a href="#">Técnico em Informática</a></p>
+            <a href="{% url 'users:users_list' %}">Técnico em Informática</a></p>
         </div>
       </div>
       
@@ -32,58 +32,62 @@
                with font-awesome or any other icon font library -->
       
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="pie-chart"></i>
+            <a href="" class="nav-link">
+              <img src="{% static 'icons/pie-chart.svg' %}" alt="Dashboard"  />
               <p class="font-weight-bolder ml-3">Dashboard</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="clipboard"></i>
+            <a href="" class="nav-link">
+              <img src="{% static 'icons/clipboard.svg' %}" alt="Tickets" />
               <p class="font-weight-bolder ml-3">Chamados</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="trending-up"></i>
-              <p class="font-weight-bolder ml-3">Performance</p></a>
+            <a href="{% url 'performance:performance_list' %}" class="nav-link">
+              <img src="{% static 'icons/trending-up.svg' %}" alt="Performance" />
+              <p class="font-weight-bolder ml-3">Desempenho</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="clock"></i>
+            <a href="" class="nav-link">
+              <img src="{% static 'icons/clock.svg' %}" alt="Time Management" />
               <p class="font-weight-bolder ml-3">Gestão De Horas</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="briefcase"></i>
+            <a href="" class="nav-link">
+              <img src="{% static 'icons/briefcase.svg' %}" alt="Business" />
               <p class="font-weight-bolder ml-3">Négócios</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i data-feather="activity"></i>
+            <a href="" class="nav-link">
+              <img src="{% static 'icons/activity.svg' %}" alt="Health" />
               <p class="font-weight-bolder ml-3">Saúde</p></a>
           </li>
-
           
+          <li class="nav-item">
+            <a href="{%url 'training:training_list' %}" class="nav-link">
+              <img src="{% static 'icons/book-open.svg' %}" alt="Training" />
+              <p class="font-weight-bolder ml-3">Treinamento</p></a>
+          </li>
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i data-feather="user-plus"></i>
+              <img src="{% static 'icons/user-plus.svg' %}" alt="Recruting" />
               <p class="font-weight-bolder ml-3">Recrutamento</p></a>
             </li>
             
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i data-feather="user-minus"></i>
+                <img src="{% static 'icons/user-minus.svg' %}" alt="Dismiss" />
                 <p class="font-weight-bolder ml-3">Desligamento</p></a>
               </li>
               
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i data-feather="users"></i>
+                <a href="{% url 'users:users_list' %}" class="nav-link">
+                  <img src="{% static 'icons/users.svg' %}" alt="Employee" />
                   <p class="font-weight-bolder ml-3">Funcionários</p></a>
               </li>
               
