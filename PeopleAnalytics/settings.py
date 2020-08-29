@@ -11,7 +11,17 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 from django.contrib.messages import constants
+from dj_database_url import parse as dburl
+
+from .email import (
+EMAIL_HOST,
+EMAIL_USE_TLS,
+EMAIL_HOST_PASSWORD,
+EMAIL_PORT,
+EMAIL_HOST_USER
+)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '04w%+jn&1yk+vxs%ccfo6i%f=&#+#7-q%%w0j!@=f&v4%2rf2a'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -58,7 +68,9 @@ ROOT_URLCONF = 'PeopleAnalytics.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,17 +89,25 @@ WSGI_APPLICATION = 'PeopleAnalytics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'peopleanalytics',
-        'USER': 'postgres',
-        'PASSWORD': 'Padrao1*',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'banco_dados',
     }
 }
+
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'peopleanalytics',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Padrao1*',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 
@@ -138,7 +158,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticsfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # LOGIN_URL = '/login/'
-
 # LOGIN_REDIRECT_URL = 'dashboard'
+
+MESSAGE_TAGS = {
+    constants.ERROR: 'alert-danger',
+    constants.WARNING: 'alert-warning',
+    constants.DEBUG: 'alert-info',
+    constants.SUCCESS: 'alert-success',
+    constants.INFO: 'alert-info',
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
