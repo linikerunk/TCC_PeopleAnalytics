@@ -7,4 +7,4 @@ from django.http import JsonResponse
 
 
 class IndexPerformance(TemplateView):
-    template_name = 'training/index.html'
+    template_name = 'performance/index.html'

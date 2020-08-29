@@ -23,6 +23,12 @@ urlpatterns = [
     path('', include('performance.urls')),
     path('', include('training.urls')),
     path('', include('health.urls')),
+    path('', include('ticket.urls')),
+    path('', include('dashboard.urls')),
+    path('', include('hour.urls')),
+    path('', include('recruiting.urls')),
+    path('', include('business.urls')),
+    path('', include('dismissal.urls')),
     path('painel/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

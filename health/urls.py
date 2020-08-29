@@ -8,6 +8,6 @@ app_name = "health"
 
 
 urlpatterns = [
-    path('health/', views.IndexHealth.as_view()),
+    path('health/', views.IndexHealth.as_view(), name="health"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -32,13 +32,13 @@
                with font-awesome or any other icon font library -->
       
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{% url 'dashboard:dashboard' %}" class="nav-link">
               <img src="{% static 'icons/pie-chart.svg' %}" alt="Dashboard"  />
               <p class="font-weight-bolder ml-3">Dashboard</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{% url 'ticket:ticket' %}" class="nav-link">
               <img src="{% static 'icons/clipboard.svg' %}" alt="Tickets" />
               <p class="font-weight-bolder ml-3">Chamados</p></a>
           </li>
@@ -50,19 +50,19 @@
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{% url 'hour:hour' %}" class="nav-link">
               <img src="{% static 'icons/clock.svg' %}" alt="Time Management" />
               <p class="font-weight-bolder ml-3">Gestão De Horas</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{% url 'business:business' %}" class="nav-link">
               <img src="{% static 'icons/briefcase.svg' %}" alt="Business" />
               <p class="font-weight-bolder ml-3">Négócios</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{% url 'health:health' %}" class="nav-link">
               <img src="{% static 'icons/activity.svg' %}" alt="Health" />
               <p class="font-weight-bolder ml-3">Saúde</p></a>
           </li>
@@ -74,13 +74,13 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{%url 'recruiting:recruiting' %}" class="nav-link">
               <img src="{% static 'icons/user-plus.svg' %}" alt="Recruting" />
               <p class="font-weight-bolder ml-3">Recrutamento</p></a>
             </li>
             
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{%url 'dismissal:dismissal' %}" class="nav-link">
                 <img src="{% static 'icons/user-minus.svg' %}" alt="Dismiss" />
                 <p class="font-weight-bolder ml-3">Desligamento</p></a>
               </li>
