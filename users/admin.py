@@ -3,7 +3,7 @@ from .models import Employee, CostCenter, Unity
 
 
 @admin.register(Unity)
-class Unity(admin.ModelAdmin):
+class UnityAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 @admin.register(Employee)

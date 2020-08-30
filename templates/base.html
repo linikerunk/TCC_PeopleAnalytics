@@ -6,7 +6,7 @@
 {% include 'parciais/_head.html' %}
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="fixed-sn black-skin">
 <div class="wrapper">
 {% include 'parciais/_nav.html' %}
 {% include 'parciais/_sidebar.html' %}
@@ -15,35 +15,16 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-          
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+        {% block conteudo %}{% endblock %}
+       
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            {% block conteudo %}{% endblock %}
-          </div>
-     
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+
 {% include 'parciais/_footer.html' %}
-</div>
+
+
 <!-- ./wrapper -->
 {% include 'parciais/_scripts.html' %}
 </body>

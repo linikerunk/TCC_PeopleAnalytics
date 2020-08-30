@@ -1,33 +1,19 @@
 {% load static %}
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="{% static 'ThemeAdmin/plugins/jquery/jquery.min.js' %}"></script>
-
-<!-- Bootstrap -->
-<script src="{% static 'ThemeAdmin/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-<!-- AdminLTE -->
-<script src="{% static 'ThemeAdmin/dist/js/adminlte.min.js.map' %}"></script>
-
 <!-- Fathers Icons -->
 <script src="https://unpkg.com/feather-icons"></script>
 <!-- Ionicos -->
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
-<script src="{% static 'ThemeAdmin/dist/js/demo.js' %}"></script>
-<script src="{% static 'ThemeAdmin/dist/js/pages/dashboard3.js' %}"></script>
- <!-- jQuery -->
- <script type="text/javascript" src="{% static 'ThemeMDB/js/jquery.min.js' %}"></script>
- <!-- Bootstrap tooltips -->
- <script type="text/javascript" src="{% static 'ThemeMDB/js/popper.min.js' %}"></script>
- <!-- Bootstrap core JavaScript -->
- <script type="text/javascript" src="{% static 'ThemeMDB/js/bootstrap.min.js' %}"></script>
- <!-- MDB core JavaScript -->
- <script type="text/javascript" src="{% static 'ThemeMDB/js/mdb.min.js' %}"></script>
+<script src="{% static 'admin-lte/plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'admin-lte/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="{% static 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+<script src="{% static 'admin-lte/dist/js/adminlte.min.js' %}"></script>
+<script src="{% static 'admin-lte/dist/js/demo.js' %}"></script>
+<script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
  <script>
    feather.replace()
-  $('#').click(function () {
 
-  })
  </script>

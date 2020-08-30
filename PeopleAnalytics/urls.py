@@ -32,3 +32,7 @@ urlpatterns = [
     path('painel/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.AdminSite.site_header = "Enginee RH"
+admin.AdminSite.site_title = "Enginee RH"
+admin.AdminSite.index_title = "Enginee RH, Um sistema de gestão de funcionário."
