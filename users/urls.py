@@ -10,15 +10,17 @@ app_name = "users"
 
 
 urlpatterns = [
-    path('users/', views.UsersListView.as_view(), name="users_list"),
-    path('user_create/', views.UsersCreateView.as_view(), name="user_create"),
-    path('user_update/<int:id>/', views.UsersUpdateView.as_view(),
+    path('users/', views.EmployeeListView.as_view(), name="users_list"),
+    path('user_create/', views.EmployeeCreateView.as_view(), name="user_create"),
+    path('user_update/<int:id>/', views.EmployeeUpdateView.as_view(),
     name="user_update"),
-    path('user_delete/<int:id>/', views.UsersDeleteView.as_view(),
+    path('user_delete/<int:id>/', views.EmployeeDeleteView.as_view(),
     name="user_delete"),
     # Login and Logout
-    path('', LoginView.as_view(template_name="login.html"), name="login"),
-    path("logout/",auth_views.LogoutView.as_view(template_name="logout.html"),
-    name="my_logout"),
+    path('', LoginView.as_view(
+    template_name="registration/login.html"), name="login"),
+    path("logout/",auth_views.LogoutView.as_view(
+    template_name="registration/logout.html"), name="my_logout"),
+    path("register/", views.sign_up, name="sing-up"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

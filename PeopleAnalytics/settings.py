@@ -169,8 +169,8 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticsfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# LOGIN_URL = '/login/'
-# LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 MESSAGE_TAGS = {
     constants.ERROR: 'alert-danger',

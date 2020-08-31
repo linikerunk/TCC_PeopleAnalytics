@@ -1,25 +1,27 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.views.generic import View, TemplateView, ListView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
-from .models import User, Unity, CostCenter
+from .models import Employee, Unity, CostCenter
 
 """ All classes that references a Users """
 @method_decorator(login_required, name='dispatch')
-class UsersListView(ListView):
+class EmployeeListView(ListView):
     model = User
     template_name = 'users/index.html'
     context_object_name = 'user'
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
-        context = super(UsersListView, self).get_context_data(**kwargs)
+        context = super(EmployeeListView, self).get_context_data(**kwargs)
         user = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(user, self.paginate_by)
@@ -34,7 +36,7 @@ class UsersListView(ListView):
 
 
 @method_decorator(login_required, name='dispatch')
-class UsersCreateView(CreateView):
+class EmployeeCreateView(CreateView):
     model = User
     template_name = 'users/user_create.html'
     fields = '__all__'
@@ -42,7 +44,7 @@ class UsersCreateView(CreateView):
 
 
 @method_decorator(login_required, name='dispatch')
-class UsersUpdateView(UpdateView):
+class EmployeeUpdateView(UpdateView):
     model = User
     template_name = 'users/user_update.html'
     fields = '__all__'
@@ -50,7 +52,7 @@ class UsersUpdateView(UpdateView):
 
 
 @method_decorator(login_required, name='dispatch')
-class UsersDeleteView(DeleteView):
+class EmployeeDeleteView(DeleteView):
     model = User
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users-list')
@@ -61,7 +63,19 @@ def login(request):
     context = {}
     return render(request, 'login.html', context)
 
-    
+
+def sign_up(request):
+    context = {}
+    form = UserCreationForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save()
+            login(request, user, backend=None)
+            return render(request, 'login.html', context)
+    context['form'] = form
+    return render(request, 'registration/register.html', context)
+
+
 @login_required
 def my_logout(request):
     logout(request)

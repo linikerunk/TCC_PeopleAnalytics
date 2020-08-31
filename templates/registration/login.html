@@ -15,7 +15,7 @@
     <link href="{% static 'css/global.css' %}" rel="stylesheet">
   <style type="text/css">/* Chart.js */
   @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
-<body>
+<body class="body-mdb">
 <div class="login-page">
 
 <div id="login-box"> 
@@ -34,21 +34,13 @@
     <input type="password" id="prefixInside" class="form-control">
     <label for="prefixInside">Senha</label>
   </div>
-  <p class="text"><a href="" >Esqueceu sua senha?</a></p>
-
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" id="inlineFormCheckMD">
-    <label class="form-check-label" for="inlineFormCheckMD">
-      Lembrar-me
-    </label>
-  </div>
-
-  <div class="md-form input-with-pre-icon">
-    <button type="button" class="btn btn-primary btn-rounded">Registrar</button>
-    <button type="button" class="btn btn-success btn-rounded">Entrar</button>
-  </div>
 
 </div>
+
+  <div class="md-form input-with-pre-icon">
+    <button type="button" class="btn btn-primary btn-rounded">Esqueceu sua senha</button>
+    <button type="button" class="btn btn-success btn-rounded">Entrar &nbsp;&nbsp;</button>
+  </div>
 
 </div>
 </div>
@@ -63,5 +55,5 @@
 
 
 </body>
-{% include 'parciais/_scripts.html' %}
+{% include 'parciais/_scriptsMDB.html' %}
 </html>
