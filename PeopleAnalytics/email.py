@@ -1,6 +1,9 @@
-EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtphub07.conti.de'
-EMAIL_HOST_USER = 'rhsalto.au_gs_fa@continental-corporation.com'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 25
-EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'engineerhcorp@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = 'Enginee15*'
+
+#engineerhcorp@gmail.com
+#Enginee15*

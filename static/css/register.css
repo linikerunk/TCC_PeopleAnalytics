@@ -58,7 +58,7 @@
 /* Logout */
 .logout-page {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex: 1;
     justify-content: center;
     background-color: #FAFAFA!important;
@@ -72,6 +72,32 @@
     background-size: cover;
     outline-style: none;
     z-index: 0;
+}
+
+#nav-logout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fafafa;
+    min-width: 500px;
+    height: 12%;
+    z-index: 1;
+    border: outset;
+}
+
+#nav-logout-start {
+    display: flex;
+    flex: 1;  
+}
+
+#nav-logout > #logo-logout {
+    display: flex;
+    width: 17%;
+}
+
+#nav-logout-end {
+    display: flex;
+    flex: 1;  
 }
 
 #text-head-reconnect {
@@ -100,11 +126,43 @@
     font-size: 20px;
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
-    color: #8257E5;
+    text-shadow:  1px #FAFAFA;
+    color: rgb(74, 204, 243);
 }
 
 .container-text {
     display: flex;
     flex-direction: column;
     background-color: #FAFAFA!important;
+}
+
+/* Register */
+
+.register-page {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    background-color: #FAFAFA!important;
+}
+
+#text-head-register{
+    margin: 50px 0px 0px 80px;
+    font-size: 38px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 2px 2px whitesmoke;
+    color:#192D3E;
+    min-width: 600px;
+    z-index: 1;
+}
+
+#text-body-register{
+    margin: 20px 0px -10px 80px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 2px 2px whitesmoke;
+    color:#192D3E;
+    z-index: 1;
 }

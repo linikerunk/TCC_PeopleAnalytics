@@ -29,7 +29,6 @@ urlpatterns = [
     path('', include('recruiting.urls')),
     path('', include('business.urls')),
     path('', include('dismissal.urls')),
-    path('accounts/',include('django.contrib.auth.urls')),
     path('painel/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

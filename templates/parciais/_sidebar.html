@@ -17,7 +17,7 @@
           <img src="{% static 'img/users/user.jpg' %}" class="img-circle elevation-2 mt-2" alt="Employee">
         </div>
         <div class="info">
-          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">Alexander Pierce</a>
+          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">{{ request.user.username|title }}</a>
           <p class="font-weight-bolder mb-0 mt-1">
             <a href="{% url 'users:users_list' %}">Técnico em Informática</a></p>
         </div>

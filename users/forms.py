@@ -1,10 +1,18 @@
 """ This is a forms.py that helps to work on the payload of front-end """
+from django import forms
+from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.forms.widgets import TextInput
-from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
-from django import forms
 from .models import Employee, CostCenter, Unity
+
+
+class SignupForm(UserCreationForm):
+    email = forms.EmailField(max_length=200, help_text='Required')
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
 
 
 class UnityForm(forms.ModelForm):

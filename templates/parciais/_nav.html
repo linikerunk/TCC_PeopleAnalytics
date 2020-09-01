@@ -19,13 +19,13 @@
       <li class="dropdown user user-menu mr-3 mt-1" id="user-profile">
         <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
           <img src="{% static 'img/users/user.jpg' %}" class="user-image" alt="User Image">
-          <span class="font-weight-bolder hidden-xs">Alexander Pierce</span>
+          <span class="font-weight-bolder hidden-xs">{{ request.user.username|title }}</span>
         </a>
       </li>
 
       <!-- Messages Dropdown Menu -->
       <li class="m-0">
-        <a href="#" class="nav-link">
+        <a href="{% url 'users:my_logout' %}" class="nav-link">
           <img src="{% static 'icons/power.svg' %}" alt="Power" />
       </a>
       </li>
