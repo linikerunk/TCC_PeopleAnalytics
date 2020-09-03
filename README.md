@@ -49,11 +49,11 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
 # Prototypes of screens:
 ![Captura de tela de 2020-09-03 00-55-35](https://user-images.githubusercontent.com/27506588/92069668-4f48f680-ed80-11ea-899e-a019e0cb43f2.png)
 
+# Front-end :
 
-### Todos
+### Login and Register
+![Captura de tela de 2020-09-03 00-58-17](https://user-images.githubusercontent.com/27506588/92069776-9cc56380-ed80-11ea-8e3e-eed02134d0b2.png)
 
- - Write MORE Tests
- - Add Night Mode
 
 License
 ----
