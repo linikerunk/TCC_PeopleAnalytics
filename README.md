@@ -33,7 +33,7 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
     python manage.py makemigrations
 ```  
   - Fourth step, you will run the server:
-  ```sh
+```sh
     python manage.py runserver
 ```  
   
