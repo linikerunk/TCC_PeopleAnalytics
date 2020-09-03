@@ -23,6 +23,10 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
 
 How to run this project:
   - First of all, you need to use this command:
+  ```sh
+ git clone https://github.com/linikerunk/TCC_PeopleAnalytics.git
+```
+  
 
 Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
 
