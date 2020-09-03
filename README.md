@@ -51,8 +51,11 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
 
 # Front-end :
 
-### Login and Register
+## Login
 ![Captura de tela de 2020-09-03 00-58-17](https://user-images.githubusercontent.com/27506588/92069776-9cc56380-ed80-11ea-8e3e-eed02134d0b2.png)
+
+## Register
+![Captura de tela de 2020-09-03 01-03-43](https://user-images.githubusercontent.com/27506588/92070053-69370900-ed81-11ea-96c6-46f1b2de2ed2.png)
 
 
 License
