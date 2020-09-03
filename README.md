@@ -29,9 +29,8 @@ How to run this project:
 ```
   
 
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [markdown-it] - Markdown parser done right. Fast and easy to extend.
+* [jQuery] - A library of JavaScript to manipulated the DOM!
+* [Django] - Web framework doing with Python
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
 * [Express] - fast node.js network app framework [@tjholowaychuk]
