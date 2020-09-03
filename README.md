@@ -38,21 +38,14 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
 ```  
   
 
-# New Features!
-
-  - Employee management (CRUD)
-  - Performance (Forms about Questions)
-  - Login / Register 
-  
+#  Technology
 
 * [jQuery] - A library of JavaScript to manipulated the DOM!
-* [Django](https://docs.djangoproject.com/en/3.1/)- Web framework doing with Python
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
-* [jQuery] - duh
+* [Django](https://docs.djangoproject.com/en/3.1/) - Web framework doing with Python
+* [Bootstrap](https://getbootstrap.com/) - Is a CSS framework to speed up this project.
+* [AdminLTE3](https://adminlte.io/themes/v3/) - The applications that has a lot components
+* [Heroku](https://www.heroku.com/) - Build data-driven apps with fully managed data services
+
 
 And of course Dillinger itself is open source with a [public repository][dill]
  on GitHub.
