@@ -31,7 +31,7 @@ How to run this project:
   
 
 * [jQuery] - A library of JavaScript to manipulated the DOM!
-* [Django] - Web framework doing with Python
+* [Django](https://docs.djangoproject.com/en/3.1/)- Web framework doing with Python
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
 * [Express] - fast node.js network app framework [@tjholowaychuk]
