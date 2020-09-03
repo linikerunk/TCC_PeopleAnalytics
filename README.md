@@ -1,6 +1,7 @@
 ![engine](https://user-images.githubusercontent.com/27506588/92068818-49eaac80-ed7e-11ea-98fd-ad83fe586826.png)
 
-#TCC - Enginee RH - PeopleAnalytics 
+#TCC - Enginee RH - PeopleAnalytics.
+
 This is my TCC for the academyc studies, this project is been process yet, but my start become today "06/17/2020".
 
 Enginee RH is a tool, that is constructed in Python with framework Django, to doing the proccess that HR do.
@@ -17,19 +18,31 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
   - Recruting
   - Resignation
 
+# How to run this project:
+
+  - First of all, you need to use this command:
+```sh
+    git clone https://github.com/linikerunk/TCC_PeopleAnalytics.git
+```
+  - Second step, you'll need to do a migrate for you database:
+```sh
+    python manage.py migrate
+```  
+  - Three step, you'll make the migrations of the apps.
+```sh
+    python manage.py makemigrations
+```  
+  - Fourth step, you will run the server:
+  ```sh
+    python manage.py runserver
+```  
+  
+
 # New Features!
 
   - Employee management (CRUD)
   - Performance (Forms about Questions)
   - Login / Register 
-
-
-# How to run this project:
-
-  - First of all, you need to use this command:
-  ```sh
- git clone https://github.com/linikerunk/TCC_PeopleAnalytics.git
-```
   
 
 * [jQuery] - A library of JavaScript to manipulated the DOM!
