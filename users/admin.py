@@ -6,9 +6,12 @@ from .models import Employee, CostCenter, Unity
 class UnityAdmin(admin.ModelAdmin):
     list_display = ['name']
 
+
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['identifier', 'name', 'email', 'unity', 'role', 'user']
+    verbose_name = "Employee"
+    verbose_name_plural = "Employees"
 
 
 @admin.register(CostCenter)

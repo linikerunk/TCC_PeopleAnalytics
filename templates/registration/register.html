@@ -17,82 +17,90 @@
   @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
 <body class="body-mdb">
   <div class="register-page">
- 
-<!-- <form class="text-center border border-light p-5" action="#!">
-
+<form class="text-center border border-light p-5" method="POST" action="{% url 'users:signup' %}" autocomplete='off'>
   <img  class="mb-2 ml-5" src="/static/img/logo/logo2.png" alt="Enginee" width="250" height="75">
-
-  <p class="h4 mb-5">Registrar-se</p>
-
-  <div class="form-row mb-4">
-      <div class="col">
-          
-          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Primeiro Nome">
-      </div>
-      <div class="col">
-        
-          <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Ultimo Nome">
-      </div>
-  </div>
-
- 
-  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-  
-  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Senha" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">     
-A sua senha deve ter pelo menos 8 caracteres e conter pelo menos: uma letra maiúscula, uma letra minúscula e um dígito.
-  </small>
-
-
-
-  
-  <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-      <label class="custom-control-label" for="defaultRegisterFormNewsletter">Declaro que sou um funcionário, e autorizo a utilização dos meus dados.</label>
-  </div>
-
-  
-  <button class="btn btn-info my-4 mt-5 btn-block" type="submit">Enviar Informações</button>
-
-
-  <hr class="mt-1">
-
-  <div>
-  
-   <p>Ao clicar em 
-    <em>Enviar Informações</em> seus dados de usuário serão salvos em nosso banco de dados
-
-  </div>
-</form>-->
-<h2>Sign up</h2>
-<form method="post">
   {% csrf_token %}
-    {% for field in form %}
-    <p>
-      {{ field.label_tag }}<br>
-      {{ field }}
-      {% if field.help_text %}
-        <small style="display: none">{{ field.help_text }}</small>
-      {% endif %}
-      {% for error in field.errors %}
-        <p style="color: red">{{ error }}</p>
-      {% endfor %}
-    </p>
-    {% endfor %}
-  <button type="submit">Sign up</button>
-</form>
-  </div> 
+
+  <p class="h4 mb-3">Registrar-se</p>
+
+
+    <div class="row">
+    <div class="col-md-12 mt-3">
+        {% if messages %}
+        <br>
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}" id='message_container' role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
+
+          <input type="text" name="username" id="defaultRegisterFormFirstName" 
+          class="form-control" placeholder="Digite o seu login">
+    </div>
+
+    <div class="col-md-12 mt-4">
+        
+      <input type="email" name="email" id="defaultRegisterFormLastName"
+      class="form-control" placeholder="Digite seu e-mail">
+  </div>
+
+    <div class="col-md-6 mt-4">
+
+        <input type="text" name="first_name" id="defaultRegisterFormFirstName"
+        class="form-control" placeholder="Digite seu primeiro nome">
+    </div>
+
+    <div class="col-md-6 mt-4">
+
+      <input type="text" name="last_name" id="defaultRegisterFormFirstName"
+      class="form-control" placeholder="Digite seu ultimo nome">
+  </div>
+    
+      <div class="col-md-6 mt-4">
+        
+        <input type="password" name="password1" id="defaultRegisterFormLastName"
+        class="form-control" placeholder="Digite sua senha">
+    </div>
+
+    <div class="col-md-6 mt-4">
+        
+      <input type="password" name="password2" id="defaultRegisterFormLastName"
+      class="form-control" placeholder="Confirme sua senha">
+  </div>
 
     
+<strong id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-5 mt-4">   
+A sua senha deve ter pelo menos 8 caracteres e conter pelo menos: uma letra maiúscula,
+ uma letra minúscula e um dígito.
+</strong>
+
+<div class="col-md-6 mt-2 mb-4">
+  <a href="{% url 'users:login' %}" class="btn btn-warning  mt-2 btn-block"
+   type="button" >Voltar</a>
+</div>
+
+<div class="col-md-6 mt-2 mb-4">
+  <button class="btn  mt-2 btn-block" type="submit" id="submit-form">Enviar Informações</button>
+</div>
+
+
+
+  </div>
+ 
+</form>
+</div>
+
+
+  </div> 
+
     <div id="img-login">
       <p id="text-head-register">Seu registro começa aqui.</p>
       <p id="text-body-register">Um e-mail será enviado para o RH aprovar sua solicitação.</p>
-    </div>
+    </div> 
     
-</div>
-    
-  
-  </body>
+
+
+</body>
 {% include 'parciais/_scripts.html' %}
 </html>

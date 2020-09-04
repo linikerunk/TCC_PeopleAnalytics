@@ -17,9 +17,13 @@
           <img src="{% static 'img/users/user.jpg' %}" class="img-circle elevation-2 mt-2" alt="Employee">
         </div>
         <div class="info">
-          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">{{ request.user.username|title }}</a>
+          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</a>
           <p class="font-weight-bolder mb-0 mt-1">
-            <a href="{% url 'users:users_list' %}">Técnico em Informática</a></p>
+            {% if request.user.role %}
+            <a href="{% url 'users:users_list' %}">{{ request.user.role }}</a></p>
+            {% else %}
+            <a href="{% url 'users:users_list' %}">Cargo a definir pelo RH</a></p>
+            {% endif %}
         </div>
       </div>
       
@@ -71,6 +75,12 @@
             <a href="{%url 'training:training_list' %}" class="nav-link">
               <img src="{% static 'icons/book-open.svg' %}" alt="Training" />
               <p class="font-weight-bolder ml-3">Treinamento</p></a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{%url 'benefits:benefits_list' %}" class="nav-link">
+              <img src="{% static 'icons/package.svg' %}" alt="Benefits" />
+              <p class="font-weight-bolder ml-3">Benéficios</p></a>
           </li>
           
           <li class="nav-item">

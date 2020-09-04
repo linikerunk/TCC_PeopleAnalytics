@@ -1,6 +1,9 @@
 {% autoescape off %}
+Olá {{ user.username }},
 
-Ola {{ user.username }},
-Porfavor click no link para confirmar seu registro,
+Para começar a utilizar a ferramenta, basta clicar no link abaixo e você será redirecionado:
+
+
 http://{{ domain }}{% url 'users:activate' uidb64=uid token=token %}
 {% endautoescape %}
+      

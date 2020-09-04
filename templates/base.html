@@ -15,12 +15,13 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        {% block conteudo %}{% endblock %}
-       
+        {% block conteudo %}
+        {% include 'parciais/_messages.html' %}
+        {% endblock %}
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    </div>
+</div>
+<!-- /.content-header -->
+</div>
 
 {% include 'parciais/_footer.html' %}
 

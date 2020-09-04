@@ -4,7 +4,10 @@ from django.http import HttpResponse
 from django.views.generic import View, TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
+from django.utils.decorators import method_decorator
 # from .models import
 
+
+@method_decorator(login_required, name='dispatch')
 class IndexDashboard(TemplateView):
     template_name = 'dashboard/index.html'

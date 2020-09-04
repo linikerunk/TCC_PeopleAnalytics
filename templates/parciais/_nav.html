@@ -19,7 +19,7 @@
       <li class="dropdown user user-menu mr-3 mt-1" id="user-profile">
         <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
           <img src="{% static 'img/users/user.jpg' %}" class="user-image" alt="User Image">
-          <span class="font-weight-bolder hidden-xs">{{ request.user.username|title }}</span>
+          <span class="font-weight-bolder hidden-xs">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</span>
         </a>
       </li>
 

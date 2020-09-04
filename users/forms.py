@@ -1,18 +1,56 @@
 """ This is a forms.py that helps to work on the payload of front-end """
 from django import forms
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.forms.widgets import TextInput
 from .models import Employee, CostCenter, Unity
 
 
-class SignupForm(UserCreationForm):
-    email = forms.EmailField(max_length=200, help_text='Required')
+# Sign Up Form
+class SignUpForm(UserCreationForm):
+    username = forms.CharField(max_length=50, required=True,
+                                help_text="Insira seu usuário.")
+    first_name = forms.CharField(max_length=30, required=True,
+                                help_text='Você deve inserir seu primeiro nome.')
+    last_name = forms.CharField(max_length=30, required=True,
+                                help_text='Você deve inserir seu ultimo nome.')
+    email = forms.EmailField(max_length=254, required=True,
+                                help_text='Entre com um e-mail válido')
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = [
+            'username', 'first_name', 'last_name', 
+            'email', 'password1', 'password2', ]
+
+
+    def clean_username(self, *args, **kwargs):
+        """Validate that the username if empty or if exists on the database."""
+        print("Testando clean_username")
+        username = self.cleaned_data.get("username")
+        if not username:
+            raise forms.ValidationError("Campo Usuário está em branco.")
+        elif User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Usuário já está cadastrado")
+        return username
+
+
+    # def clean_email(self, *args, **kwargs):
+    #     email = self.cleaned_data.get("email")
+    #     if User.objects.filter(email=email).exists():
+    #         raise forms.ValidationError("E-mail deve ser único.")
+    #     return email
+
+
+    def clean_password1(self, *args, **kwargs):
+        pass
+    
+
+    def clean_password2(self, *args, **kwargs):
+        pass
 
 
 class UnityForm(forms.ModelForm):
@@ -33,6 +71,7 @@ class CostCenter(forms.ModelForm):
     class Meta:
         model = CostCenter
         fields = "__all__"
+
 
 class FuncionarioForm(forms.ModelForm):
 

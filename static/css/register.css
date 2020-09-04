@@ -127,7 +127,7 @@
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
     text-shadow:  1px #FAFAFA;
-    color: rgb(74, 204, 243);
+    color: #192D3E;
 }
 
 .container-text {
@@ -165,4 +165,9 @@
     text-shadow: 2px 2px whitesmoke;
     color:#192D3E;
     z-index: 1;
+}
+
+#submit-form {
+    background-color: #8257E5;
+    color: #fafafa
 }

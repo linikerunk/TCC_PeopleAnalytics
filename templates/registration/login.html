@@ -15,15 +15,28 @@
     <link href="{% static 'css/global.css' %}" rel="stylesheet">
   <style type="text/css">/* Chart.js */
   @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+
 <body class="body-mdb">
 <div class="login-page">
 <div id="login-box"> 
-  <div class="logo-img text-center mt-5 p-4">
+  <div class="logo-img text-center mt-5 mb-1 p-4">
+  
   <img  class="m-5" src="/static/img/logo/logo2.png" alt="Enginee" width="250" height="75">
-
-  <form method="POST" autocomplete="off">
+  <div class="col-md-9 m-5 mt-1">
+  {% if messages %}
+  <br>
+  {% for message in messages %}
+      <div class="alert {{ message.tags }}" id='message_container' role="alert"
+      style="margin-bottom: 20px;">
+          {{ message }}
+      </div>
+  {% endfor %}
+  {% endif %}
+</div>
+  <form method="POST" autocomplete="off" action="{% url 'users:login' %}">
   {% csrf_token %}
-  <div class="col-md-9 m-5">
+  <div class="col-md-9 m-5 mt-1">
+
   <div class="md-form input-with-pre-icon">
     <i class="fas fa-user input-prefix"></i>
     <input type="text" name="username" id="prefixInside" class="form-control">
@@ -38,7 +51,7 @@
 
 </div>  
   <div class="md-form input-with-pre-icon">
-    <button type="button" class="btn btn-primary btn-rounded">Esqueceu sua senha</button>
+    <a href="{% url 'users:signup' %}" class="btn btn-primary btn-rounded">Faça seu registro</a>
     <button type="submit" class="btn btn-success btn-rounded">Entrar &nbsp;&nbsp;</button>
 </div>
 </form>

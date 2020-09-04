@@ -1,12 +1,16 @@
 from django.conf import settings
+from datetime import datetime   
 from django.db import models
 from django.contrib.auth.models import User, Group
 from stdimage import StdImageField, JPEGField
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 PHOTOS_FOLDER = "FotosFuncionarios/"
 DEFAULT = '0000.jpg'
+current_date = datetime.now()
 
 
 class Base(models.Model):
@@ -71,9 +75,10 @@ class Employee(Base):
     photo = StdImageField(upload_to='FotosFuncionarios', default=DEFAULT,
                                     variations={'thumbnail': 
                                     {'width': 100, 'height': 75}})
-    unity = models.ForeignKey(Unity, related_name="funcionarios", 
+    unity = models.ForeignKey(Unity, related_name="funcionarios", null=True,
                                     on_delete=models.PROTECT)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, blank=True,
+                                    related_name="employee",
                                     null=True, on_delete=models.CASCADE)
 
     def get_photo_url(self):
@@ -89,4 +94,17 @@ class Employee(Base):
         verbose_name_plural = "Funcionários"
 
     def __str__(self):
-        return f"Identificação : {self.identifier} | Nome: {self.name}"
+        return  self.name
+
+
+@receiver(post_save, sender=User)
+def create_user_employee(sender, instance, created, **kwargs):
+    if created:
+        query = Employee.objects.filter(identifier=instance.id)
+        if query :
+            return 0
+        employee = Employee.objects.create(identifier=instance.id,
+            name=(instance.first_name + " " + instance.last_name),
+            user=instance, admission=current_date)
+        employee.save()
+        
