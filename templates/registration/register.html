@@ -26,14 +26,7 @@
 
     <div class="row">
     <div class="col-md-12 mt-3">
-        {% if messages %}
-        <br>
-        {% for message in messages %}
-            <div class="alert {{ message.tags }}" id='message_container' role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% endif %}
+      {% include 'parciais/errors.html' %}
 
           <input type="text" name="username" id="defaultRegisterFormFirstName" 
           class="form-control" placeholder="Digite o seu login">

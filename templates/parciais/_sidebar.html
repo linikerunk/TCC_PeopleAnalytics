@@ -36,69 +36,69 @@
                with font-awesome or any other icon font library -->
       
           <li class="nav-item">
-            <a href="{% url 'dashboard:dashboard' %}" class="nav-link">
+              <a href="{% url 'users:users_list' %}" id="li-users" class="nav-link">
+                <img src="{% static 'icons/users.svg' %}" alt="Employee" />
+                <p class="font-weight-bolder ml-3">Funcionários</p></a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'dashboard:dashboard' %}" id="li-dashboard" class="nav-link">
               <img src="{% static 'icons/pie-chart.svg' %}" alt="Dashboard"  />
               <p class="font-weight-bolder ml-3">Dashboard</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'ticket:ticket' %}" class="nav-link">
+            <a href="{% url 'ticket:ticket' %}" id="li-tickets" class="nav-link">
               <img src="{% static 'icons/clipboard.svg' %}" alt="Tickets" />
               <p class="font-weight-bolder ml-3">Chamados</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'performance:performance_list' %}" class="nav-link">
+            <a href="{% url 'performance:performance_list' %}" id="li-performance" class="nav-link">
               <img src="{% static 'icons/trending-up.svg' %}" alt="Performance" />
               <p class="font-weight-bolder ml-3">Desempenho</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'hour:hour' %}" class="nav-link">
+            <a href="{% url 'hour:hour' %}" id="li-hour_management" class="nav-link">
               <img src="{% static 'icons/clock.svg' %}" alt="Time Management" />
               <p class="font-weight-bolder ml-3">Gestão De Horas</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'business:business' %}" class="nav-link">
+            <a href="{% url 'business:business' %}" id="li-business" class="nav-link">
               <img src="{% static 'icons/briefcase.svg' %}" alt="Business" />
               <p class="font-weight-bolder ml-3">Négócios</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'health:health' %}" class="nav-link">
+            <a href="{% url 'health:health' %}" id="li-health" class="nav-link">
               <img src="{% static 'icons/activity.svg' %}" alt="Health" />
               <p class="font-weight-bolder ml-3">Saúde</p></a>
           </li>
           
           <li class="nav-item">
-            <a href="{%url 'training:training_list' %}" class="nav-link">
+            <a href="{%url 'training:training_list' %}" id="li-training" class="nav-link">
               <img src="{% static 'icons/book-open.svg' %}" alt="Training" />
               <p class="font-weight-bolder ml-3">Treinamento</p></a>
           </li>
 
           <li class="nav-item">
-            <a href="{%url 'benefits:benefits_list' %}" class="nav-link">
+            <a href="{%url 'benefits:benefits_list' %}" id="li-benefits" class="nav-link">
               <img src="{% static 'icons/package.svg' %}" alt="Benefits" />
               <p class="font-weight-bolder ml-3">Benéficios</p></a>
           </li>
           
           <li class="nav-item">
-            <a href="{%url 'recruiting:recruiting' %}" class="nav-link">
+            <a href="{%url 'recruiting:recruiting' %}" id="li-recruting" class="nav-link">
               <img src="{% static 'icons/user-plus.svg' %}" alt="Recruting" />
               <p class="font-weight-bolder ml-3">Recrutamento</p></a>
             </li>
             
             <li class="nav-item">
-              <a href="{%url 'dismissal:dismissal' %}" class="nav-link">
+              <a href="{%url 'dismissal:dismissal' %}" id="li-dismissal" class="nav-link">
                 <img src="{% static 'icons/user-minus.svg' %}" alt="Dismiss" />
                 <p class="font-weight-bolder ml-3">Desligamento</p></a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="{% url 'users:users_list' %}" class="nav-link">
-                  <img src="{% static 'icons/users.svg' %}" alt="Employee" />
-                  <p class="font-weight-bolder ml-3">Funcionários</p></a>
               </li>
               
             </ul>

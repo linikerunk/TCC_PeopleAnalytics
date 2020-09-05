@@ -11,12 +11,14 @@ app_name = "users"
 
 urlpatterns = [
     path('users/', views.EmployeeListView.as_view(), name="users_list"),
-    path('user_create/', views.EmployeeCreateView.as_view(),
+    path('users/user_create/', views.EmployeeCreateView.as_view(),
     name="user_create"),
-    path('user_update/<int:id>/', views.EmployeeUpdateView.as_view(),
+    path('users/user_update/<int:id>/', views.EmployeeUpdateView.as_view(),
     name="user_update"),
-    path('user_delete/<int:id>/', views.EmployeeDeleteView.as_view(),
+    path('users/user_delete/<int:id>/', views.EmployeeDeleteView.as_view(),
     name="user_delete"),
+    path('users/first_register/', views.FirstRegisterView.as_view(), 
+    name="first_register"),
     # Login and Logout
     path('', views.LoginView.as_view(), name="login"),
     path("logout/",auth_views.LogoutView.as_view(

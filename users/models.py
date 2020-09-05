@@ -97,14 +97,14 @@ class Employee(Base):
         return  self.name
 
 
-@receiver(post_save, sender=User)
-def create_user_employee(sender, instance, created, **kwargs):
-    if created:
-        query = Employee.objects.filter(identifier=instance.id)
-        if query :
-            return 0
-        employee = Employee.objects.create(identifier=instance.id,
-            name=(instance.first_name + " " + instance.last_name),
-            user=instance, admission=current_date)
-        employee.save()
+# @receiver(post_save, sender=User)
+# def create_user_employee(sender, instance, created, **kwargs):
+#     if created:
+#         query = Employee.objects.filter(identifier=instance.id)
+#         if query :
+#             return 0
+#         employee = Employee.objects.create(identifier=instance.id,
+#             name=(instance.first_name + " " + instance.last_name),
+#             user=instance, admission=current_date)
+#         employee.save()
         

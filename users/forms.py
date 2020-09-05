@@ -11,13 +11,13 @@ from .models import Employee, CostCenter, Unity
 
 # Sign Up Form
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(max_length=50, required=True,
+    username = forms.CharField(label="Usuário", max_length=50, required=True,
                                 help_text="Insira seu usuário.")
-    first_name = forms.CharField(max_length=30, required=True,
+    first_name = forms.CharField(label="Primeiro Nome", max_length=30, required=True,
                                 help_text='Você deve inserir seu primeiro nome.')
-    last_name = forms.CharField(max_length=30, required=True,
+    last_name = forms.CharField(label="Segundo Nome", max_length=30, required=True,
                                 help_text='Você deve inserir seu ultimo nome.')
-    email = forms.EmailField(max_length=254, required=True,
+    email = forms.EmailField(label="E-mail", max_length=254, required=True,
                                 help_text='Entre com um e-mail válido')
 
     class Meta:

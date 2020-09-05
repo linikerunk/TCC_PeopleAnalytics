@@ -14,6 +14,11 @@
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
  <script>
-   feather.replace()
+  feather.replace()
+  // First step to active the li in menu.
+  url = window.location.href.split('/')[3]
+  $(`#li-${url}`).addClass('active')
+  
+
 
  </script>

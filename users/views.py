@@ -73,6 +73,11 @@ class EmployeeDeleteView(DeleteView):
     success_url = reverse_lazy('users-list')
 
 
+class FirstRegisterView(View):
+    def get(self, request):
+        return render(request, 'registration/first_register.html', {})
+
+
 # Login and Logout..
 class LoginView(View):
     def get(self, request):
@@ -148,7 +153,6 @@ class SignUpView(View):
 
             return redirect('users:login')
 
-        messages.error(request, (f'{form.errors}'))
         return render(request, self.template_name, {'form': form})
 
 
