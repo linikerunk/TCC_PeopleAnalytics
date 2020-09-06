@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
+from utils.decorators import first_register
 from .models import Training, Entity, Instructor, Event
 
 

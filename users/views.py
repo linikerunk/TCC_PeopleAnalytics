@@ -20,6 +20,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
+from utils.decorators import FirstRegisterMixin
 
 UserModel = get_user_model()
 from .forms import SignUpForm
@@ -29,14 +30,16 @@ from .models import Employee, Unity, CostCenter
 
 """ All classes that references a Users """
 @method_decorator(login_required, name='dispatch')
-class EmployeeListView(ListView):
+class EmployeeListView(ListView, FirstRegisterMixin):
     model = User
     template_name = 'users/index.html'
+    queryset = Employee.objects.all()
     context_object_name = 'user'
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
+        print("Request user : ", self.request.user)
         user = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(user, self.paginate_by)
@@ -50,6 +53,7 @@ class EmployeeListView(ListView):
         return context
 
 
+
 @method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
     model = User
@@ -58,12 +62,15 @@ class EmployeeCreateView(CreateView):
     success_url = reverse_lazy('users_list')
 
 
+
 @method_decorator(login_required, name='dispatch')
 class EmployeeUpdateView(UpdateView):
     model = User
     template_name = 'users/user_update.html'
     fields = '__all__'
+    slug_field = 'employee_slug'
     success_url = reverse_lazy('users_list')
+
 
 
 @method_decorator(login_required, name='dispatch')
@@ -75,7 +82,7 @@ class EmployeeDeleteView(DeleteView):
 
 class FirstRegisterView(View):
     def get(self, request):
-        return render(request, 'registration/first_register.html', {})
+        return render(request, 'registration/register.html', {})
 
 
 # Login and Logout..
@@ -188,7 +195,7 @@ class ActivateAccount(View):
 
         if user is not None and account_activation_token.check_token(user, token):
             user.is_active = True
-            user.employee.email = True
+            user.email = True
             user.save()
             login(request, user)
             messages.success(request, ('Sua conta foi confirmada.'))

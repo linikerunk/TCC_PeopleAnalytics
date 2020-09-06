@@ -18,7 +18,3 @@ html, body{
 li {
     list-style: none;
 }
-
-.active {
-    background-color: red;
-}
