@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import BodyMassIndex
 
-# Register your models here.
+
+@admin.register(BodyMassIndex)
+class UnityAdmin(admin.ModelAdmin):
+    list_display = ['identifier', 'weighing_date']

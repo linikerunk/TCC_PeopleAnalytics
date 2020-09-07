@@ -6,32 +6,51 @@
     <div class="card">
       <div class="card-header p-2">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="#treinamento" data-toggle="tab">Treinamento</a></li>
-          <li class="nav-item"><a class="nav-link" href="#entidade" data-toggle="tab">Entidade</a></li>
-          <li class="nav-item"><a class="nav-link" href="#instrutor" data-toggle="tab">Instrutor</a></li>
-          <li class="nav-item"><a class="nav-link" href="#evento" data-toggle="tab">Evento</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#absenteismo" data-toggle="tab">Absenteísmo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#previ-falta" data-toggle="tab">Previsão Faltas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#horas-adicionais" data-toggle="tab">Horas Adicionais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#previ-horas-adicionais" data-toggle="tab">Previsão Horas Adicionais</a></li>
         </ul>
       </div><!-- /.card-header -->
       <div class="card-body">
         <div class="tab-content">
-          <div class="active tab-pane" id="treinamento">
+          <div class="active tab-pane" id="absenteismo">
             <!-- Treinamento -->
-            <p> Treinamento </p>
+            <p> Absenteísmo </p>
           </div>
           <!-- /.tab-pane -->
-          <div class="tab-pane" id="entidade">
-            <p> Entidade </p>
+          <div class="tab-pane" id="previ-falta">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Digite a cidade para o analise : </label>
+                  <div class="row">
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" name="cidade" id="exampleInputEmail1" placeholder="Digite a cidade">
+                </div>
+                <div class="form-group col-md-8">
+                  <a href="#" class="btn btn-success pr-5 pl-5">Enviar</a>
+                </div>
+                </div>
+              </div>
+                <a class="weatherwidget-io" href="https://forecast7.com/pt/n23d20n47d29/salto/" data-label_1="SALTO" data-label_2="WEATHER" data-theme="clear" data-lowcolor="#ae96f7" data-raincolor="#ae96f7" >SALTO WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+</div> <!-- col-md-12 -->
+</div> <!-- row -->
+
           </div>
           <!-- /.tab-pane -->
 
-          <div class="tab-pane" id="instrutor">
-            <p> Instrutor </p>
+          <div class="tab-pane" id="horas-adicionais">
+            <p> Horas Adicionais </p>
           </div>
           <!-- /.tab-pane -->
 
 
-          <div class="tab-pane" id="evento">
-            <p> Evento </p>
+          <div class="tab-pane" id="previ-horas-adicionais">
+            <p> Previsão Horas Adicionais </p>
           </div>
 
         </div>
