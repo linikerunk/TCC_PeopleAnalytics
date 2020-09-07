@@ -15,7 +15,7 @@ from .models import Training, Entity, Instructor, Event
 @method_decorator(login_required, name='dispatch')
 class TrainingListView(ListView):
     model = Training
-    template_name = 'training/training/index.html'
+    template_name = 'training/index.html'
     context_object_name = 'training'
     paginate_by = 5
 

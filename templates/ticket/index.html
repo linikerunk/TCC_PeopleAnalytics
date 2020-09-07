@@ -1,6 +1,63 @@
 {% extends 'base.html' %}
 {% block titulo %}Tickets{% endblock %}
 {% block conteudo %}
-<p class="font-weight-bolder">Tickets </p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Realize seu chamado aqui.</h3>
+            </div>
+            <!-- /.card-header -->
+              <div class="card-body">
+                <div class="form-group col-md-6">
+                  <label>Categoria : </label>
+                  <select class="form-control" placeholder="Digite uma categoria aqui.">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Sub Categoria : </label>
+                  <select class="form-control" placeholder="Digite uma sub categoria aqui.">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputPassword1">Descrição : </label>
+                    <textarea class="form-control" rows="3" placeholder="Informe um telefone e/ou e-mail para retorno do chamado..." 
+                    style="margin-top: 0px; margin-bottom: 0px; height: 63px; resize: none"></textarea>
+                </div>
+
+                <div class="col-md-12">
+                    <div id="div_id_upload_arquivo" class="form-group">
+        
+                        <label for="id_upload_arquivo" class="">
+                            Anexar Arquivo : 
+                        </label>
+                            <div class="">
+                                <input type="file" name="upload_arquivo"
+                                multiple="" class="clearablefileinput form-control-file" id="id_upload_arquivo">
+                            </div>
+                            </div>
+                </div>
+              </div><!-- /.card-body -->
+
+              <div class="card-footer">
+                <a href="#" class="btn btn-success float-right pr-5 pl-5"> Enviar</a>
+                <span class="p-2 float-right"></span>
+                <a href="#" class="btn btn-warning float-right pr-5 pl-5"> Voltar</a> 
+                </div>
+        
+          </div>
+    </div>
+</div>
 
 {% endblock %}
