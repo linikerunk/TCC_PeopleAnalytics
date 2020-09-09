@@ -9,6 +9,9 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+      <div class="col-md-6 mb-3">
+      <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um novo funcionário</a>
+      </div>
       <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
         
         <div class="row">
@@ -17,25 +20,29 @@
         
         <thead>
         <tr role="row">
-          <th tabindex="0" rowspan="1" colspan="1" >Foto</th>
-          <th tabindex="0" rowspan="1" colspan="1" >Nome do Funcionário</th>
-          <th tabindex="0" rowspan="1" colspan="1" >CPF</th>
-          <th tabindex="0" rowspan="1" colspan="1" >E-mail</th>
-          <th tabindex="0" rowspan="1" colspan="1" >Cargo</th>
-          <th tabindex="0" rowspan="1" colspan="1" >Unidade</th></tr>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 2%;">Foto</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">Nome do Funcionário</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">CPF</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 7%;">E-mail</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 7%;">Cargo</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">Unidade</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 0.5%;"></th></tr>
         </thead>
     
         <tbody>
+          {% for employee in employee %}
         <tr role="row">
           <td class="">
-            <img class="img-circle img-bordered-sm" src="{% static 'img/users/user.jpg' %}" width=40 height=35>
+            <img class="img-circle img-bordered-sm" src="{% static 'img/users/user.jpg' %}" width=40 height=40>
           </td>
-          <td class="">Liniker Jardel de Oliveira</td>
-          <td class="">427.570.818.02</td>
-          <td class="">linikerenem@gmail.com</td>
-          <td class="">Sorveteiro</td>
-          <td class="">Indaiatuba</td>
-        </tr>
+          <td class="pt-3"> <a href="{% url 'users:user_update' employee.pk %}"> {{ employee.name }} </a></td>
+          <td class="pt-3">{{ employee.cpf }}</td>
+          <td class="pt-3">{{ employee.email }}</td>
+          <td class="pt-3">{{ employee.role }}</td>
+          <td class="pt-3">{{ employee.unity }}</td>
+          <td class="pt-3"><a href="{% url 'users:user_delete' employee.pk %}"><img src="{% static 'icons/cancel.png' %}"></a></td>
+        </tr> 
+        {% endfor %}
         </tbody>
 
         <tfoot>

@@ -1,5 +1,223 @@
 {% extends 'base.html' %}
 {% block titulo %}Criação de Funcionário{% endblock %}
 {% block conteudo %}
-<p>Create User</p>
+
+{% include 'parciais/errors.html' %}
+
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Adicionar um novo funcionário</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form  method="POST" role="form" action="{% url 'users:user_create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body">
+
+        <div class="row">
+        <div class="form-group col-md-6">
+            <label for="exampleInputEmail1">Nome do Funcionário : </label>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                </div>
+                <input type="text" name="name" class="form-control" placeholder="Digite o nome do funcionário...">
+              </div>
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">E-mail : </label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              </div>
+              <input type="email" id="email" name="email" class="form-control" placeholder="nomefuncionario@gmail.com">
+            </div>
+      </div>
+
+        <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Sobre o Funcionário : </label>
+            <textarea class="form-control" rows="3" name="bio" placeholder="Digite qualquer informação que seja util ao funcionário" 
+            style="margin-top: 0px; margin-bottom: 0px; height: 63px; resize: none"></textarea>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">CPF : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="000.000.000-00">
+              </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Data do Aniversário : </label>
+          <div class="input-group ">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
+              </div>
+              <input type="text" id="birth_date" name="birth_date" class="form-control" data-mask="00/00/0000" placeholder="DD/MM/YYYY">
+            </div>
+      </div>
+
+        <div class="form-group col-md-4">
+                <label for="exampleInputEmail1">CEP : </label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                    <input type="text" id="cep" name="cep" class="form-control" placeholder="00.000-000">
+                  </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Cidade : </label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-city"></i></span>
+              </div>
+              <input type="text" id="city" name="city" class="form-control" placeholder="Digite o nome da cidade.">
+            </div>
+      </div>
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">Endereço : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                </div>
+                <input type="text" id="andress" name="andress" class="form-control" placeholder="Digite o nome da rua.">
+              </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">Bairro : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-city"></i></span>
+                </div>
+                <input type="text" id="district" name="district" class="form-control" placeholder="Digite o bairro da cidade.">
+              </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">Numero : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-digital-tachograph"></i></span>
+                </div>
+                <input type="text" id="andress_number" name="andress_number" class="form-control" placeholder="Digite o número do complemento.">
+              </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">Telefone : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-phone-square-alt"></i></span>
+                </div>
+                <input type="text" id="phone" name="phone" class="form-control" placeholder="Digite o nome da rua.">
+              </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="exampleInputEmail1">Gênero : </label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+              </div>
+          <select class="form-control">
+            <option>option 1</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+          </div>
+      </div>
+    
+
+        <div class="form-group col-md-4">
+            <label for="exampleInputEmail1">Cargo : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                </div>
+                <input type="text" id="role" name="role" class="form-control" placeholder="Digite o cargo do funcionário : ">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="exampleInputEmail1">Centro de Custo : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="far fa-building"></i></span>
+                </div>
+            <select class="form-control">
+              <option>option 1</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <label for="exampleInputEmail1">Unidade : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                </div>
+            <select class="form-control">
+              <option>option 1</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="exampleInputEmail1">Usuário : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+            <select class="form-control">
+              <option>option 1</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="exampleInputEmail1">Foto do Funcionário : </label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Clique aqui para adiconar uma foto</label>
+              </div>
+        </div>
+
+        </div> <!-- ./ row -->
+
+        
+    
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary float-right pr-5 pl-5">Registrar</button>
+        <span class="p-2 float-right"></span>
+        <button type="reset" class="btn btn-warning float-right pr-5 pl-5">Limpar</button>
+      </div>
+    </form>
+  </div>
+
 {% endblock %}

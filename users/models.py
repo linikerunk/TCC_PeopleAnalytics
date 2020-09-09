@@ -47,6 +47,15 @@ class CostCenter(Base):
         return  self.number
 
 
+# class Andress(Base):
+#     zip_code = models.CharField('CEP', max_length=10, blank=True)
+#     andress = models.CharField("Endereço", max_length=200, blank=True)
+#     andress_number = models.CharField("Número", max_length=6, blank=True)
+
+#     def __str__(self):
+#         return self.zip_code
+
+
 class Employee(Base):
     GENDER_CHOICES = (
         ('F', 'Feminino'),
@@ -61,6 +70,9 @@ class Employee(Base):
     birth_date = models.DateTimeField("Data de Aniversário", null=True,
                                     blank=True)
     zip_code = models.CharField('CEP', max_length=10, blank=True)
+    andress = models.CharField("Endereço", max_length=200, blank=True)
+    andress_number = models.CharField("Número", max_length=6, blank=True)
+    district = models.CharField("Bairro", max_length=100, blank=True)
     email = models.EmailField('Email', max_length=70, blank=True, null=True,
                                     error_messages={
                                     'required': 'Porfavor digite seu e-mail.',

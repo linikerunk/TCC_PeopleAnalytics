@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
-{% block titulo %}Criação de Funcionário{% endblock %}
+{% block titulo %}Deletar Funcionário{% endblock %}
 {% block conteudo %}
-<p>User Delete</p>
+
+<div class="card card-primary">
+			<div class="card-header">
+			  <h3 class="card-title">Desligar Funcionário <strong>{{ employee.name }}</strong> </h3>
+			</div>
+			<form action="{% url 'users:user_delete' employee.pk %}" method="post">
+			{% csrf_token %}
+			<div class="card-body">
+			  <div class="row">
+				<div class="col-md-12">
+					<p class="lead"> Deseja realmente desligar o funcionário {{ employee.name|capfirst }}</p>
+				</div>
+			  </div>
+			</div>
+			<!-- /.card-body -->
+			<div class="card-footer">
+				<a href="{% url 'users:users_list' %}" class="btn btn-warning float-left">Cancelar</a>
+				<span class="p-2 float-left"></span>
+				<button type="submit" class="btn btn-danger float-left">Desligar Funcionário</button>
+			</div>
+		  </div>
+  </form>
+  
 {% endblock %}

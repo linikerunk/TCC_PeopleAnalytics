@@ -30,54 +30,64 @@ from .models import Employee, Unity, CostCenter
 
 """ All classes that references a Users """
 @method_decorator(login_required, name='dispatch')
-class EmployeeListView(ListView, FirstRegisterMixin):
-    model = User
+class EmployeeListView(ListView):
+    model = Employee
     template_name = 'users/index.html'
     queryset = Employee.objects.all()
-    context_object_name = 'user'
+    context_object_name = 'employee'
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
-        print("Request user : ", self.request.user)
-        user = self.get_queryset()
+        employee = self.get_queryset()
+        print("employee  : ", employee )
         page = self.request.GET.get('page')
-        paginator = Paginator(user, self.paginate_by)
+        paginator = Paginator(employee , self.paginate_by)
         try:
-            user = paginator.page(page)
+            employee = paginator.page(page)
         except PageNotAnInteger:
-            user = paginator.page(1)
+            employee = paginator.page(1)
         except EmptyPage:
-            user = paginator.page(paginator.num_pages)
-        context['user'] = user
+            employee  = paginator.page(paginator.num_pages)
+        context['employee'] = employee 
         return context
 
 
 
 @method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
-    model = User
+    model = Employee
     template_name = 'users/user_create.html'
     fields = '__all__'
-    success_url = reverse_lazy('users_list')
+    success_url = reverse_lazy('users:users_list')
 
 
 
 @method_decorator(login_required, name='dispatch')
 class EmployeeUpdateView(UpdateView):
-    model = User
+    model = Employee
     template_name = 'users/user_update.html'
     fields = '__all__'
     slug_field = 'employee_slug'
-    success_url = reverse_lazy('users_list')
+    success_url = reverse_lazy('users:users_list')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        print(self.object)
+        return super().get(request, *args, **kwargs)
 
 
 
 @method_decorator(login_required, name='dispatch')
 class EmployeeDeleteView(DeleteView):
-    model = User
+    model = Employee
     template_name = 'users/user_delete.html'
-    success_url = reverse_lazy('users-list')
+    success_url = reverse_lazy('users:users_list')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return self.delete(request, *args, **kwargs)
 
 
 class FirstRegisterView(View):
