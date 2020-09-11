@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -40,7 +40,6 @@ class EmployeeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
         employee = self.get_queryset()
-        print("employee  : ", employee )
         page = self.request.GET.get('page')
         paginator = Paginator(employee , self.paginate_by)
         try:
@@ -60,6 +59,38 @@ class EmployeeCreateView(CreateView):
     template_name = 'users/user_create.html'
     fields = '__all__'
     success_url = reverse_lazy('users:users_list')
+
+    def get_context_data(self,  **kwargs):
+        context = super(EmployeeCreateView, self).get_context_data(**kwargs)
+        context['unity'] = Unity.objects.all()
+        context['cost_center'] = CostCenter.objects.all()
+        # context['user'] = User.objects.all()
+        return context
+
+    def get(self, request, *args, **kwargs):
+        form = super(EmployeeCreateView, self).get_form()
+        initial_base = self.get_initial()
+        form.initial = initial_base
+        return render(request,self.template_name, {'form':form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        # Verify form is valid
+        if form.is_valid():
+            # Call parent form_valid to create model record object
+            super(EmployeeCreateView,self).form_valid(form)
+            # Add custom success message
+            messages.success(request, 'Funcionário foi registrado com sucesso.')    
+            # Redirect to success page    
+            return HttpResponseRedirect(self.get_success_url())
+        cpf = request.POST.get("cpf")
+        print(cpf)
+        # form['cpf'].value() = filter(lambda parameter_list: expression)
+        # Form is invalid
+        # Set object to None, since class-based view expects model record object
+        self.object = None
+        # Return class-based view form_invalid to generate form with errors
+        return self.form_invalid(form)
 
 
 

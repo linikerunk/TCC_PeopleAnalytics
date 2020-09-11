@@ -10,7 +10,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form  method="POST" role="form" action="{% url 'users:user_create' %}" enctype="multipart/form-data">
+    <form id="user_create" method="POST" role="form" action="{% url 'users:user_create' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="card-body">
 
@@ -103,7 +103,7 @@
         </div>
 
         <div class="form-group col-md-4">
-            <label for="exampleInputEmail1">Numero : </label>
+            <label for="exampleInputEmail1">Numero da Residência : </label>
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-digital-tachograph"></i></span>
@@ -128,12 +128,10 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
               </div>
-          <select class="form-control">
-            <option>option 1</option>
-            <option>option 2</option>
-            <option>option 3</option>
-            <option>option 4</option>
-            <option>option 5</option>
+          <select class="form-control" name="gender" id="gender">
+            <option value="">Feminino</option>
+            <option>Masculino</option>
+            <option>Outros</option>
           </select>
           </div>
       </div>
@@ -151,16 +149,16 @@
 
         <div class="col-md-4">
             <label for="exampleInputEmail1">Centro de Custo : </label>
+            {{ cost_center }}
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="far fa-building"></i></span>
                 </div>
-            <select class="form-control">
-              <option>option 1</option>
-              <option>option 2</option>
-              <option>option 3</option>
-              <option>option 4</option>
-              <option>option 5</option>
+            <select name="cost_center" id="cost_center" class="form-control">
+              <option value="">----------------</option>
+              {% for cost_center in cost_center %}
+              <option value="{{ cost_center.name_department }}">{{ cost_center.name_department }}</option>
+              {% endfor %}
             </select>
             </div>
         </div>
@@ -171,12 +169,11 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
                 </div>
-            <select class="form-control">
-              <option>option 1</option>
-              <option>option 2</option>
-              <option>option 3</option>
-              <option>option 4</option>
-              <option>option 5</option>
+            <select name="unity" id="unity"  class="form-control">
+              <option value="">----------------</option>
+              {% for unity in unity %}
+              <option value="{{ unity.name }}">{{ unity.name }}</option>
+              {% endfor %}
             </select>
             </div>
         </div>
@@ -187,12 +184,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-            <select class="form-control">
-              <option>option 1</option>
-              <option>option 2</option>
-              <option>option 3</option>
-              <option>option 4</option>
-              <option>option 5</option>
+            <select name="user" id="user" class="form-control">
+              <option value="{{ user.username }}">{{ user.username }}</option>
             </select>
             </div>
         </div>

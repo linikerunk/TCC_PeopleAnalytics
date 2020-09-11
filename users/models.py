@@ -58,14 +58,14 @@ class CostCenter(Base):
 
 class Employee(Base):
     GENDER_CHOICES = (
-        ('F', 'Feminino'),
-        ('G', 'Masculino'))
-    identifier = models.IntegerField("Registro", primary_key=True,
-                                    validators=[MaxValueValidator(999999999),
-                                                 MinValueValidator(1)])
+        ('Feminino', 'Feminino'),
+        ('Masculino', 'Masculino'),
+        ('Outros', 'Outros'),)
+    identifier = models.AutoField(auto_created = True, primary_key = True,
+                                  serialize = False,  verbose_name ='ID')
     name = models.CharField("Nome Funcionário", max_length=130, null=False)
-    bio = models.TextField("Bio", max_length=200)
-    admission = models.DateTimeField("Admissão")
+    bio = models.TextField("Bio", max_length=200, blank=True)
+    admission = models.DateTimeField("Admissão", blank=True)
     resignation = models.DateTimeField("Demissão", null=True, blank=True)
     birth_date = models.DateTimeField("Data de Aniversário", null=True,
                                     blank=True)
@@ -78,7 +78,7 @@ class Employee(Base):
                                     'required': 'Porfavor digite seu e-mail.',
                                 'unique': 'Já existe esse e-mail cadastrado.'})
     phone = models.CharField('Telefone', max_length=15, null=True)
-    cpf = models.CharField('CPF', max_length=12, blank=False)
+    cpf = models.CharField('CPF', max_length=11, blank=False)
     role = models.CharField('Cargo', max_length=60, blank=False)
     cost_center = models.ForeignKey(CostCenter, null=True, 
                                     verbose_name="Centro de Custo",
@@ -104,6 +104,13 @@ class Employee(Base):
     class Meta:
         verbose_name = "Funcionário"
         verbose_name_plural = "Funcionários"
+
+
+    def save(self, *args, **kwargs):
+        self.admission = current_date
+        print(f"data da admissao : {self.admission}")
+        return super().save(*args, **kwargs)
+
 
     def __str__(self):
         return  self.name
