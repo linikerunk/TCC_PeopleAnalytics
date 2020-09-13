@@ -8,6 +8,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+GENDER_CHOICES = (
+        ('Feminino', 'Feminino'),
+        ('Masculino', 'Masculino'),
+        ('Outros', 'Outros'),)
 PHOTOS_FOLDER = "FotosFuncionarios/"
 DEFAULT = '0000.jpg'
 current_date = datetime.now()
@@ -57,10 +61,6 @@ class CostCenter(Base):
 
 
 class Employee(Base):
-    GENDER_CHOICES = (
-        ('Feminino', 'Feminino'),
-        ('Masculino', 'Masculino'),
-        ('Outros', 'Outros'),)
     identifier = models.AutoField(auto_created = True, primary_key = True,
                                   serialize = False,  verbose_name ='ID')
     name = models.CharField("Nome Funcionário", max_length=130, null=False)

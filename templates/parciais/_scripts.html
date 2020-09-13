@@ -14,6 +14,16 @@
 <script src="{% static 'js/jquery.mask.js' %}"></script>
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
+
+ <script>
+     // Display off the message that show on screen...
+     var message_ele = document.getElementById("message_container");
+      
+      setTimeout(function () {
+        message_ele.style.display = "none";
+      }, 7000);
+ </script>
+ 
  <script>
   feather.replace()
   // First step to active the li in menu.*******************//
@@ -64,11 +74,13 @@
   })
  </script>
 
+
  <script id="form-submit-user">
+     // Use this script to clean the form before to post it...
      $("#user_create").submit(function (event) {
-           $("#cpf").cleanVal();
-           $("#cep").cleanVal();
-           $("#phone").cleanVal();
+           $("#cpf").unmask();
+           $("#cep").unmask();
+           $("#phone").unmask();
         });
 
  </script>

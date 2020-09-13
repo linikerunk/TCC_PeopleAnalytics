@@ -6,7 +6,7 @@
 			<div class="card-header">
 			  <h3 class="card-title">Desligar Funcionário <strong>{{ employee.name }}</strong> </h3>
 			</div>
-			<form action="{% url 'users:user_delete' employee.pk %}" method="post">
+			<form action="{% url 'users:user_delete' employee.pk %}" method="POST">
 			{% csrf_token %}
 			<div class="card-body">
 			  <div class="row">

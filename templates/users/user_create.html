@@ -3,6 +3,7 @@
 {% block conteudo %}
 
 {% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
 
 <div class="card card-primary">
     <div class="card-header">
@@ -129,8 +130,8 @@
                 <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
               </div>
           <select class="form-control" name="gender" id="gender">
-            <option value="">Feminino</option>
-            <option>Masculino</option>
+            <option value="Femimino">Feminino</option>
+            <option value="Masculino">Masculino</option>
             <option>Outros</option>
           </select>
           </div>
@@ -149,7 +150,6 @@
 
         <div class="col-md-4">
             <label for="exampleInputEmail1">Centro de Custo : </label>
-            {{ cost_center }}
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="far fa-building"></i></span>
@@ -157,7 +157,7 @@
             <select name="cost_center" id="cost_center" class="form-control">
               <option value="">----------------</option>
               {% for cost_center in cost_center %}
-              <option value="{{ cost_center.name_department }}">{{ cost_center.name_department }}</option>
+              <option value="{{ cost_center }}">{{ cost_center.name_department }}</option>
               {% endfor %}
             </select>
             </div>
@@ -172,7 +172,7 @@
             <select name="unity" id="unity"  class="form-control">
               <option value="">----------------</option>
               {% for unity in unity %}
-              <option value="{{ unity.name }}">{{ unity.name }}</option>
+              <option value="{{ unity.pk }}">{{ unity.name }}</option>
               {% endfor %}
             </select>
             </div>
@@ -185,7 +185,9 @@
                   <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
             <select name="user" id="user" class="form-control">
-              <option value="{{ user.username }}">{{ user.username }}</option>
+              {% for user in user %}
+              <option value="{{ user.pk }}">{{ user.username }}</option>
+              {% endfor %}
             </select>
             </div>
         </div>

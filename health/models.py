@@ -19,7 +19,7 @@ IMC = (("Magreza grave", "Magreza grave"),
 class BodyMassIndex(Base):
     identifier = models.ForeignKey(Employee, unique=False,
                                     related_name="employee",
-                                    on_delete=models.PROTECT)
+                                    on_delete=models.CASCADE)
     weighing_date = models.DateTimeField("Data Pesagem", default=datetime.now,
                                          editable=False)
     weight = models.DecimalField("Peso", max_digits=5, decimal_places=2)

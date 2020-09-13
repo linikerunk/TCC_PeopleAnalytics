@@ -13,24 +13,290 @@
       </div><!-- /.card-header -->
       <div class="card-body">
         <div class="tab-content">
+
           <div class="active tab-pane" id="treinamento">
-            <!-- Treinamento -->
-            <p> Treinamento </p>
+            <div class="col-md-3 mb-3">
+              <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um novo Treinamento</a>
+              </div>
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                      <th class="table-dark" style="text-align : center; width: 15%;">Nome do Treinamento</th>
+                      <th class="table-dark" style="text-align : center; width: 10%;">Categoria</th>
+                      <th class="table-dark" style="text-align : center; width: 10%;">Conteúdo</th>
+                      <th class="table-dark" style="text-align : center; width: 10%;">Requisito</th>
+                      <th class="table-dark" style="text-align : center; width: 10%;">Local</th>
+                      <th class="table-dark" style="text-align : center; width: 10%;">Carga Horária</th>
+                      <th class="table-dark" style="text-align : center; width: 2.5%;"></th>
+                     <!-- <th class="table-info" style="text-align : center; width: 15%;">Gráfico</th> -->
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td tabindex="0" class="sorting_1">Gecko</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                      <td>A</td>
+                      <td>1.7</td>
+                      <td>A</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <div class="col-md-2">
+                  <div class="pl-1">Mostrar 1 de 10</div>
+                </div>
+            
+                  <div class="col-md-4 offset-md-5">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                      <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example2_previous">
+                          <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                        </li>
+                        <li class="paginate_button page-item next" id="example2_next">
+                          <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            
+                
+                </div> <!-- ./ box-body -->
           </div>
           <!-- /.tab-pane -->
+
+
           <div class="tab-pane" id="entidade">
-            <p> Entidade </p>
+            <div class="col-md-3 mb-3">
+              <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um nova Entidade </a>
+              </div>
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th class="table-dark" style="text-align : left; width: 7%;">Entidade</th>
+                    <th class="table-dark" style="text-align : center; width: 15%;">Razão Social</th>
+                    <th class="table-dark" style="text-align : center; width: 15%;">Pessoa Responsável</th>
+                    <th class="table-dark" style="text-align : center; width: 15%;">E-mail</th>
+                    <th class="table-dark" style="text-align : center; width: 7%;">Telefone</th>
+                    <th class="table-dark" style="text-align : center; width: 10%;">Endereço</th>
+                    <th class="table-dark" style="text-align : center; width: 7%;">Cidade</th>
+                    <th class="table-dark" style="text-align : center; width: 5%;"></th>
+                </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                            <td style="text-align : left;">breaking bejamin</td>
+                            <td  style="text-align : left;">XD </td>
+                            <td  style="text-align : left;;"> XD1212 </td>
+                            <td  style="text-align : left;;"> XD ap </td>
+                            <td  style="text-align : left;"> XD ontato </td>
+                            <td  style="text-align : left;;"> XD42424  </td>
+                            <td  style="text-align : left;;"> XD42424 </td>
+                            <td  style="text-align : left;;"> XD ap </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <div class="col-md-2">
+                  <div class="pl-1">Mostrar 1 de 10</div>
+                </div>
+            
+                  <div class="col-md-4 offset-md-5">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                      <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example2_previous">
+                          <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                        </li>
+                        <li class="paginate_button page-item next" id="example2_next">
+                          <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            
+                
+                </div> <!-- ./ box-body -->
+
           </div>
           <!-- /.tab-pane -->
 
           <div class="tab-pane" id="instrutor">
-            <p> Instrutor </p>
+            <div class="col-md-3 mb-3">
+              <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um novo Instrutor </a>
+              </div>
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th class="table-dark" style="text-align : center; width: 10%;">RE Instrutor</th>
+                    <th class="table-dark" style="text-align : center; width: 20%;">Nome do Instrutor</th>
+                    <th class="table-dark" style="text-align : center; width: 30%;">Treinamento Habilitado</th>
+                    <th class="table-dark" style="text-align : center; width: 2.5%;"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td tabindex="0" class="sorting_1">Gecko</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                      
+                    </tr>
+
+                  </tbody>
+                </table>
+                <div class="col-md-2">
+                  <div class="pl-1">Mostrar 1 de 10</div>
+                </div>
+            
+                  <div class="col-md-4 offset-md-5">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                      <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example2_previous">
+                          <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                        </li>
+                        <li class="paginate_button page-item next" id="example2_next">
+                          <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            
+                
+                </div> <!-- ./ box-body -->
           </div>
           <!-- /.tab-pane -->
 
 
           <div class="tab-pane" id="evento">
-            <p> Evento </p>
+            <div class="col-md-3 mb-3">
+              <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um novo Evento</a>
+              </div>
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th class="table-dark" style="text-align : left; width: 10%;">Evento</th>
+                    <th class="table-dark" style="text-align : left; width: 15%;">Treinamento</th>
+                    <th class="table-dark" style="text-align : left; width: 10%;">Entidade</th>
+                    <th class="table-dark" style="text-align : left; width: 10%;">Instrutor</th>
+                    <th class="table-dark" style="text-align : left; width: 4%;">Valor</th>
+                    <th class="table-dark" style="text-align : left; width: 10%;">Data da Consulta</th>
+                    <th class="table-dark" style="text-align : left; width: 5%;">Registro Cotação</th>
+                    <th class="table-dark" style="text-align : left; width: 4%;">Lista de Preseça</th>
+                    <th class="table-dark" style="text-align : left; width: 2.5%;"></th>
+                </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                      
+                    </tr>
+
+                  </tbody>
+                </table>
+                <div class="col-md-2">
+                  <div class="pl-1">Mostrar 1 de 10</div>
+                </div>
+            
+                  <div class="col-md-4 offset-md-5">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                      <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example2_previous">
+                          <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                          <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                          <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                        </li>
+                        <li class="paginate_button page-item next" id="example2_next">
+                          <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            
+                
+                </div> <!-- ./ box-body -->
           </div>
 
         </div>

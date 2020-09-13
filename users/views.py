@@ -60,18 +60,22 @@ class EmployeeCreateView(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('users:users_list')
 
-    def get_context_data(self,  **kwargs):
+    def get_context_data(self, **kwargs):
         context = super(EmployeeCreateView, self).get_context_data(**kwargs)
         context['unity'] = Unity.objects.all()
         context['cost_center'] = CostCenter.objects.all()
-        # context['user'] = User.objects.all()
+        context['user'] = User.objects.all()
         return context
 
     def get(self, request, *args, **kwargs):
         form = super(EmployeeCreateView, self).get_form()
+        context = {'form': form}
         initial_base = self.get_initial()
         form.initial = initial_base
-        return render(request,self.template_name, {'form':form})
+        context['unity'] = Unity.objects.all()
+        context['cost_center'] = CostCenter.objects.all()
+        context['user'] = User.objects.all()
+        return render(request,self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -83,8 +87,7 @@ class EmployeeCreateView(CreateView):
             messages.success(request, 'Funcionário foi registrado com sucesso.')    
             # Redirect to success page    
             return HttpResponseRedirect(self.get_success_url())
-        cpf = request.POST.get("cpf")
-        print(cpf)
+       
         # form['cpf'].value() = filter(lambda parameter_list: expression)
         # Form is invalid
         # Set object to None, since class-based view expects model record object
@@ -104,7 +107,6 @@ class EmployeeUpdateView(UpdateView):
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
-        print(self.object)
         return super().get(request, *args, **kwargs)
 
 
@@ -115,10 +117,11 @@ class EmployeeDeleteView(DeleteView):
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users:users_list')
 
-    def post(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        return self.delete(request, *args, **kwargs)
+        messages.success(request, f'Funcionário {self.object.name} foi desligado com sucesso.') 
+        return HttpResponseRedirect(self.success_url)
 
 
 class FirstRegisterView(View):

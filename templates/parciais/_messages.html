@@ -3,6 +3,9 @@
     <br>
     {% for message in messages %}
         <div class="alert {{ message.tags }}" id='message_container' role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             {{ message }}
         </div>
     {% endfor %}
