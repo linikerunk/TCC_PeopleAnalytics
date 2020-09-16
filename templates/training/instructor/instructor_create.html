@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block titulo %}Criação de Instrutor{% endblock %}
+{% block conteudo %}
+
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Cadastro de um novo <strong>Instrutor.</strong></h3>
+    </div>
+    <div class="box-body">
+        <!-- Date -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="card-body">
+        
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Registro do Instrutor : </label>
+                        <div  class="input-group date" data-provide="datepicker">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                            </div>
+                            <input type="text" name="name" class="form-control" placeholder="Digite o registro do instrutor...">
+                          </div>
+                    </div>
+
+            <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Nome do Instrutor : </label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                            </div>
+                            <input type="text" name="name" class="form-control" placeholder="Digite o nome do instrutor">
+                          </div>
+                        </div>
+    </div>
+
+    <div class="box-footer">
+        <a href="{% url 'training:training_list' %}"><i class="fa fa-reply-all mr-2 ml-2" title="Voltar"></i></a>
+        <button type="reset" class="btn btn-warning">Limpar Registros</button>
+        <button type="submit" value="submit" class="btn btn-primary">Salvar Novo Instrutor</button>
+    </div>
+</div>
+</div> <!-- ./ row finish here-->
+    </form>
+    <!-- /.form group -->
+</div>
+<!-- /.card -->
+
+{% endblock %}

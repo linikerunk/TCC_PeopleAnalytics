@@ -14,6 +14,19 @@ STATE_CHOICES = (('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'),
                 ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
                 ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins'))
 
+CATEGORY = (('Tecnologia da informação', 'Tecnologia da informação'),
+            ('Treinamento online', 'Treinamento online'),
+            ('Programas de mentoria', 'Programas de mentoria'),
+            ('Coaching empresarial', 'Coaching empresarial'),
+            ('Workshops', 'Workshops'),
+            ('Gestão do conhecimento', 'Gestão do conhecimento'),
+            ('Treinamento presencial com instrutor',
+             'Treinamento presencial com instrutor'),
+            ('Treinamento de desenvolvimento de Soft Skills',
+             'Treinamento de desenvolvimento de Soft Skills'),
+            ('Treinamentos obrigatórios', 'Treinamentos obrigatórios'),)
+
+
 
 class Training(models.Model):
     training_name = models.CharField('Nome Treinamento', max_length=100)
@@ -21,7 +34,6 @@ class Training(models.Model):
     content = models.TextField('Conteúdo')
     required = models.CharField('Requisito', max_length=50)
     resource = models.CharField('Recursos', max_length=50)
-    training_type = models.CharField('Tipo de Treinamento', max_length=50)
     local = models.CharField('Local', max_length=50)
     workload = models.CharField('Carga Horária', max_length=5)
 
