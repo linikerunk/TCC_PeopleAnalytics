@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block titulo %}Criação de Treinamento{% endblock %}
 {% block conteudo %}
+
 {% include 'parciais/errors.html' %}
 {% include 'parciais/_messages.html' %}
-
 
 <div class="card card-primary">
     <div class="card-header">
@@ -32,9 +32,17 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-network-wired"></i></span>
                         </div>
-                        <select class="form-control" name="treinamento" id="treinamento">
-                          <option value="" disabled="" selected="">Escolha o Treinamento que irá ocorrer.</option>
-                          <option value="">1</option>
+                        <select class="form-control" name="category" id="category">
+                        <option value="" selected="">---------------------------------------</option>
+                        <option value="Tecnologia da informação">Tecnologia da informação</option>
+                        <option value="Treinamento online">Treinamento online</option>
+                        <option value="Programas de mentoria">Programas de mentoria</option>
+                        <option value="Coaching empresarial">Coaching empresarial</option>
+                        <option value="Workshops">Workshops</option>
+                        <option value="Gestão do conhecimento">Gestão do conhecimento</option>
+                        <option value="Treinamento presencial com instrutor">Treinamento presencial com instrutor</option>
+                        <option value="Treinamento de desenvolvimento de Soft Skills">Treinamento de desenvolvimento de Soft Skills</option>
+                        <option value="Treinamentos obrigatórios">Treinamentos obrigatórios</option>
                       </select>
                       </div>
                 </div>

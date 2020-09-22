@@ -22,7 +22,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-building"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o nome da entidade...">
+                    <input type="text" name="entity_name" id="entity_name" class="form-control" placeholder="Digite o nome da entidade...">
                   </div>
             </div>
 
@@ -33,7 +33,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-building"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite a Rãzao Social">
+                    <input type="text" name="social_reason" id="social_reason" class="form-control" placeholder="Digite a Rãzao Social">
                   </div>
             </div>
 
@@ -43,7 +43,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-building"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o CNPJ ">
+                    <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="99.999.999/9999-99">
                   </div>
             </div>
 
@@ -53,7 +53,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o nome da pessoa responsável">
+                    <input type="text" name="contact_person" id="contact_person" class="form-control" placeholder="Digite o nome da pessoa responsável">
                   </div>
             </div>
 
@@ -63,7 +63,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-envelope"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o e-mail do responsável">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Digite o e-mail do responsável">
                   </div>
             </div>
 
@@ -73,7 +73,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-phone-square-alt"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o telefone do pessoa resposável">
+                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite o telefone do pessoa resposável">
                   </div>
             </div>
 
@@ -83,7 +83,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                     </div>
-                    <input type="text" id="cep" name="cep" class="form-control" placeholder="00.000-000">
+                    <input type="text" id="cep" name="zip_code" class="form-control" placeholder="00.000-000">
                   </div>
         </div>
 
@@ -97,25 +97,30 @@
               </div>
         </div>
 
+        <div class="form-group col-md-6">
+            <label for="exampleInputEmail1">Estado : </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-city"></i></span>
+                </div>
+                <select class="form-control" name="state" id="state">
+                  {% for state in form.state %}
+                  <option value="{{ state.id }}">{{ state }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+        </div>
+
             <div class="form-group col-md-6">
             <label for="exampleInputEmail1">Endereço : </label>
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                 </div>
-                <input type="text" id="andress" name="andress" class="form-control" placeholder="Digite o nome da rua.">
+                <input type="text" id="andress" name="address" class="form-control" placeholder="Digite o nome da rua.">
               </div>
         </div>
 
-        <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Bairro : </label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-city"></i></span>
-                </div>
-                <input type="text" id="district" name="district" class="form-control" placeholder="Digite o bairro da cidade.">
-              </div>
-        </div>
 
 
     </div>

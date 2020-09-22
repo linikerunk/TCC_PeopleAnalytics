@@ -35,6 +35,7 @@
   $(document).ready(function($){
   $('#birth_date').mask('00/00/0000');
   $('#cpf').mask('000.000.000-00', {reverse: true});
+  $("#cnpj").mask("99.999.999/9999-99");
   $('#cep').mask('00.000-000')
   $('#phone').mask('(00) 0000-00009');
   $('#phone').blur(function(event) {
@@ -79,6 +80,7 @@
      // Use this script to clean the form before to post it...
      $("#user_create").submit(function (event) {
            $("#cpf").unmask();
+           $("#cnpj").unmask();
            $("#cep").unmask();
            $("#phone").unmask();
         });

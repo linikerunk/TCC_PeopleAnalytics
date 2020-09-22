@@ -30,7 +30,7 @@ CATEGORY = (('Tecnologia da informação', 'Tecnologia da informação'),
 
 class Training(models.Model):
     training_name = models.CharField('Nome Treinamento', max_length=100)
-    category = models.CharField('Categoria', max_length=25)
+    category = models.CharField('Categoria', choices=CATEGORY, max_length=50)
     content = models.TextField('Conteúdo')
     required = models.CharField('Requisito', max_length=50)
     resource = models.CharField('Recursos', max_length=50)
@@ -50,7 +50,7 @@ class Entity(models.Model):
     social_reason = models.CharField('Razão Social', max_length=100)
     cnpj = models.CharField('CNPJ', max_length=100)
     contact_person = models.CharField('Pessoa Responsável', max_length=30)
-    phone = models.CharField('Telefone', null=True, blank=True, max_length=11)
+    phone = models.CharField('Telefone', null=True, blank=True, max_length=16)
     zip_code = models.CharField('CEP', max_length=10)
     address = models.CharField('Endereço', max_length=60)
     city = models.CharField('Cidade', max_length=50)
