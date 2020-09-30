@@ -22,11 +22,11 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from utils.decorators import FirstRegisterMixin
 
-UserModel = get_user_model()
 from .forms import SignUpForm
 from .tokens import account_activation_token
 from .models import Employee, Unity, CostCenter
 
+UserModel = get_user_model()
 
 """ All classes that references a Users """
 @method_decorator(login_required, name='dispatch')

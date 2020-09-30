@@ -3,16 +3,22 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from users.models import Employee
 
 
-STATE_CHOICES = (('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'),
-                ('AM', 'Amazonas'), ('BA', 'Bahia'), ('CE', 'Ceará'),
-                ('DF', 'Distrito Federal'), ('ES', 'Espírito Santo'),
-                ('GO', 'Goiás'), ('MA', 'Maranhão'), ('MT', 'Mato Grosso'),
-                ('MS', 'Mato Grosso do Sul'), ('MG', 'Minas Gerais'),
-                ('PA', 'Pará'), ('PB', 'Paraíba'), ('PR', 'Paraná'), 
-                ('PE', 'Pernambuco'), ('PI', 'Piauí'), ('RJ', 'Rio de Janeiro'),
-                ('RN', 'Rio Grande do Norte'), ('RS', 'Rio Grande do Sul'), 
-                ('RO', 'Rondônia'), ('RR', 'Roraima'), ('SC', 'Santa Catarina'),
-                ('SP', 'São Paulo'), ('SE', 'Sergipe'), ('TO', 'Tocantins'))
+STATE_CHOICES = (('Acre', 'Acre'), ('Alagoas', 'Alagoas'), ('Amapá', 'Amapá'),
+                ('Amazonas', 'Amazonas'), ('Bahia', 'Bahia'), ('Ceará', 'Ceará'),
+                ('Distrito Federal', 'Distrito Federal'),
+                ('Espírito Santo', 'Espírito Santo'), ('Goiás', 'Goiás'), 
+                ('Maranhão', 'Maranhão'), ('Mato Grosso', 'Mato Grosso'),
+                ('Mato Grosso do Sul', 'Mato Grosso do Sul'), 
+                ('Minas Gerais', 'Minas Gerais'), ('Pará', 'Pará'),
+                ('Paraíba', 'Paraíba'), ('Paraná', 'Paraná'), 
+                ('Pernambuco', 'Pernambuco'), ('Piauí', 'Piauí'), 
+                ('Rio de Janeiro', 'Rio de Janeiro'),
+                ('Rio Grande do Norte', 'Rio Grande do Norte'), 
+                ('Rio Grande do Sul', 'Rio Grande do Sul'), 
+                ('Rondônia', 'Rondônia'), ('Roraima', 'Roraima'),
+                ('Santa Catarina', 'Santa Catarina'),
+                ('São Paulo', 'São Paulo'), ('Sergipe', 'Sergipe'),
+                ('Tocantins', 'Tocantins'))
 
 CATEGORY = (('Tecnologia da informação', 'Tecnologia da informação'),
             ('Treinamento online', 'Treinamento online'),
@@ -84,16 +90,17 @@ class Instructor(models.Model):
         verbose_name_plural = "Instrutores"
 
     def __str__(self):
-        return ' %s ' % f"Registro : {self.registro_instrutor} "
+        return ' %s ' % f"{self.instructor_name}"
 
 
 class Event(models.Model):
     event_name = models.CharField('Nome do Evento', max_length=80)
     value = models.DecimalField('Valor', max_digits=8, decimal_places=2,
                                 default=0)
-    event_date = models.DateTimeField('Data Consulta', blank=True)
+    event_date = models.CharField('Data Consulta', max_length=10, blank=True)
     present_list = models.FileField('Lista de Presença',
-                                upload_to="present_list", default="")
+                                upload_to="present_list", default="", null=True,
+                                blank=True)
     training = models.ForeignKey(Training, related_name="event", default="",
                                 blank=True, on_delete=models.CASCADE)
     entity = models.ForeignKey(Entity, related_name="event", default="",

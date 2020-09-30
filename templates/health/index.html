@@ -16,7 +16,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Digite o Registro do Funcionário">
+                  <input type="text" class="form-control" name="identifier"
+                   placeholder="Digite o Registro do Funcionário">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -30,7 +31,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-weight"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Digite o peso do funcionário">
+                  <input type="text" class="form-control" name="weighing_date" id="weighing_date"
+                   placeholder="Digite o peso do funcionário">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -43,7 +45,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Digite a altura do funcionário">
+                  <input type="text" class="form-control" name="weight" id="weight"
+                  placeholder="Digite a altura do funcionário">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -58,7 +61,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-stethoscope"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Digite a pressão arterial sistólica">
+                  <input type="text" class="form-control" name="height" id="height"
+                   placeholder="Digite a pressão arterial sistólica">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -71,7 +75,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-stethoscope"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Digite a pressão arterial diastólica" >
+                  <input type="text" class="form-control" name="abdominal_circumference"
+                   id="abdominal_circumference" placeholder="Digite a pressão arterial diastólica" >
                 </div>
                 <!-- /.input group -->
               </div>
@@ -86,7 +91,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-tape"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Digite a Circunferência Abdominal do Funcionário..">
+                <input type="text" class="form-control" name="systolic_blood_pressure"
+                placeholder="Digite a Circunferência Abdominal do Funcionário..">
               </div>
               <!-- /.input group -->
             </div>
@@ -111,7 +117,7 @@
           <div class="row">
             <div class="col-7">
               <h2 class="lead mt-5"><b>Nome do Funcionário </b></h2>
-              <p class="text-muted text-sm"><b>Bio: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui corporis voluptatibus amet est ipsum at expedita ab rem nisi suscipit assumenda dicta, neque fuga deserunt voluptate quidem modi iusto tenetur!</p>
+              <p class="text-muted text-sm"><b>Bio: </b>{{ user.bio }}</p>
               <p class="text-muted text-sm"><b>Saúde : </b> Risco Baixo/ Saudável </p>
               <p class="text-muted text-sm"><b>IMC : </b> 17,5 </p>
               <ul class="ml-4 mb-0 fa-ul text-muted">

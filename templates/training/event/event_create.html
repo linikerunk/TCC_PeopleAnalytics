@@ -5,6 +5,7 @@
 {% include 'parciais/errors.html' %}
 {% include 'parciais/_messages.html' %}
 
+
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">Cadastro de um novo <strong>Evento.</strong></h3>
@@ -24,7 +25,8 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-building"></i></span>
                             </div>
-                            <input type="text" name="name" class="form-control" placeholder="Digite o nome do Evento">
+                            <input type="text" name="event_name" id="event_name"
+                             class="form-control" placeholder="Digite o nome do Evento">
                           </div>
                     </div>
 
@@ -34,7 +36,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                             </div>
-                            <input type="text" name="name" class="form-control" placeholder="Digite o nome do instrutor">
+                            <input type="text" name="value" class="form-control" placeholder="Digite o valor do evento">
                           </div>
             </div>
 
@@ -48,15 +50,7 @@
                   </div>
             </div>
 
-            <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">Lista de Presença : </label>
-                <div class="input-group ">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
-                    </div>
-                    <input type="text" name="name" class="form-control" placeholder="Digite o nome do instrutor">
-                  </div>
-            </div>
+            
 
                     <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Nome do Treinamento : </label>
@@ -65,10 +59,10 @@
                         <div class="input-group-addon">
                             <i class="fa fa-file-text-o"></i>
                         </div>
-                        <select class="form-control" name="treinamento" id=treinamento>
-                                <option value="" disabled selected>Escolha o Treinamento que irá ocorrer.</option>
-                            {% for treinamento in treinamento %}
-                            <option id="treinamento" value="{{ treinamento.id }}" >{{ treinamento }} </option>
+                        <select class="form-control" name="training" id=training>
+                            <option value="" disabled selected>Escolha o Treinamento que irá ocorrer.</option>
+                            {% for training in training %}
+                            <option id="training" value="{{ training.id }}" >{{ training }} </option>
                             {% endfor %}
                             </select>
                     </div>
@@ -77,18 +71,18 @@
             <!-- /.form col md 6-->
 
             <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">Nome do Treinamento : </label>
+                <label for="exampleInputEmail1">Nome da Entidade : </label>
 
                 <div class="input-group icon">
                     <div class="input-group-addon">
                         <i class="fa fa-file-text-o"></i>
                     </div>
-                    <select class="form-control" name="treinamento" id=treinamento>
-                            <option value="" disabled selected>Escolha o Treinamento que irá ocorrer.</option>
-                        {% for treinamento in treinamento %}
-                        <option id="treinamento" value="{{ treinamento.id }}" >{{ treinamento }} </option>
+                    <select class="form-control" name="entity" id=entity>
+                        <option value="" disabled selected>Escolha a Entidade que vai realizar o treinamento</option>
+                        {% for entity in entity %}
+                        <option id="entity"  value="{{ entity.id }}" >{{ entity }} </option>
                         {% endfor %}
-                        </select>
+                    </select>
                 </div>
                 <!-- /.input group -->
         </div>
@@ -96,22 +90,31 @@
 
 
         <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Nome do Treinamento : </label>
+            <label for="exampleInputEmail1">Nome do instrutor : </label>
 
             <div class="input-group icon">
                 <div class="input-group-addon">
                     <i class="fa fa-file-text-o"></i>
                 </div>
-                <select class="form-control" name="treinamento" id=treinamento>
-                        <option value="" disabled selected>Escolha o Treinamento que irá ocorrer.</option>
-                    {% for treinamento in treinamento %}
-                    <option id="treinamento" value="{{ treinamento.id }}" >{{ treinamento }} </option>
+                <select class="form-control" name="instructor" id=instructor>
+                    <option value="" disabled selected>Escolha o Instrutor que irá fornecer o treinamento.</option>
+                    {% for instructor in instructor %}
+                    <option id="instructor"  value="{{ instructor.pk }}" >{{ instructor }} </option>
                     {% endfor %}
                     </select>
             </div>
             <!-- /.input group -->
     </div>
     <!-- /.form col md 6-->
+
+    <div class="form-group col-md-6">
+        <label for="exampleInputEmail1">Lista de Presença : </label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="instructor_photo" id="customFile">
+            <label class="custom-file-label" for="customFile">Clique aqui para adiconar uma lista de presença.</label>
+          </div>
+    </div>
+
     </div>
 
     <div class="box-footer">
@@ -119,6 +122,7 @@
         <button type="reset" class="btn btn-warning">Limpar Registros</button>
         <button type="submit" value="submit" class="btn btn-primary">Salvar Novo Instrutor</button>
     </div>
+
 </div>
 </div> <!-- ./ row finish here-->
     </form>

@@ -265,10 +265,13 @@ class EventCreateView(CreateView):
     def get(self, request, *args, **kwargs):
         form = super(EventCreateView, self).get_form()
         training = Training.objects.all()
-        context = {'form': form, 'training': training}
+        entity = Entity.objects.all()
+        instructor = Instructor.objects.all()
+        context = {'form': form, 'training': training, 'entity': entity,
+                    'instructor': instructor}
         initial_base = self.get_initial()
         form.initial = initial_base
-        return render(request,self.template_name, context)
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -277,7 +280,7 @@ class EventCreateView(CreateView):
             # Call parent form_valid to create model record object
             super(EventCreateView, self).form_valid(form)
             # Add custom success message
-            messages.success(request, 'Instrutor foi registrado com sucesso.')    
+            messages.success(request, 'Evento foi registrado com sucesso.')    
             # Redirect to success page    
             return HttpResponseRedirect(self.get_success_url())
        

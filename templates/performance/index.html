@@ -58,6 +58,24 @@
   <!-- /.col -->
 </div>
 
+
+<div class="col-md-12">
+<div class="card">
+  <h5 class="card-header">Criar um novo formulário de performance</h5>
+
+  <div class="card-body">
+  <p>
+    Olá {{ request.user.first_name|title }}, aqui você poderá criar um formulário personalizado para criar as avaliações.
+  </p>
+  <div class="col-md-12 mt-0">
+  <a type="button" href="{% url 'performance:evaluation' %}" class="btn btn-block"
+   id="generate_form_performance"> Adicionar novo estilo de avaliação</a>
+  </div> <!-- col-md-12 ..-->
+</div>
+</div>
+</div>
+
+
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Desempenho dos Funcionários</h3>
@@ -99,6 +117,8 @@
   
   </div>
 </div>
+
+
 <div class="row">
 
   <div class="col-md-2">

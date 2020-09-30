@@ -2,6 +2,7 @@
 @import "nav.css";
 @import "footer.css"; 
 @import "register.css"; 
+@import "performance.css"; 
 
 * {
     margin: 0;
