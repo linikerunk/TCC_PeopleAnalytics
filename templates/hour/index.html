@@ -16,7 +16,47 @@
         <div class="tab-content">
           <div class="active tab-pane" id="absenteismo">
             <!-- Treinamento -->
-            <p> Absenteísmo </p>
+            <h2 id="taxa_absenteismo"> Taxa de absenteísmo </h2>
+            <hr>
+            <p>
+              O índice mede as ausências dos funcionários a partir de suas faltas
+justificadas ou não, atrasos e licenças médicas. Ele pode ser avaliado
+semanal, quinzenal ou mensalmente, de acordo com as necessidade
+do negócio.
+            </p>
+
+            <div class="row">
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                </div>
+                <input type="text" name="employee" class="form-control"
+                value="" placeholder="Número do registro do funcionários">
+              </div>
+
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                </div>
+                <input type="text" name="number_day" class="form-control"
+              value="" placeholder="Número de dias que o profissional ficou ausente">
+              </div>
+
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                </div>
+                <input type="text" name="working_days" class="form-control"
+              value="" placeholder="Total de dias úteis no período">
+              </div>
+
+            <div class="input-group mb-3 col-md-3">
+              <a type="button" href="#" class="btn btn-block btn-primary">Calcular taxa de Absenteísmo</a>
+            </div>
+          </div>
+          <hr>
+          <h2 id="absenteismo">Absenteísmo  : </h2>
+            
           </div>
           <!-- /.tab-pane -->
           <div class="tab-pane" id="previ-falta">
