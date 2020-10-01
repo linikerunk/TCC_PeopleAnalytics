@@ -2,5 +2,5 @@ venv/
 Theme-adminLTE
 banco_dados
 .env 
-
+__pycache__/
 **/__pycache__
