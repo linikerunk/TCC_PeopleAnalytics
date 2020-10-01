@@ -132,6 +132,9 @@ class FirstRegisterView(View):
 # Login and Logout..
 class LoginView(View):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect(reverse('dashboard:dashboard'))
+            
         return render(request, 'registration/login.html', { 'form':  AuthenticationForm })
 
     # really low level
