@@ -1,5 +1,6 @@
 venv/
 Theme-adminLTE
-db.sqlite3
-.env
-__pycache__/
+banco_dados
+.env 
+
+**/__pycache__
