@@ -60,7 +60,7 @@ class Entity(models.Model):
     zip_code = models.CharField('CEP', max_length=10)
     address = models.CharField('Endereço', max_length=60)
     city = models.CharField('Cidade', max_length=50)
-    state = models.CharField('Estado', choices=STATE_CHOICES, max_length=2)
+    state = models.CharField('Estado', choices=STATE_CHOICES, max_length=19)
     email = models.EmailField(max_length=70, blank=False, unique=True,
                               verbose_name=u'Email', error_messages={
                               'required': 'Porfavor digite seu e-mail.',

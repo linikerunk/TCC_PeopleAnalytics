@@ -35,15 +35,16 @@
                   </tr>
                   </thead>
                   <tbody>
+                    {% for obj in  training %}
                     <tr role="row" class="odd">
-                      <td tabindex="0" class="sorting_1">Gecko</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                      <td>A</td>
-                      <td>1.7</td>
-                      <td>A</td>
+                      <td>{{ obj.training_name }}</td>
+                      <td>{{ obj.category }}</td>
+                      <td>{{ obj.content }}</td>
+                      <td>{{ obj.required }}</td>
+                      <td>{{ obj.resource }}</td>
+                      <td>{{ obj.workload }}</td>
                     </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>
@@ -97,26 +98,28 @@
                 <thead>
                   <tr>
                     <th class="table-dark" style="text-align : left; width: 7%;">Entidade</th>
-                    <th class="table-dark" style="text-align : center; width: 15%;">Razão Social</th>
-                    <th class="table-dark" style="text-align : center; width: 15%;">Pessoa Responsável</th>
-                    <th class="table-dark" style="text-align : center; width: 15%;">E-mail</th>
-                    <th class="table-dark" style="text-align : center; width: 7%;">Telefone</th>
+                    <th class="table-dark" style="text-align : center; width: 10%;">Razão Social</th>
+                    <th class="table-dark" style="text-align : center; width: 10%;">Pessoa Responsável</th>
+                    <th class="table-dark" style="text-align : center; width: 7%;">E-mail</th>
+                    <th class="table-dark" style="text-align : center; width: 10%;">Telefone</th>
                     <th class="table-dark" style="text-align : center; width: 10%;">Endereço</th>
                     <th class="table-dark" style="text-align : center; width: 7%;">Cidade</th>
-                    <th class="table-dark" style="text-align : center; width: 5%;"></th>
+                    <th class="table-dark" style="text-align : center; width: 5%;">Deletar</th>
                 </tr>
                   </thead>
                   <tbody>
+                    {% for obj in  entity %}
                     <tr role="row" class="odd">
-                            <td style="text-align : left;">breaking bejamin</td>
-                            <td  style="text-align : left;">XD </td>
-                            <td  style="text-align : left;;"> XD1212 </td>
-                            <td  style="text-align : left;;"> XD ap </td>
-                            <td  style="text-align : left;"> XD ontato </td>
-                            <td  style="text-align : left;;"> XD42424  </td>
-                            <td  style="text-align : left;;"> XD42424 </td>
-                            <td  style="text-align : left;;"> XD ap </td>
+                      <td>{{ obj.entity_name }}</td>
+                      <td>{{ obj.social_reason }}</td>
+                      <td>{{ obj.contact_person }}</td>
+                      <td>{{ obj.email }}</td>
+                      <td>{{ obj.phone }}</td>
+                      <td>{{ obj.address }}</td>
+                      <td>{{ obj.city }}</td>
+                      <td></td>
                     </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>
@@ -162,30 +165,36 @@
           <!-- /.tab-pane -->
 
           <div class="tab-pane" id="instrutor">
-            <div class="col-md-3 mb-3">
+            <div class="col-md-5 offset-md-1 mb-3">
               <a type="button" href="{% url 'training:instructor_create' %}" class="btn btn-block btn-primary">Adicionar um novo Instrutor </a>
               </div>
             <div class="box-body table-responsive no-padding">
+              <div class="col-md-10 offset-md-1">
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th class="table-dark" style="text-align : center; width: 10%;">RE Instrutor</th>
-                    <th class="table-dark" style="text-align : center; width: 20%;">Nome do Instrutor</th>
-                    <th class="table-dark" style="text-align : center; width: 30%;">Treinamento Habilitado</th>
-                    <th class="table-dark" style="text-align : center; width: 2.5%;"></th>
+                    <th class="table-dark" style="text-align : center; width: 1%;">RE Instrutor</th>
+                    <th class="table-dark" style="text-align : center; width: 10%">Nome do Instrutor</th>
+                    <th class="table-dark" style="text-align : center; width: 10%;">Treinamento Habilitado</th>
+                    <th class="table-dark" style="text-align : center; width: 1%;">Deletar</th>
                   </tr>
                   </thead>
                   <tbody>
+                    {% for obj in  instructor %}
                     <tr role="row" class="odd">
-                      <td tabindex="0" class="sorting_1">Gecko</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                      
+                      <td style="text-align : center;">{{ obj.register_instructor }}</td>
+                      <td style="text-align : center;">{{ obj.instructor_name }}</td>
+                      <td style="text-align : center;">{% for training in obj.training.all %}
+                        <p style="text-align : center;">{{ training }}</p>
+                          {% endfor %}
+                      </td>
+                      <td></td>
                     </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>
+              </div>
                 <div class="col-md-2">
                   <div class="pl-1">Mostrar 1 de 10</div>
                 </div>
@@ -247,18 +256,19 @@
                 </tr>
                   </thead>
                   <tbody>
+                    {% for obj in event %}
                     <tr role="row" class="odd">
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                      
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
+                      <td>{{ obj }}</td>
                     </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>

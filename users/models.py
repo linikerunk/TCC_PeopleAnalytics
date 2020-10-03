@@ -8,12 +8,12 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+PHOTOS_FOLDER = "FotosFuncionarios/"
+DEFAULT = '0000.jpg'
 GENDER_CHOICES = (
         ('Feminino', 'Feminino'),
         ('Masculino', 'Masculino'),
         ('Outros', 'Outros'),)
-PHOTOS_FOLDER = "FotosFuncionarios/"
-DEFAULT = '0000.jpg'
 current_date = datetime.now()
 
 

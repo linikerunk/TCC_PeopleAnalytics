@@ -36,7 +36,7 @@
           {% for employee in employee %}
         <tr role="row">
           <td class="">
-            <img class="img-circle img-bordered-sm" src="{% static 'img/users/user.jpg' %}" width=40 height=40>
+            <img class="img-circle img-bordered-sm" src="{{ employee.photo.thumbnail.url }}" width=50 height=50>
           </td>
           <td class="pt-3"> <a href="{% url 'users:user_update' employee.pk %}"> {{ employee.name }} </a></td>
           <td class="pt-3">{{ employee.cpf }}</td>

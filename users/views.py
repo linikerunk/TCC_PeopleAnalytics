@@ -48,9 +48,9 @@ class EmployeeListView(ListView):
             employee = paginator.page(1)
         except EmptyPage:
             employee  = paginator.page(paginator.num_pages)
-        context['employee'] = employee 
+        context['employee'] = employee
+        print(self.request.user.employee) 
         return context
-
 
 
 @method_decorator(login_required, name='dispatch')

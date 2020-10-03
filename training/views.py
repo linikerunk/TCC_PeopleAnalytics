@@ -33,6 +33,9 @@ class TrainingListView(ListView):
         except EmptyPage:
             training = paginator.page(paginator.num_pages)
         context['training'] = training
+        context['entity'] = Entity.objects.all()
+        context['instructor'] = Instructor.objects.all()
+        context['event'] = Event.objects.all()
         return context
 
 

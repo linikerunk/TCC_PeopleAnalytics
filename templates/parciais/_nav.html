@@ -15,17 +15,17 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
-
+    
       <li class="dropdown user user-menu mr-3 mt-1" id="user-profile">
         <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
-          <img src="{% static 'img/users/user.jpg' %}" class="user-image" alt="User Image">
+          <img src="{{ request.user.employee.photo.url }}" class="user-image" alt="User Image" width=60 height=60>
           <span class="font-weight-bolder hidden-xs">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</span>
         </a>
       </li>
 
       <!-- Messages Dropdown Menu -->
       <li class="m-0">
-        <a href="{% url 'users:my_logout' %}" class="nav-link">
+        <a href="{% url 'users:my_logout' %}" class="nav-link"> 
           <img src="{% static 'icons/power.svg' %}" alt="Power" />
       </a>
       </li>

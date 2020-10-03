@@ -32,7 +32,7 @@ urlpatterns = [
     path('', include('benefits.urls')),
     path('painel/', admin.site.urls),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.AdminSite.site_header = "Enginee RH"
 admin.AdminSite.site_title = "Enginee RH"
