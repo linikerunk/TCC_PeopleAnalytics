@@ -9,7 +9,7 @@ from extra_views import ModelFormSetView, FormSetView
 from .models import EvaluationSkill, Skill
 
 
-class SkillForm(FormSetView):
+class SkillForm(forms.ModelForm):
 
     class Meta:
         model = Skill

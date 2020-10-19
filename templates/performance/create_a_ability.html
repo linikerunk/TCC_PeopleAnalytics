@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Criação de Habilidade{% endblock %}
+{% block conteudo %}
+
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Adicionar uma nova Habilidade</h3>
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form role="form" method="POST" action="{% url 'performance:create_ability' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nome da Habilidade : </label>
+            <input type="text" class="form-control" name="name"
+            placeholder="Digite um nome da habilidade, exemplo: Excel, Word, Python">
+          </div>
+          <div class="form-group">
+            <label>Descrição da Habilidade : </label>
+            <textarea class="form-control" rows="5" name="description" style="resize: none"
+             placeholder="Digite uma descrição para essa habilidade."></textarea>
+          </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button class="btn btn-primary float-right pl-5 pr-5">Salvar</button>
+            <span class="pl-1 pr-1 float-right">&nbsp;</span>
+            <a href="{% url 'performance:performance_list' %}" class="btn btn-warning float-right pl-5 pr-5">Voltar</a>
+          </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}

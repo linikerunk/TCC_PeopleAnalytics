@@ -1,10 +1,11 @@
+from datetime import datetime, timedelta, time 
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from datetime import datetime
-from datetime import time
 from django.utils.timezone import now
 from users.models import Employee, Base
 
+
+current_time = datetime.now().strftime("%d/%m/%Y")
 
 CLASSIFICATION = (("Verde", "Verde"), ("Amarelo", "Amarelo"),
                   ("Vermelho", "Vermelho"), ("Azul", "Azul"),)
@@ -18,7 +19,7 @@ IMC = (("Magreza grave", "Magreza grave"),
 
 class BodyMassIndex(Base):
     identifier = models.ForeignKey(Employee, unique=False,
-                                    related_name="employee",
+                                    related_name="employee_imc",
                                     on_delete=models.CASCADE)
     weighing_date = models.DateTimeField("Data Pesagem", default=datetime.now,
                                          editable=False)
@@ -79,4 +80,30 @@ class BodyMassIndex(Base):
         elif self.systolic_blood_pressure >= 160 and self.diastolic_blood_pressure >= 100:
             self.classification = "Vermelho"
         return super().save(*args, **kwargs) 
-    
+
+
+class PeriodicExam(Base):
+    employee = models.ForeignKey(Employee, unique=False,
+                                    related_name="employee_exam",
+                                    on_delete=models.CASCADE)
+    exame =  models.CharField("Exame", max_length=150)
+    initial_date = models.DateTimeField("Data início", null=True, blank=True)
+    final_date =  models.DateTimeField("Data fim", null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Exame Periódico"
+        verbose_name_plural = "Exames Periódicos"
+
+    def save(self, *args, **kwargs):
+        year = current_time.split('/')[-1]
+        if (int(year) % 4==0 and int(year) % 100!=0) or (int(year) % 400==0):
+            self.final_date = self.initial_date + timedelta(days=366)
+            print("Ano Bissexto")
+        else:
+            self.final_date = self.initial_date + timedelta(days=365)
+            print(f"data final do registro : {self.final_date}")
+            print("Ano não bissexto")
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f" {self.employee.name} Exame: {self.exame}" 

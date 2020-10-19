@@ -38,6 +38,7 @@
   $("#cnpj").mask("99.999.999/9999-99");
   $('#cep').mask('00.000-000')
   $('#phone').mask('(00) 0000-00009');
+  $('#weighing_date').mask('')
   $('#phone').blur(function(event) {
     if($(this).val().length > 14) { // Celular com 9 dígitos + 2 dígitos DDD
         $('#phone').mask('(00) 0.0000-0009');

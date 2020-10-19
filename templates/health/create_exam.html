@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Exame périodo{% endblock %}
+{% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+<div class="offset-md-1 col-md-10">
+    <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Registro de Exame Periódico</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form id="form-exam" action="{% url 'health:create_exam' %}" method="POST" role="form">
+          {% csrf_token %}
+          <div class="card-body">
+            <div class="form-group">
+              <div class="row">
+              <div class="col-md-12">
+                <label>Funcionário : </label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="employee" placeholder="Digite o nome do funcionário">
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                <label>Exame : </label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-heartbeat"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="exame" placeholder="Digite o nome do exame">
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                <label>Data inicio do exame : </label>
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
+                    </div>
+                    <input type="date"  name="initial_date" class="form-control" placeholder="DD/MM/YYYY" autocomplete="off">
+                  </div>
+              </div>
+
+            </div>
+            </div>
+           
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+              <button type="submit" class="btn btn-primary float-right">Registrar novo exame</button>
+              <a href="{% url 'health:periodic_exam' %}" class="btn btn-warning float-right pr-5 pl-5 mr-2 float-right">Voltar</a>
+          </div>
+        </form>
+      </div>
+</div> <!-- /. col-md-10 -->
+{% endblock %}

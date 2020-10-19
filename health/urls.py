@@ -8,6 +8,9 @@ app_name = "health"
 
 
 urlpatterns = [
-    path('health/', views.IndexHealth.as_view(), name="health"),
+    path('health/', views.PeriodicExamView.as_view(), name="periodic_exam"),
+    path('health/index_mass/', views.IndexHealth.as_view(), name="health"),
+    path('health/create_exam/', views.create_period_exam, name="create_exam"),
+    path('health/delete_exam/', views.delete_period_exam, name="delete_exam")
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
