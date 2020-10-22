@@ -11,6 +11,11 @@ urlpatterns = [
     path('health/', views.PeriodicExamView.as_view(), name="periodic_exam"),
     path('health/index_mass/', views.IndexHealth.as_view(), name="health"),
     path('health/create_exam/', views.create_period_exam, name="create_exam"),
-    path('health/delete_exam/', views.delete_period_exam, name="delete_exam")
+    path('health/delete_period_exam/<int:id>/',
+    views.delete_period_exam, name="delete_exam"),
+    path('health/health_calculus/', views.health_calculus,
+    name="health_calculus"),
+    path('health/search_employee/', views.search_employee,
+    name="search_employee")
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

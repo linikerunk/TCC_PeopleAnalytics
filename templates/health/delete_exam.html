@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Delete periódo{% endblock %}
+{% block conteudo %}
+
+<div class="offset-md-1 col-md-10">
+    <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Delete Exame Periódico</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form id="form-exam" action="{% url 'health:delete_exam' exam.id %}" method="POST" role="form">
+          {% csrf_token %}
+          <div class="card-body">
+            <div class="form-group">
+            <div class="row">
+            <div class="col-md-6">
+            <p class="h4">Deletar Exame : <b>{{ exam.exame|title  }}</b></p>
+            </div>    
+            <div class="col-md-12">
+            <p class="h4">Funcionário : <b>{{ exam.employee.name|title  }}</b></p>
+            </div>
+            </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+              <button type="submit" class="btn btn-primary float-right">Deletar Exame</button>
+              <a href="{% url 'health:periodic_exam' %}" class="btn btn-warning float-right pr-5 pl-5 mr-2 float-right">Voltar</a>
+          </div>
+        </form>
+      </div>
+</div> <!-- /. col-md-10 -->
+{% endblock %}

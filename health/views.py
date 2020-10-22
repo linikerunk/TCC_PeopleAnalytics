@@ -12,6 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from utils.decorators import first_register
+from  users.models import Employee
 from .models import PeriodicExam, BodyMassIndex
 from .forms import PeriodicExamForm, BodyMassIndexForm
 
@@ -30,7 +31,8 @@ class PeriodicExamView(ListView):
         context = super(PeriodicExamView, self).get_context_data(**kwargs)
         context['exams'] = PeriodicExam.objects.all()
         return context
-
+    
+    
 
 @method_decorator(login_required, name='dispatch')
 class IndexHealth(TemplateView):
@@ -60,10 +62,41 @@ def create_period_exam(request):
 
 @login_required
 def delete_period_exam(request, id):
-    perido_exam = get_object_or_404(PeriodicExam, pk=id)
-    if request.method == "DELETE":
-        perido_exam.delete()
-        # context['msg'] = "Periodo excluído com sucesso."
-        messages.success(request, "Dado removido com sucesso!")
+    exam = get_object_or_404(PeriodicExam, id=id)
+    if request.method == "POST":
+        exam.delete()
+        messages.success(request, f"{exam.exame}, removido com sucesso!")
+        return redirect('health:periodic_exam')
     else:
-        return render(request, 'health/create_exam.html', {})
+        return render(request, 'health/delete_exam.html', {'exam': exam})
+
+
+@login_required
+def health_calculus(request):
+    form = BodyMassIndexForm(request.POST or None, request.FILES or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                        "Cálculo do funcionário realizado com sucesso!")
+            return redirect('health:health')
+        print("Error form : ", form.errors)
+    exams = PeriodicExam.objects.all()
+    return render(request, 'health/periodic_exam.html', {'form': form, 
+                                                         'exams': exams})
+
+
+@login_required
+def search_employee(request):
+    # Your code
+    if request.method == 'GET': # If the form is submitted
+        search_query = request.GET.get('employee', None)
+        body_mass = BodyMassIndex.objects.filter(identifier=search_query).last()
+        if not body_mass:
+            messages.error(request, "Funcionário não encontrado.")
+            return render(request, 'health/indice_mass.html', {})
+        messages.success(request, f"Funcionário {body_mass} encontrado com sucesso.")
+        context = {'body_mass' : body_mass}
+        return render(request, 'health/indice_mass.html', context)
+    context = {'body_mass' : body_mass}
+    return render(request, 'health/indice_mass.html', context)

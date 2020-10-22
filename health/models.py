@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, time 
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.utils.timezone import now
+from django.utils import timezone
 from users.models import Employee, Base
 
 
@@ -21,7 +21,7 @@ class BodyMassIndex(Base):
     identifier = models.ForeignKey(Employee, unique=False,
                                     related_name="employee_imc",
                                     on_delete=models.CASCADE)
-    weighing_date = models.DateTimeField("Data Pesagem", default=datetime.now,
+    weighing_date = models.DateTimeField("Data Pesagem", default=timezone.now,
                                          editable=False)
     weight = models.DecimalField("Peso", max_digits=5, decimal_places=2)
     height = models.DecimalField("Altura", max_digits=5, decimal_places=2)

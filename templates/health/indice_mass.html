@@ -2,6 +2,8 @@
 {% load static %}
 {% block titulo %}Saúde{% endblock %}
 {% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
 <!-- Need to change the nav bar -->
 <div class="row">
 
@@ -10,6 +12,8 @@
             <div class="card-header">
               <h3 class="card-title">Fazer Calcúlo de Saúde</h3>
             </div>
+<form action="{% url 'health:health_calculus' %}" method="POST">
+  {% csrf_token %}
             <div class="card-body">
               
               <div class="form-group">
@@ -34,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-weight"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="weighing_date" id="weighing_date" 
+                  <input type="number" class="form-control" name="height" min="0" max="500" 
                    placeholder="Digite o peso do funcionário">
                 </div>
                 <!-- /.input group -->
@@ -48,7 +52,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="weight" id="weight"
+                  <input type="number" class="form-control" name="weight" id="weight" min="0" max="300"
                   placeholder="Digite a altura do funcionário">
                 </div>
                 <!-- /.input group -->
@@ -64,7 +68,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-stethoscope"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="height" id="height"
+                  <input type="text" class="form-control" name="systolic_blood_pressure" min="100" max="300"
                    placeholder="Digite a pressão arterial sistólica">
                 </div>
                 <!-- /.input group -->
@@ -78,7 +82,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-stethoscope"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="abdominal_circumference"
+                  <input type="text" class="form-control" name="diastolic_blood_pressure" min="100" max="300"
                    id="abdominal_circumference" placeholder="Digite a pressão arterial diastólica" >
                 </div>
                 <!-- /.input group -->
@@ -94,7 +98,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-tape"></i></span>
                 </div>
-                <input type="text" class="form-control" name="systolic_blood_pressure"
+                <input type="text" class="form-control" name="abdominal_circumference" min="100" max="300"
                 placeholder="Digite a Circunferência Abdominal do Funcionário..">
               </div>
               <!-- /.input group -->
@@ -103,50 +107,69 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <a class="btn btn-primary float-right pl-5 pr-5" href="http://">Enviar</a>
+              <button class="btn btn-primary float-right pl-5 pr-5" type="submit">Enviar</button>
               <span class="pl-1 pr-1 float-right">&nbsp;</span>
               <button class="btn btn-warning float-right pl-5 pr-5" type="reset">Limpar</button>
             </div>
+</form>
           </div>
 
     </div>
 
     <div class="col-md-6">
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">Vizualização de Saúde Funcionário</h3>
-       </div>
-        <div class="card-body pt-0">
-          <div class="row">
+      <div class="card card-primary">
+          <div class="card-header">
+              <h3 class="card-title">Vizualização de Saúde Funcionário</h3>
+         </div>
+          <div class="card-body pt-0">
+            <form action="{% url 'health:search_employee' %}" method="GET">
+            <div class="row">
+              <div class="form-group col-md-8">
+                <label class="mt-2">Pesquisar Funcionário Saúde :</label>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="employee" placeholder="Digite o indentificador do funcionário..">
+                </div>
+                <!-- /.input group -->
+              </div>
+
+              <div class="col-md-4 pt-3">
+                <button type="submit" class="btn btn-success mt-4 pr-3 pl-3">Pesquisar</button>
+              </div>
+            </form>
+
             <div class="col-7">
-              <h2 class="lead mt-5"><b>Nome do Funcionário</b></h2>
-              <p class="text-muted text-sm"><b>Bio: </b>{{ user.bio }}Therut arrassing hidden in the middle of text. All the Loend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence strtic words etc.</p>
-              <p class="text-muted text-sm"><b>Saúde : </b> Risco Baixo/ Saudável </p>
-              <p class="text-muted text-sm"><b>IMC : </b> 17,5 </p>
+              <p class="text-muted text-sm"><b id="name_employee"><b>Nome: </b>{{ body_mass }}</b></p>
+              <p class="text-muted text-sm"><b>Bio: </b> <span id="bio_employee">{{ body_mass.identifier.bio }}</span></p>
+              <p class="text-muted"><b>Saúde : </b> <span id="health_employee"> {{ body_mass.classification_text }} </span></p>
+              <p class="text-muted"><b>IMC : </b> <span id="index_mass_employee"> {{ body_mass.imc }} </span></p>
               <ul class="ml-4 mb-0 fa-ul text-muted">
-                <li class="small "><span class="fa-li "><i class="fas fa-lg fa-building"></i></span>
-                    <p class="mt-4 "> Endereço: Demo Street 123, Demo City 04312, NJ </p></li>
-                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>
-                    <p class="mt-2"> Telefone #: + 800 - 12 12 23 52 </p></li>
+                <li><span class="fa-li "><i class="fas fa-lg fa-building"></i></span>
+                    <p> Endereço : <span id="address_employee">{{ body_mass.identifier.andress }}, {{ body_mass.identifier.andress_number }}</span> </p></li>
+                <li><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>
+                    <p> Telefone :  <span id="phone_employee">{{ body_mass.identifier.phone }}</span> </p></li>
               </ul>
+                  </div>
+                  <div class="col-5 text-center pt-5">
+                    <img src="{{ body_mass.identifier.photo.url }}" class="img-circle img-fluid">
+                  </div>
             </div>
-            <div class="col-5 text-center">
-              <img src="{% static 'img/users/user.jpg' %}" alt="" class="img-circle img-fluid mt-5 pt-2">
+          </div>
+          <div class="card-footer">
+            <div class="text-right ">
+              <a href="#" class="btn btn-sm bg-teal">
+                <i class="fas fa-comments"></i>
+              </a>
+              <a href="{% url 'users:user_update' body_mass.identifier.pk %}" class="btn btn-sm btn-primary">
+                <i class="fas fa-user"></i> Ver Detalhes do Funcionário
+              </a>
             </div>
           </div>
         </div>
-        <div class="card-footer">
-          <div class="text-right ">
-            <a href="#" class="btn btn-sm bg-teal">
-              <i class="fas fa-comments"></i>
-            </a>
-            <a href="#" class="btn btn-sm btn-primary">
-              <i class="fas fa-user"></i> Ver Detalhes do Funcionário
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 
 </div>
 
