@@ -1,0 +1,14 @@
+/** Files Styled reference the navBar **/
+#nav-main {
+    background-color: #8257E5;
+    color: #FFFFF9;
+}
+
+#nav-main > ul > li > a{
+    color: #FFFFF9;
+}
+
+.power-outline{
+    text-decoration: none;
+    font-size: 20px;
+}

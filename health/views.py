@@ -79,7 +79,14 @@ def health_calculus(request):
             form.save()
             messages.success(request,
                         "Cálculo do funcionário realizado com sucesso!")
-            return redirect('health:health')
+            try:
+                body_mass = BodyMassIndex.objects.filter(
+                                    identifier=search_query).last()
+                return render(request, 'health/periodic_exam.html', {'form': form, 
+                                                         'body_mass': body_mass})
+            except Exception as e :
+                print("Funcionário inexistente")
+            return render(request, 'health/periodic_exam.html', {'form': form})
         print("Error form : ", form.errors)
     exams = PeriodicExam.objects.all()
     return render(request, 'health/periodic_exam.html', {'form': form, 

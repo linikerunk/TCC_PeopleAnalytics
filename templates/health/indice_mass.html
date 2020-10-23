@@ -38,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-weight"></i></span>
                   </div>
-                  <input type="number" class="form-control" name="height" min="0" max="500" 
+                  <input type="text" class="form-control" name="weight" id="weight" 
                    placeholder="Digite o peso do funcionário">
                 </div>
                 <!-- /.input group -->
@@ -52,7 +52,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
                   </div>
-                  <input type="number" class="form-control" name="weight" id="weight" min="0" max="300"
+                  <input type="text" class="form-control" name="height" id="height" 
                   placeholder="Digite a altura do funcionário">
                 </div>
                 <!-- /.input group -->
@@ -163,7 +163,7 @@
               <a href="#" class="btn btn-sm bg-teal">
                 <i class="fas fa-comments"></i>
               </a>
-              <a href="{% url 'users:user_update' body_mass.identifier.pk %}" class="btn btn-sm btn-primary">
+              <a href="{% url 'users:user_update' 14 %}" class="btn btn-sm btn-primary">
                 <i class="fas fa-user"></i> Ver Detalhes do Funcionário
               </a>
             </div>

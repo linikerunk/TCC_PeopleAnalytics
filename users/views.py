@@ -108,6 +108,9 @@ class EmployeeUpdateView(UpdateView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super().get(request, *args, **kwargs)
+    
+    def get_object(self):
+        return Employee.objects.get(pk=self.request.GET.get('pk'))
 
 
 
