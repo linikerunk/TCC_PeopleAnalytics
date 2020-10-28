@@ -14,13 +14,13 @@
 <script src="{% static 'js/jquery.mask.js' %}"></script>
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
-
+ 
  <script>
      // Display off the message that show on screen...
      var message_ele = document.getElementById("message_container");
-      
-      setTimeout(function () {
-        message_ele.style.display = "none";
+     
+     setTimeout(function () {
+         message_ele.style.display = "none";
       }, 7000);
  </script>
  
@@ -58,6 +58,7 @@
   // CEP ***************************************************//
   $(document).ready(function(){
     $('#cep').focusout(function(){
+        console.log("Estou na função de CEP")
         var cep = $("#cep").val();
         cep = cep.replace(".", "")
         console.log("CEP 2 : ", cep)

@@ -4,9 +4,10 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django.forms.models import inlineformset_factory
 from django.forms.widgets import TextInput
-from extra_views import ModelFormSetView, FormSetView
-from .models import EvaluationSkill, Skill
+# from extra_views import ModelFormSetView, FormSetView
+from .models import EvaluationSkill, Skill, Evaluation
 
 
 class SkillForm(forms.ModelForm):
@@ -16,7 +17,20 @@ class SkillForm(forms.ModelForm):
         fields = '__all__'
 
 
-class EvaluationSkillForm(ModelFormSetView):
-    model = EvaluationSkill
-    fields = ['evaluation', 'skill', 'grade']
-    template_name = 'performance/evaluation.html'
+class EvaluationForm(forms.ModelForm):
+    
+    class Meta:
+        model = Evaluation
+        exclude = ()
+
+
+class EvaluationSkillForm(forms.ModelForm):
+
+    class Meta:
+        model = EvaluationSkill
+        exclude = ()
+
+EvaluationSkillFormSet = inlineformset_factory(
+    Evaluation, EvaluationSkill, form=EvaluationSkillForm,
+    fields=['evaluation', 'skill', 'grade'], extra=1, can_delete=True
+    )

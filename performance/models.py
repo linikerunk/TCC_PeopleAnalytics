@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.urls import reverse
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.core import validators
 from model_utils.models import TimeStampedModel
@@ -82,6 +84,12 @@ class EvaluationSkill(models.Model):
         verbose_name_plural = 'Habilidades'
         ordering = ['-skill__name']
         unique_together = ['evaluation', 'skill']
+
+    def get_admin_url(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return reverse("admin:%s_%s_change" % (content_type.app_label,
+                                     content_type.model), args=(self.id,))
+
 
     def __str__(self):
         return f'{self.evaluation} | Habildade: {self.skill}, Nota: {self.grade}'

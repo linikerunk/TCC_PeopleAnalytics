@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import AbsenteeismRate
 
-# Register your models here.
+
+@admin.register(AbsenteeismRate)
+class AbsenteeismRateAdmin(admin.ModelAdmin):
+    list_display = ['id', 'employee', 'days_month', 'absenteeism_days', 
+                    'absenteeism', 'date_register']

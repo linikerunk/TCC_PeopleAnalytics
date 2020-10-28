@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block titulo %}Gestão de Hora{% endblock %}
 {% block conteudo %}
-
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
 <div class="col-md-12">
     <div class="card">
       <div class="card-header p-2">
@@ -24,7 +26,8 @@ justificadas ou não, atrasos e licenças médicas. Ele pode ser avaliado
 semanal, quinzenal ou mensalmente, de acordo com as necessidade
 do negócio.
             </p>
-
+            <form action="{% url 'hour:absenteeism_rate' %}" method="POST">
+              {% csrf_token %}
             <div class="row">
               <div class="input-group mb-3 col-md-3">
                 <div class="input-group-prepend">
@@ -38,7 +41,7 @@ do negócio.
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
                 </div>
-                <input type="text" name="number_day" class="form-control"
+                <input type="text" name="absenteeism_days" class="form-control"
               value="" placeholder="Número de dias que o profissional ficou ausente">
               </div>
 
@@ -46,16 +49,20 @@ do negócio.
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                 </div>
-                <input type="text" name="working_days" class="form-control"
+                <input type="text" name="days_month" class="form-control"
               value="" placeholder="Total de dias úteis no período">
               </div>
 
             <div class="input-group mb-3 col-md-3">
-              <a type="button" href="#" class="btn btn-block btn-primary">Calcular taxa de Absenteísmo</a>
+              <button type="submit" class="btn btn-block btn-primary">Calcular taxa de Absenteísmo</button>
             </div>
+          </form>
           </div>
           <hr>
-          <h2 id="absenteismo">Absenteísmo  : </h2>
+          {% if messages %}
+          <span id="absenteismo">Absenteísmo  : </span><p>O Funcionário {{ employee }} está com uma taxa de absenteísmo de {{ form.absenteeism }} %</p>
+          {% else %}
+          {% endif %}
             
           </div>
           <!-- /.tab-pane -->

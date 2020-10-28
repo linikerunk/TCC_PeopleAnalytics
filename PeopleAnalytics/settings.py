@@ -53,8 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'import_export',
-    'extra_views',
     'stdimage',
+    'crispy_forms',
     'users.apps.UsersConfig',
     'performance.apps.PerformanceConfig',
     'health.apps.HealthConfig',
@@ -186,3 +186,5 @@ MESSAGE_TAGS = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

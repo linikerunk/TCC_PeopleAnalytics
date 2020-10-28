@@ -16,6 +16,7 @@ urlpatterns = [
     path('health/health_calculus/', views.health_calculus,
     name="health_calculus"),
     path('health/search_employee/', views.search_employee,
-    name="search_employee")
+    name="search_employee"),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

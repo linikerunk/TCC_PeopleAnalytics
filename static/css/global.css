@@ -3,6 +3,7 @@
 @import "footer.css"; 
 @import "register.css"; 
 @import "performance.css"; 
+@import "hour.css"; 
 
 * {
     margin: 0;

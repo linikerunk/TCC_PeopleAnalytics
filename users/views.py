@@ -109,10 +109,6 @@ class EmployeeUpdateView(UpdateView):
         self.object = self.get_object()
         return super().get(request, *args, **kwargs)
     
-    def get_object(self):
-        return Employee.objects.get(pk=self.request.GET.get('pk'))
-
-
 
 @method_decorator(login_required, name='dispatch')
 class EmployeeDeleteView(DeleteView):

@@ -13,7 +13,7 @@ DEFAULT = '0000.jpg'
 GENDER_CHOICES = (
         ('Feminino', 'Feminino'),
         ('Masculino', 'Masculino'),
-        ('Outros', 'Outros'),)
+        ('N/A', 'N/A'),)
 current_date = datetime.now()
 
 
