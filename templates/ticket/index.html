@@ -1,51 +1,80 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block titulo %}Tickets{% endblock %}
 {% block conteudo %}
+
+<div class="col-md-12">
+  <div class="card">
+    <h5 class="card-header">O quê está acontecendo {{ request.user.first_name|title }} mande uma mensagem e nós iremos lhe ajudar.</h5>
+  
+    <div class="card-body">
+      <div class="row">
+      <div class="col-md-6">
+        <img src="{% static 'img/wallpapers/psicologo.jpg' %}" alt="psicologo" width='300' height='300'>
+      </div>
+      <div class="col-md-6">
+        <p class="lead mt-1">
+          Olá {{ request.user.first_name|title }}, esse módulo foi pensado para seu conforto, queremos saber onde doi, 
+          essa época de <code>COVID-19</code> não está sendo fácil para ninguém, por isso o <span style="color: #8056e2;"> EngineeRH </span>se preocupa muito com seu desempenho.
+        </p>
+        <hr>
+        <p style="font-size: 15px;"> Para que serve o módulo de Chamados?</p>
+        <ul>
+          <li style="font-size: 15px;">✔ Aqui você pode falar algum problema pessoal, consultar um dos nossos psicólogos.</li>
+          <li style="font-size: 15px;">✔ Tirar dúvidas referentes ao seu dia a dia na empresa.</li>
+          <li style="font-size: 15px;">✔ Solicitar por cursos, com base no seu ranking de especialidade.</li>
+          <li style="font-size: 15px;">✔ E para diversas outras funcionalidades</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div> <!-- col-md-12 ..-->
+  {% include 'parciais/errors.html' %}
+  {% include 'parciais/_messages.html' %}
 <div class="row">
     <div class="col-md-12">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Realize seu chamado aqui.</h3>
+              <h3 class="card-title">Envie um Ticket para o RH aqui.</h3>
             </div>
             <!-- /.card-header -->
+            <form action="{% url 'ticket:send_ticket' %}" method="POST">
+              {% csrf_token %}
               <div class="card-body">
                 <div class="row">
                 <div class="form-group col-md-6">
                   <label>Categoria : </label>
-                  <select class="form-control" placeholder="Digite uma categoria aqui.">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                  <select class="form-control" name="category" id="category">
+                    <option value="">Selecione uma Categoria</option>
+                    {% for category in category %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
                   </select>
                 </div>
-                <div class="form-group col-md-6">
-                  <label>Sub Categoria : </label>
-                  <select class="form-control" placeholder="Digite uma sub categoria aqui.">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                <div class="form-group col-md-6 mb-0">
+                  <label> Sub-categoria : </label>
+                  <select name="subcategory" class="select form-control form-control" id="subcategory">
+                    <option value="" selected>----------</option>
                   </select>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="exampleInputPassword1">Descrição : </label>
-                    <textarea class="form-control" rows="3" placeholder="Informe um telefone e/ou e-mail para retorno do chamado..." 
+                    <textarea class="form-control" rows="4" name="text" placeholder="Informe um telefone e/ou e-mail para retorno do chamado..." 
                     style="margin-top: 0px; margin-bottom: 0px; height: 63px; resize: none"></textarea>
                 </div>
 
                 <div class="col-md-12">
-                    <div id="div_id_upload_arquivo" class="form-group">
+                    <div id="id_upload_arquivo" class="form-group">
         
                         <label for="id_upload_arquivo" class="">
                             Anexar Arquivo : 
                         </label>
                             <div class="">
-                                <input type="file" name="upload_arquivo"
-                                multiple="" class="clearablefileinput form-control-file" id="id_upload_arquivo">
+                                <input type="file" name="file_upload"
+                                multiple="" class="clearablefileinput form-control-file" id="upload_arquivo">
                             </div>
                             </div>
                 </div>
@@ -53,10 +82,11 @@
               </div><!-- /.card-body -->
 
               <div class="card-footer">
-                <a href="#" class="btn btn-success float-right pr-5 pl-5"> Enviar</a>
+                <button type="submit" class="btn btn-success float-right pr-5 pl-5"> Enviar</button>
                 <span class="p-2 float-right"></span>
-                <a href="#" class="btn btn-warning float-right pr-5 pl-5"> Voltar</a> 
-                </div>
+                <a href="{% url 'dashboard:dashboard' %}" class="btn btn-warning float-right pr-5 pl-5"> Voltar</a> 
+              </div>
+            </form>
         
           </div>
     </div>

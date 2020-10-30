@@ -3,6 +3,38 @@
 {% block titulo %}Desempenho{% endblock %}
 {% block conteudo %}
 
+<div class="col-md-12">
+  <div class="card">
+    <h5 class="card-header">Adicionar uma nova habilidade para ser avaliada</h5>
+  
+    <div class="card-body">
+    <p>
+      Olá {{ request.user.first_name|title }}, aqui você poderá adicionar novas habilidades.
+    </p>
+    <div class="col-md-12 mt-0">
+    <a type="button" href="{% url 'performance:create_ability' %}" class="btn btn-block"
+     id="generate_form_performance"> Adicionar uma nova habilidade</a>
+    </div>
+  </div>
+  </div>
+  </div> <!-- col-md-12 ..-->
+
+<div class="col-md-12">
+<div class="card">
+  <h5 class="card-header">Criar um novo formulário de performance</h5>
+
+  <div class="card-body">
+  <p>
+    Olá {{ request.user.first_name|title }}, aqui você poderá fazer a avaliação de um funcionário.
+  </p>
+  <div class="col-md-12 mt-0">
+  <a type="button" href="http://127.0.0.1:8000/painel/performance/evaluation/add/" class="btn btn-block"
+   id="generate_form_performance"> Fazer a avaliação de um funcionário</a>
+  </div>
+</div>
+</div>
+</div> <!-- col-md-12 ..-->
+
 <div class="row">
   <div class="col-md-3 col-sm-6 col-12">
     <div class="info-box">
@@ -57,40 +89,6 @@
   </div>
   <!-- /.col -->
 </div>
-
-
-<div class="col-md-12">
-  <div class="card">
-    <h5 class="card-header">Adicionar uma nova habilidade para ser avaliada</h5>
-  
-    <div class="card-body">
-    <p>
-      Olá {{ request.user.first_name|title }}, aqui você poderá adicionar novas habilidades.
-    </p>
-    <div class="col-md-12 mt-0">
-    <a type="button" href="{% url 'performance:create_ability' %}" class="btn btn-block"
-     id="generate_form_performance"> Adicionar uma nova habilidade</a>
-    </div>
-  </div>
-  </div>
-  </div> <!-- col-md-12 ..-->
-
-<div class="col-md-12">
-<div class="card">
-  <h5 class="card-header">Criar um novo formulário de performance</h5>
-
-  <div class="card-body">
-  <p>
-    Olá {{ request.user.first_name|title }}, aqui você poderá fazer a avaliação de um funcionário.
-  </p>
-  <div class="col-md-12 mt-0">
-  <a type="button" href="http://127.0.0.1:8000/painel/performance/evaluation/add/" class="btn btn-block"
-   id="generate_form_performance"> Fazer a avaliação de um funcionário</a>
-  </div>
-</div>
-</div>
-</div> <!-- col-md-12 ..-->
-
 
 <div class="card">
   <div class="card-header">

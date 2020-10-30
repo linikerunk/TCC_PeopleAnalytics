@@ -14,6 +14,10 @@
 <script src="{% static 'js/jquery.mask.js' %}"></script>
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
+ <script>
+    caminho_imagem = 'http://assets.api.hgbrasil.com/weather/images/' + '{{ today.img_id }}' + '.png'
+    document.getElementById('imageBox').src = caminho_imagem
+  </script> 
  
  <script>
      // Display off the message that show on screen...
@@ -97,3 +101,32 @@
     // datepicker 
     $('.datepicker').datepicker();
  </script>
+
+<script>
+jQuery("#category").change(function () {
+    console.log("Estou aqui")
+    let category = jQuery(this).children("option:selected").val();
+    let url = "/reload_subcategory/" + category + "/";
+
+    jQuery.ajax({                      
+      url: url,                    
+      type: 'GET',
+      data: {
+        'category': category  
+      },
+      success: function (response) {
+        jQuery('#subcategory').empty();
+        let object = JSON.parse(response.data)
+        object.forEach( function (data)  {
+          console.log("Criando subcategoria")
+            $('<option/>', {
+              'value': data.pk,
+              'text': data.fields.name,
+            }).appendTo("#subcategory")
+        });   
+        
+      }
+    });
+
+  });
+</script>

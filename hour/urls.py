@@ -9,7 +9,11 @@ app_name = "hour"
 
 urlpatterns = [
     path('hour_management/', views.IndexHour.as_view(), name="hour"),
-    path('health/absenteeism_rate/', views.absenteeism_rate, 
-    name="absenteeism_rate")
+    path('hour_management/absenteeism_rate/', views.absenteeism_rate, 
+    name="absenteeism_rate"),
+    path('hour_management/absenteeism_list/', views.absenteeism_list,
+    name="absenteeism_list"),
+    path('hour_management/fouls_forecast/', views.fouls_forecast,
+    name="fouls_forecast")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

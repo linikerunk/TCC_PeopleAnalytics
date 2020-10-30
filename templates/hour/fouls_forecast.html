@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Gestão de Hora{% endblock %}
+{% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header p-2">
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a class="nav-link" href="#absenteismo" data-toggle="tab">Absenteísmo</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#previ-falta" data-toggle="tab">Previsão Faltas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#horas-adicionais" data-toggle="tab">Horas Adicionais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#previ-horas-adicionais" data-toggle="tab">Previsão Horas Adicionais</a></li>
+        </ul>
+      </div><!-- /.card-header -->
+      <div class="card-body">
+        <div class="tab-content">
+          <div class="tab-pane" id="absenteismo">
+            <!-- Treinamento -->
+            <div class="row">
+            <div class="col-md-6">
+            <h2 id="taxa_absenteismo"> Taxa de absenteísmo </h2>
+            </div>
+            <div class="col-md-6">
+              <a href="{% url 'hour:absenteeism_list' %}" class="btn btn-success w-100">Verificar taxa de Absenteísmo</a>
+              </div>
+            </div>
+            <hr>
+            <p>
+              O índice mede as ausências dos funcionários a partir de suas faltas
+justificadas ou não, atrasos e licenças médicas. Ele pode ser avaliado
+semanal, quinzenal ou mensalmente, de acordo com as necessidade
+do negócio.
+            </p>
+            <form action="{% url 'hour:absenteeism_rate' %}" method="POST">
+              {% csrf_token %}
+            <div class="row">
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                </div>
+                <input type="text" name="employee" class="form-control"
+                value="" placeholder="Número do registro do funcionários">
+              </div>
+
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                </div>
+                <input type="number" name="absenteeism_days" class="form-control"
+              value="" placeholder="Número de dias que o profissional ficou ausente">
+              </div>
+
+              <div class="input-group mb-3 col-md-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                </div>
+                <input type="number" name="days_month" class="form-control"
+              value="" placeholder="Total de dias úteis no período">
+              </div>
+
+            <div class="input-group mb-3 col-md-3">
+              <button type="submit" class="btn btn-block btn-primary">Calcular taxa de Absenteísmo</button>
+            </div>
+          </form>
+          </div>
+          <hr>
+          {% if messages %}
+          <span id="absenteismo">Absenteísmo  : </span><p>O Colaborador  <span style="color: #8257E5;">{{ employee }}</span> está com uma taxa de absenteísmo de <span style="color: #8257E5;">{{ absenteeism.absenteeism }} %</span></p>
+          {% else %}
+          {% endif %}
+            
+          </div>
+          <!-- /.tab-pane -->
+<div class="active tab-pane" id="previ-falta">
+              <form action="{% url 'hour:fouls_forecast' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-md-6">
+                  <label>Digite a cidade para o analise : </label>
+                  <input type="text" class="form-control" name="city" placeholder="Digite a cidade">
+                </div>
+                <div class="col-md-3 mt-4 pt-2">
+                  <button type="submit" class="btn btn-success pr-5 pl-5 w-100">Enviar</button>
+                </div>
+              </form>
+              </div> <!-- ./row -->
+            
+              <div class="row mt-5">
+              
+                <div class="col-md-4">
+                  <div class="card">
+                    <p id="short_discription_card_weather">TEMPO AGORA EM</p>
+                    <h4 id="title_card_weather" class="mb-1 mt-0">{{ today.city }}</h4>
+                    <div id="current_vision_weather">
+                      <img src="{% static 'icons/moon.png' %}" alt="moon" style="margin-left: 30px;" width="80" height="80">
+                    <div id="info_weather">
+                    <h1 id="temp_info">{{ today.temp }}ºC 🌡️</h1><span id="info_about_weather">{{ today.description }}</span>
+                    </div>
+                  </div> <!-- ./current_vision_weather-->
+                  <div id="about_weather_type">
+                    <ul>
+                      <li>Humidade <span style="padding: 15px;">{{ today.humidity }}%</span></li>
+                        <li>Vento &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ today.wind_speedy }}</li>
+                        <li>Nascer do Sol {{ today.sunset }}</li>
+                        <li>Tempo {{ today.currently|title }}</li>
+                    </ul>
+                  </div>
+                  </div> <!-- ./card-->
+                </div>
+                
+                <div class="col-md-8">
+                {% for next_days in next_two_days %}
+                <div class="col-md-6">
+                  <div class="card" id="cards_next_days">
+                    <img src="{% static 'icons/moon.png' %}" alt="moon" style="margin-left: 10px;" width="70" height="70">
+                    <div class="info">
+                      <p class="title_next_day"> {{ next_days.weekday }}</p>
+                      <p> Mínima : {{ next_days.min }} º  Máximo : {{ next_days.max }} º</p>
+                      <p> {{ next_days.description }} </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+                
+
+
+                <div class="col-md-12">
+                  <table class="table table-bordered table-hover p-5">
+        
+                    <thead>
+                    <tr role="row">
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 15%;">Nome do Colaborador</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 3%;">Cargo</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 7%;">Locomoção</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 3%;">Absenteísmo</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 10%;">Probabilidade de falta</th>
+                    </thead>
+                
+                    <tbody>
+                      
+                    <tr role="row">
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                    </tr> 
+
+                    <tr role="row">
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                    </tr> 
+
+                    <tr role="row">
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                    </tr> 
+
+                    <tr role="row">
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                      <td class="pt-3">x</td>
+                    </tr> 
+                  
+                    </tbody>
+            
+                    <tfoot>
+                    </tfoot>
+                  </table>
+
+                </div>
+
+              </div>
+
+                <!-- <a class="weatherwidget-io" href="https://forecast7.com/pt/n23d20n47d29/salto/" data-label_1="SALTO" data-label_2="WEATHER" data-theme="clear" data-lowcolor="#ae96f7" data-raincolor="#ae96f7" >SALTO WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script> -->
+</div>
+<!-- /.tab-pane -->
+
+          <div class="tab-pane" id="horas-adicionais">
+            <p> Horas Adicionais </p>
+          </div>
+          <!-- /.tab-pane -->
+
+
+          <div class="tab-pane" id="previ-horas-adicionais">
+            <p> Previsão Horas Adicionais </p>
+          </div>
+
+        </div>
+        <!-- /.tab-content -->
+      </div><!-- /.card-body -->
+    </div>
+    <!-- /.nav-tabs-custom -->
+  </div>
+
+{% endblock %}

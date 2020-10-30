@@ -20,7 +20,5 @@ class AbsenteeismRate(models.Model):
         self.absenteeism =  (((self.absenteeism_days / self.days_month) * 100) / 100) * 100
         super(AbsenteeismRate, self).save(*args, **kwargs) 
 
-
-
     def __str__(self):
         return f'{self.employee} nível de falta : {self.absenteeism}'

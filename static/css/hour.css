@@ -1,5 +1,109 @@
 
-span#absenteismo{
+span #absenteismo{
     font-size: 25px;
     color: #8257E5;
+}
+
+#current_vision_weather{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: stretch;
+    background-color: #FFFFFF;
+}
+
+#short_discription_card_weather {
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: #707070;
+}
+
+h4#title_card_weather{
+    padding-left: 15px;
+    font-weight: bolder;
+    color: #8257E5;
+    padding-bottom: 30px;
+}
+
+#temp_info {
+    font-size: 35px;
+    font-weight: bolder;
+    color: #707070;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#info_about_weather{
+    font-size: 20px;
+    font-weight: 600;
+    color: #707070
+}
+
+#info_weather{
+    display: flex;
+    justify-items: normal;
+    padding: 1px 10px 0px 60px;
+    flex-direction: column; 
+}
+
+#about_weather_type > ul {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#about_weather_type > ul > li{
+    margin-top: 10px;
+    padding: 1px 10px 13px 1px;
+}
+
+#next_vision_weather {
+    display: flex;
+    flex: 1;
+    background-color: #fff;
+}
+
+/* This part is about all styled of main weather component*/
+
+#day_week {
+    padding-left: 80px;
+    font-weight: 900;
+    color: #8257E5;
+}
+
+#info_next_day {
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+
+#description_next_day {
+    margin-top: 1px;
+    padding-left: 80px;
+    margin-bottom: 1px;
+}
+
+#cards_next_days{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;  
+    height: 45%;
+}
+
+#cards_next_days > img{
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.info {
+    padding-right: 50px;
+}
+
+.title_next_day{
+    padding-top: 10px;
+    color: #8257E5;
+    font-weight: bold;
 }
