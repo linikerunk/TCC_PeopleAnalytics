@@ -44,7 +44,7 @@
                       <td>{{ obj.required }}</td>
                       <td>{{ obj.resource }}</td>
                       <td>{{ obj.workload }}</td>
-                      <td class="center"><a href="#"><img class="m-3" 
+                      <td class="center"><a href="{% url 'training:training_delete' obj.pk %}"><img class="m-3" 
                         src="{% static 'icons/cancel.png' %}"></a></td>
                     </tr>
                     {% endfor %}
@@ -120,7 +120,7 @@
                       <td>{{ obj.phone }}</td>
                       <td>{{ obj.address }}</td>
                       <td>{{ obj.city }}</td>
-                      <td class="mt-3"><a href="#"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
+                      <td class="mt-3"><a href="{% url 'training:entity_delete' obj.pk %}"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
                     </tr>
                     {% endfor %}
 
@@ -190,7 +190,7 @@
                       <td style="text-align : center;">{% for training in obj.training.all %}
                         <p>{{ training }}</p>
                         {% endfor %}</td>
-                      <td class="mt-3"><a href="#"><img class="m-3" 
+                      <td class="mt-3"><a href="{% url 'training:instructor_delete' obj.pk %}"><img class="m-3" 
                          src="{% static 'icons/cancel.png' %}"></a></td>
                     </tr>
                     {% endfor %}
@@ -264,7 +264,7 @@
                       <td>{{ obj.instructor }}</td>
                       <td>{{ obj.event_date }}</td>
                       <td>{{ obj.value }}</td>
-                      <td class="pt-3"><a href="#"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
+                      <td class="pt-3"><a href="{% url 'training:event_delete' obj.pk %}"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
                     </tr>
                     {% endfor %}
 

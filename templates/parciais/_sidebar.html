@@ -20,10 +20,10 @@
         <div class="info">
           <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</a>
           <p class="font-weight-bolder mb-0 mt-1">
-            {% if request.user.role %}
-            <a href="{% url 'users:users_list' %}">{{ request.user.role }}</a></p>
-            {% else %}
+            {% if request.user.employee.role %}
             <a href="{% url 'users:users_list' %}">Cargo : {{ request.user.employee.role }}</a></p>
+            {% else %}
+            <a href="{% url 'users:users_list' %}">Cargo : Precisa ser definido pelo RH</a></p>
             {% endif %}
         </div>
       </div>

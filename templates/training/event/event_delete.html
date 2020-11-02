@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Deletar Event{% endblock %}
+{% block conteudo %}
+
+<div class="card card-primary">
+			<div class="card-header">
+			  <h3 class="card-title">Deletar Event <strong>{{ event.event_name }}</strong> </h3>
+			</div>
+			<form action="{% url 'training:event_delete' event.pk %}" method="POST">
+			{% csrf_token %}
+			<div class="card-body">
+			  <div class="row">
+				<div class="col-md-12">
+					<p class="lead"> Deseja realmente deletar o evento {{ event.event_name|capfirst }}</p>
+				</div>
+			  </div>
+			</div>
+			<!-- /.card-body -->
+			<div class="card-footer">
+				<a href="{% url 'training:training_list' %}" class="btn btn-warning float-left">Cancelar</a>
+				<span class="p-2 float-left"></span>
+				<button type="submit" class="btn btn-danger float-left">Deletar Evento</button>
+			</div>
+		  </div>
+  </form>
+  
+{% endblock %}

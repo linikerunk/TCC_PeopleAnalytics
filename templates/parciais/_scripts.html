@@ -143,3 +143,13 @@ jQuery("#category").change(function () {
   });
 </script>
 
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+<script type="text/javascript">
+  $.get('{% url "dashboard:change_employee" %}', function(data){
+    console.log("To aqui para fazer o grafico")
+    var ctx = $("#change_employee").get(0).getContext("2d");
+    new Chart(ctx, {
+      type: 'line', data: data
+    });
+  });
+</script>

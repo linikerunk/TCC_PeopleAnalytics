@@ -88,7 +88,7 @@ class TrainingUpdateView(UpdateView):
 class TrainingDeleteView(DeleteView):
     model = Training
     template_name = 'training/training/training_delete.html'
-    success_url = reverse_lazy('training:training-list')
+    success_url = reverse_lazy('training:training_list')
 
 
 """ All views that references a Entity models... """
@@ -119,7 +119,7 @@ class EntityCreateView(CreateView):
     model = Entity
     template_name = 'training/entity/entity_create.html'
     fields = '__all__'
-    success_url = reverse_lazy('training:entity_list')
+    success_url = reverse_lazy('training:training_list')
 
     def get(self, request, *args, **kwargs):
         form = super(EntityCreateView, self).get_form()
@@ -153,14 +153,14 @@ class EntityUpdateView(UpdateView):
     model = Entity
     template_name = 'entity/entity_update.html'
     fields = '__all__'
-    success_url = reverse_lazy('training:entity_list')
+    success_url = reverse_lazy('training:training_list')
 
 
 @method_decorator(login_required, name='dispatch')
 class EntityDeleteView(DeleteView):
     model = Entity
     template_name = 'training/entity/entity_delete.html'
-    success_url = reverse_lazy('training:entity-list')
+    success_url = reverse_lazy('training:training_list')
 
 
 """ All views that references a Instructor models... """
@@ -191,7 +191,7 @@ class InstructorCreateView(CreateView):
     model = Instructor
     template_name = 'training/instructor/instructor_create.html'
     fields = '__all__'
-    success_url = reverse_lazy('training:instructor_list')
+    success_url = reverse_lazy('training:training_list')
 
     def get(self, request, *args, **kwargs):
         form = super(InstructorCreateView, self).get_form()
@@ -225,14 +225,14 @@ class InstructorUpdateView(UpdateView):
     model = Instructor
     template_name = 'instructor/instructor_update.html'
     fields = '__all__'
-    success_url = reverse_lazy('training:instructor_list')
+    success_url = reverse_lazy('training:training_list')
 
 
 @method_decorator(login_required, name='dispatch')
 class InstructorDeleteView(DeleteView):
     model = Instructor
-    template_name = 'training/instructor/entity_delete.html'
-    success_url = reverse_lazy('training:instructor-list')
+    template_name = 'training/instructor/instructor_delete.html'
+    success_url = reverse_lazy('training:training_list')
 
 
 """ All views that references a Event models... """

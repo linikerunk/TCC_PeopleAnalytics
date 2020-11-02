@@ -47,7 +47,7 @@
                     <td class="" style="text-align : center;">
                       <img class="img-circle img-bordered-sm" src="{{ exam.employee.photo.thumbnail.url }}" width="50" height="50">
                     </td>
-                    <td class="pt-3" style="text-align : center;"><a href="">{{ exam.employee }} </a></td>
+                    <td class="pt-3" style="text-align : center;"><a href="{% url 'users:user_update' exam.employee.pk %}">{{ exam.employee }} </a></td>
                     <td class="pt-3" style="text-align : center;">{{ exam.exame|title }} </td>
                     <td class="pt-3" style="text-align : center;">{{ exam.initial_date|date:"d/m/Y"  }} </td>
                     <td class="pt-3" style="text-align : center;">{{ exam.initial_date|date:"d/m/Y"  }} </td>

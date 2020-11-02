@@ -9,5 +9,7 @@ app_name = "dashboard"
 
 urlpatterns = [
     path('dashboard/', views.IndexDashboard.as_view(), name="dashboard"),
+    path('dashboard/change_employee/', views.ChangeEmployeeJSONView.as_view(), 
+    name="change_employee" )
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

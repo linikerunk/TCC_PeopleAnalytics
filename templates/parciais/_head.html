@@ -1,4 +1,4 @@
-
+{% load bootstrap4 %}
 {% load static %}
 <head>
     <meta charset="utf-8">
@@ -7,7 +7,8 @@
     
     <!-- CSS custom -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
-
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{% static 'admin-lte/plugins/fontawesome-free/css/all.min.css' %}">
 <!-- Ionicons -->
