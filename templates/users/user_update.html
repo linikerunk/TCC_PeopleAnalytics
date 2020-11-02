@@ -11,12 +11,12 @@
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle" src="{% static 'img/users/user.jpg' %}" alt="User profile picture">
+              <img class="profile-user-img img-fluid img-circle" src="{{ employee.photo.thumbnail.url }}" alt="Colaborador">
             </div>
 
-            <h3 class="profile-username text-center">Nome do Funcionário</h3>
+            <h3 class="profile-username text-center">{{ employee.name }}</h3>
 
-            <p class="text-muted text-center">Função do Funcionário</p>
+            <p class="text-muted text-center">{{ employee.role }}</p>
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">

@@ -4,6 +4,7 @@
 @import "register.css"; 
 @import "performance.css"; 
 @import "hour.css"; 
+@import "ticket.css"; 
 
 * {
     margin: 0;

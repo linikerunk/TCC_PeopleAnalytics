@@ -11,7 +11,7 @@ app_name = "users"
 
 urlpatterns = [
     path('users/', views.EmployeeListView.as_view(),name="users_list"),
-    path('recruiting/user_create/', views.EmployeeCreateView.as_view(),
+    path('users/user_create/', views.EmployeeCreateView.as_view(),
     name="user_create"),
     path('users/user_update/<int:pk>/', views.EmployeeUpdateView.as_view(),
     name="user_update"),

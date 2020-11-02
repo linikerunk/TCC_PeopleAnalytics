@@ -14,10 +14,6 @@
 <script src="{% static 'js/jquery.mask.js' %}"></script>
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
  <!-- Your custom scripts -->
- <script>
-    caminho_imagem = 'http://assets.api.hgbrasil.com/weather/images/' + '{{ today.img_id }}' + '.png'
-    document.getElementById('imageBox').src = caminho_imagem
-  </script> 
  
  <script>
      // Display off the message that show on screen...
@@ -27,6 +23,22 @@
          message_ele.style.display = "none";
       }, 7000);
  </script>
+
+<script>
+  $("#finish_ticket").click(function (){
+    alert("Deseja finalizar esse chamado ? ")
+    var selectedTicket = $("#finish").val("True");
+    console.log("valor selecionado  finaliza: ", selectedTicket.val())
+  })
+  
+</script>
+
+<script>
+  $("#awnser_ticket").click(function () {
+    var selectedTicket = $("#finish").val("False");
+    console.log("valor selecionado responde : ", selectedTicket.val())
+  });
+</script>
  
  <script>
   feather.replace()
@@ -130,3 +142,4 @@ jQuery("#category").change(function () {
 
   });
 </script>
+

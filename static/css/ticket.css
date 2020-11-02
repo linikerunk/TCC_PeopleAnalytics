@@ -1,0 +1,15 @@
+
+.history-field {
+    overflow-y: auto;
+    height: 200px;
+    background: #E9ECEF;
+    border: 1px solid #cecece;
+}
+
+#finish_ticket_back{
+    width: 18%;
+}
+
+#finish_ticket {
+    width: 30%;
+}

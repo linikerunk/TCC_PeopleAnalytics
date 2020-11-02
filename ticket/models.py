@@ -58,8 +58,8 @@ class Ticket(models.Model):
 
     def finish_time(self):
         print(self.finish_time)
-        if self.finish_time:
-            finish_time = self.finish_time - self.date
+        if self.finish:
+            finish_time = self.final_date - self.date
             if abs(finish_time.days) == 0:
                 finish_time = 1
                 return abs(finish_time)
@@ -67,7 +67,7 @@ class Ticket(models.Model):
         return 1
 
     def __str__(self):
-        return f'Ticket Número {self.pk}, Funcionário {self.employee.identifier}'
+        return f'Ticket Número {self.pk}'
 
 
 class TicketHistory(models.Model):

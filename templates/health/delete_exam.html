@@ -12,25 +12,22 @@
         <!-- form start -->
         <form id="form-exam" action="{% url 'health:delete_exam' exam.id %}" method="POST" role="form">
           {% csrf_token %}
-          <div class="card-body">
-            <div class="form-group">
-            <div class="row">
-            <div class="col-md-6">
-            <p class="h4">Deletar Exame : <b>{{ exam.exame|title  }}</b></p>
-            </div>    
-            <div class="col-md-12">
-            <p class="h4">Funcionário : <b>{{ exam.employee.name|title  }}</b></p>
-            </div>
-            </div>
-            </div>
-          </div>
-          <!-- /.card-body -->
-
-          <div class="card-footer">
-              <button type="submit" class="btn btn-primary float-right">Deletar Exame</button>
-              <a href="{% url 'health:periodic_exam' %}" class="btn btn-warning float-right pr-5 pl-5 mr-2 float-right">Voltar</a>
-          </div>
-        </form>
+  <div class="card-body">
+    <div class="row">
+    <div class="col-md-12">
+      <p class="lead"> Deseja realmente deletar o exame :  <code>{{ exam.exame|capfirst }} </code></p>
+    </div>
+    </div>
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer">
+    <a href="{% url 'users:users_list' %}" class="btn btn-warning float-left">Cancelar</a>
+    <span class="p-2 float-left"></span>
+    <button type="submit" class="btn btn-danger float-left">Deletar Exame Periódico</button>
+  </div>
+  </div>
+</form>
       </div>
-</div> <!-- /. col-md-10 -->
+
+
 {% endblock %}

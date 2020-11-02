@@ -23,7 +23,7 @@
             {% if request.user.role %}
             <a href="{% url 'users:users_list' %}">{{ request.user.role }}</a></p>
             {% else %}
-            <a href="{% url 'users:users_list' %}">Cargo a definir pelo RH</a></p>
+            <a href="{% url 'users:users_list' %}">Cargo : {{ request.user.employee.role }}</a></p>
             {% endif %}
         </div>
       </div>
@@ -90,7 +90,7 @@
               <p class="font-weight-bolder ml-3">Benéficios</p></a>
           </li> -->
           
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="{%url 'recruiting:recruiting' %}" id="li-recruiting" class="nav-link">
               <img src="{% static 'icons/user-plus.svg' %}" alt="Recruting" />
               <p class="font-weight-bolder ml-3">Recrutamento</p></a>
@@ -100,7 +100,7 @@
               <a href="{%url 'dismissal:dismissal' %}" id="li-dismissal" class="nav-link">
                 <img src="{% static 'icons/user-minus.svg' %}" alt="Dismiss" />
                 <p class="font-weight-bolder ml-3">Desligamento</p></a>
-              </li>
+              </li> -->
               
             </ul>
           </nav>

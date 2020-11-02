@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Finalizar Tickets{% endblock %}
+{% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+<div class="row">
+    <div class="col-12">
+        <p class="lead"> Atualizar chamado de <code>{{ ticket.employee.name|capfirst }}</code></p>
+        <hr>
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'ticket:finish_ticket' ticket.id %}">
+{% csrf_token %}
+
+<div class="form-row">
+
+<div class="form-group  col-md-3">
+<label for="re"><strong>Registro : </strong></label>
+<input type="text" class="form-control" id="identifier" name="identifier"
+  value="{{ ticket.employee.identifier }}" readonly>
+</div>
+
+<div class="form-group  col-md-5">
+<label for="nome"><strong>Nome do Funcionário : </strong></label>
+<input type="text" class="form-control" id="name" name="name" value="{{ ticket.employee.name }}" readonly>
+</div>
+
+<div class="form-group col-md-4">
+<label for="centro_de_custo"><strong>Centro de Custo : </strong></label>
+<input type="text" class="form-control" id="cost_center" name="cost_center"
+  value="{{ ticket.employee.cost_center.name_department }}" readonly>
+</div>
+
+<div class="form-group  col-md-6">
+<label for="email_corporativo"><strong>Email : </strong></label>
+<input type="email" class="form-control" id="email" name="email"
+  value="{{ ticket.employee.email }}" readonly>
+</div>
+
+<div class="form-group  col-md-6">
+<label for="telefone"><strong>Telefone : </strong></label>
+<input type="text" class="form-control" id="phone" name="phone" value="{{ ticket.employee.phone  }}" readonly>
+</div>
+
+  <div class="form-group col-md-6">
+    <label> <strong>Categoria</strong> </label>
+      <input type="text" name="category" id="category" class="form-control" value="{{ ticket.category }}" readonly></input>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label> <strong>Subcategoria</strong> </label>
+    <input type="text" name="subcategory" class="form-control" id="subcategory" value="{{ ticket.subcategory }}" readonly>
+  </div>
+
+<!-- <div class="form-group col-md-12">
+<label for="texto"><strong>Descrição do Chamado : </strong></label>
+<textarea class="form-control" id="texto-atualizar" name="text" rows="3" col="15"
+  readonly>{{ ticket.text }}</textarea>
+</div>  -->
+
+<div class="form-group col-md-12">
+<label for="texto">Historico : </label>
+<div class="history-field">
+<hr style="border: 1px solid rgb(119, 119, 119); ">
+<p class="m-2 name_employee"> <strong> &nbsp; &nbsp; {{ ticket.employee.name }},
+    {{ ticket.date|date:'d/m/Y G:i:s'}} </strong></p><span style="margin-left: 20px;">‎‎▸&nbsp;</span>‎{{ ticket.text }}
+<hr style="border: 1px solid rgb(119, 119, 119); ">
+{% for mensagens in historic %}
+<p class="m-2 name_employee"> <strong> &nbsp; &nbsp; {{ mensagens.employee.name }},
+    {{ mensagens.date_message|date:'d/m/Y G:i:s'}} </strong></p>
+<span class="description-historic ">&nbsp;&nbsp;&nbsp;&nbsp;▸&nbsp; &nbsp; {{ mensagens.message }} </span>
+<hr style="border: 1px solid rgb(119, 119, 119); ">
+{% endfor %}
+</div>
+</div>
+
+
+
+{% if ticket.finish == False %}
+<div class="form-group col-md-12">
+<label><strong>Resposta : </strong></label>
+<textarea class="form-control" id="texto-azul" name="awnser" rows="3" col="15" value="{{ ticket.anwser }}"
+  style="resize: none;" required>{{ ticket.awnser }}</textarea>
+</div>
+
+{% if ticket.file_upload %}
+  <div class="form-group col-md-12">
+      <label><strong>Arquivo : </strong></label>
+      <p class="mt-2"><a href="{{ ticket.file_upload.url }}">{{ ticket.file_upload }}</a></p>
+  </div>
+{% else %}
+{% endif %}
+
+<div class="form-group col-md-3">
+<!-- <label for="finalizado"><small><strong>Chamado foi finalizado ?</strong></small> </label> -->
+<select class="form-control" id="finish" name="finish" value="{{ ticket.finish }}" required hidden>
+  <option id="finish" value="False">Não</option>
+  <option id="finish" value="True">Sim</option>
+</select>
+</div>
+
+<div class="form-group  col-md-12 mt-4 p-2">
+  <button type="submit" class="btn btn-primary w-50" id="awnser_ticket">Responder</button>  
+<button type="submit" id="finish_ticket" class="btn btn-success" id="finish">Finalizar</button>
+<a type="button" id="finish_ticket_back" href="{% url 'ticket:list_tickets' %}" class="btn btn-warning">&nbsp;&nbsp;&nbsp; Voltar &nbsp;&nbsp;&nbsp;</a>
+</div>
+
+{% else %}
+
+
+{% if ticket.file_upload %}
+<div class="form-group col-md-12">
+<label><strong>Arquivo : </strong></label>
+<p class="mt-2"><a href="{{ ticket.upload_arquivo.url }}">{{ ticket.file_upload }}</a></p>
+</div>
+{% else %}
+{% endif %}
+
+</form>
+<div class="form-group  col-md-12 mt-4 p-2">
+<a type="button" href="{% url 'ticket:list_tickets' %}" class="btn btn-warning pr-5 pl-5 w-100">&nbsp;&nbsp;&nbsp; Voltar &nbsp;&nbsp;&nbsp;</a>
+</div>
+
+{% endif %}
+
+</div>
+</div>
+</div> 
+{% endblock %}

@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block titulo %}Tickets{% endblock %}
 {% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
 
 <div class="col-md-12">
   <div class="card">
-    <h5 class="card-header">O quê está acontecendo {{ request.user.first_name|title }} mande uma mensagem e nós iremos lhe ajudar.</h5>
+    <h5 class="card-header">O quê está acontecendo {{ request.user.first_name|title }} mande uma mensagem e nós iremos lhe ajudar. 
+        <a href="{% url 'ticket:list_tickets' %}" class="btn btn-success pr-5 pl-5 ml-5"> Listagem de Tickets</a></h5>
   
     <div class="card-body">
       <div class="row">
@@ -31,8 +35,7 @@
   </div>
   </div>
   </div> <!-- col-md-12 ..-->
-  {% include 'parciais/errors.html' %}
-  {% include 'parciais/_messages.html' %}
+
 <div class="row">
     <div class="col-md-12">
         <div class="card card-primary">
@@ -40,7 +43,7 @@
               <h3 class="card-title">Envie um Ticket para o RH aqui.</h3>
             </div>
             <!-- /.card-header -->
-            <form action="{% url 'ticket:send_ticket' %}" method="POST">
+            <form action="{% url 'ticket:send_ticket' %}" enctype="multipart/form-data" method="POST">
               {% csrf_token %}
               <div class="card-body">
                 <div class="row">
@@ -60,24 +63,11 @@
                   </select>
                 </div>
 
-                <div class="form-group col-md-12">
-                    <label for="exampleInputPassword1">Descrição : </label>
-                    <textarea class="form-control" rows="4" name="text" placeholder="Informe um telefone e/ou e-mail para retorno do chamado..." 
-                    style="margin-top: 0px; margin-bottom: 0px; height: 63px; resize: none"></textarea>
+                <div class="form-group  col-md-12 mt-2">
+                  {{ form.text|as_crispy_field }}
+                  {{ form.file_upload|as_crispy_field }}
                 </div>
-
-                <div class="col-md-12">
-                    <div id="id_upload_arquivo" class="form-group">
-        
-                        <label for="id_upload_arquivo" class="">
-                            Anexar Arquivo : 
-                        </label>
-                            <div class="">
-                                <input type="file" name="file_upload"
-                                multiple="" class="clearablefileinput form-control-file" id="upload_arquivo">
-                            </div>
-                            </div>
-                </div>
+               
               </div> <!-- ./row -->
               </div><!-- /.card-body -->
 

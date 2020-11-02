@@ -11,6 +11,8 @@ urlpatterns = [
     path("reload_subcategory/<int:id>/",
     views.loading_subcategory, name="loading_subcategory"),
     path('tickets/', views.index_ticket, name="ticket"),
+    path('tickets/list_ticket/', views.list_tickets, name="list_tickets"),
     path('tickets/send_ticket/', views.send_ticket, name="send_ticket"),
+    path('tickets/finish_ticket/<int:id>/', views.finish_ticket, name="finish_ticket"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

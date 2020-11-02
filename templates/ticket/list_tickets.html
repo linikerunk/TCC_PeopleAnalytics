@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Listagem de Tickets{% endblock %}
+{% block conteudo %}
+{% include 'parciais/errors.html' %}
+{% include 'parciais/_messages.html' %}
+<h2 class="mb-4">Listagem de Tickets</h2>
+<hr>
+
+<div class="row p-2">
+    <table class="table table-striped table-responsive border rounded bg-light shadow">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" style="width: 12%; text-align : center;">Data</th>
+          <th scope="col" style="width: 1%; text-align : center;">RE</th>
+          <th scope="col" style="width: 18%; text-align : center;">Nome</th>
+          <th scope="col" style="width: 12%; text-align : center;">Categoria</th>
+          <th scope="col" style="width: 15%; text-align : center;">Subcategoria</th>
+          <th scope="col" style="width: 2%; text-align : center;">Dias</th>
+          <th scope="col" style="width: 5%; text-align : center;">Finalizado</th>
+        </tr>
+      </thead>
+      <tbody>   
+        <tr>
+        {% for ticket in obj %}
+          <td style="text-align : center;">{{ ticket.date|date:"d/m/Y  H:i" }}</td>
+          <td scope="row" style="text-align : center;">{{ ticket.employee.identifier }}</th>
+          <td style="text-align : center;"><h6><a href="{% url 'ticket:finish_ticket' ticket.id %}"> {{ ticket.employee.name }}</a></h6></td>
+          <td style="text-align : center;">{{ ticket.category }}</td>
+          <td style="text-align : center;">{{ ticket.subcategory }}</td>
+          {% if ticket.finish is False %}
+          <td id="ticket-open">{{ ticket.open_time }} </td>
+          {% else %}
+          <td id="ticket-close">{{ ticket.finish_time }}</td>
+          {% endif %}
+          {% if ticket.finish is True %}
+          <td style="text-align : center;"><img src="{% static 'icons\tick.png' %}"></td>
+          {% else %}
+          <td style="text-align : center;"><img src="{% static 'icons\cancel.png' %}"></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <tfoot>
+    {% include 'parciais/_pagination.html'%}
+        </tfoot>
+        
+    
+    </div>
+{% endblock %}
