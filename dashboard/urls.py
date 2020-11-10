@@ -8,8 +8,10 @@ app_name = "dashboard"
 
 
 urlpatterns = [
-    path('dashboard/', views.IndexDashboard.as_view(), name="dashboard"),
+    path('dashboard/', views.IndexDashboardView.as_view(), name="dashboard"),
     path('dashboard/change_employee/', views.ChangeEmployeeJSONView.as_view(), 
-    name="change_employee" )
+    name="change_employee"),
+    path('dashboard/generate_hour_employee/', views.GenerateHourJSONView.as_view(), 
+    name="generate_hour_employee"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

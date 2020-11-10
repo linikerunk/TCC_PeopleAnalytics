@@ -9,6 +9,7 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script src="{% static 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
 
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
 <script src="{% static 'admin-lte/dist/js/adminlte.min.js' %}"></script>
 <script src="{% static 'admin-lte/dist/js/demo.js' %}"></script>
 <script src="{% static 'js/jquery.mask.js' %}"></script>
@@ -143,13 +144,46 @@ jQuery("#category").change(function () {
   });
 </script>
 
-<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
 <script type="text/javascript">
   $.get('{% url "dashboard:change_employee" %}', function(data){
-    console.log("To aqui para fazer o grafico")
     var ctx = $("#change_employee").get(0).getContext("2d");
     new Chart(ctx, {
-      type: 'line', data: data
+      type: 'line', data: data,
+      
     });
+    
   });
 </script>
+
+<script type="text/javascript">
+  $.get('{% url "dashboard:change_employee" %}', function (data) {
+    var myBarChart = new Chart(myBarChart, {
+    type: 'horizontalBar',
+    data: data,
+})
+  });
+</script>
+
+
+<script type="text/javascript">
+  $.get('{% url "dashboard:generate_hour_employee" %}', function (data) {
+    var ctx = $("#generate_hour").get(0).getContext("2d");
+    new Chart(ctx, {
+      type: 'line', data: data,
+      
+    });
+    
+  });
+</script> 
+
+
+<script type="text/javascript">
+  $.get('{% url "dashboard:generate_hour_employee" %}', function (data) {
+    var myBarChart = new Chart(myBarChart, {
+    type: 'verticalBar',
+    data: data,
+})
+  });
+</script>
+
+

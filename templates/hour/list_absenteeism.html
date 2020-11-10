@@ -37,7 +37,7 @@
         {% if obj.absenteeism > 23 %}
         <td class="pt-3"><span style="color: red;">{{ obj.absenteeism }}%</span></td>
         {% elif obj.absenteeism > 6  and obj.absenteeism <= 23 %}
-        <td class="pt-3"><span style="color: rgba(255, 255, 0, 0.787);">{{ obj.absenteeism }}%</span></td>
+        <td class="pt-3"><span style="color: rgb(233, 157, 16);">{{ obj.absenteeism }}%</span></td>
         {% else %}
         <td class="pt-3"><span style="color: green;">{{ obj.absenteeism }}%</span></td>
       </tr> 
