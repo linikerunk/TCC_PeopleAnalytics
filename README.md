@@ -15,8 +15,6 @@ Enginee RH is a tool, that is constructed in Python with framework Django, to do
   - Business
   - Health
   - Training
-  - Recruting
-  - Resignation
   
 
 #  Technology

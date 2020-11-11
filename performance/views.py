@@ -11,8 +11,9 @@ from django.forms import formset_factory
 from .forms import EvaluationSkillForm, SkillForm, EvaluationForm
 from .models import Skill, EvaluationSkill, Evaluation
 
-class IndexPerformance(TemplateView):
-    template_name = 'performance/index.html'
+def performance(request):
+    print("To aqui")
+    return render(request, 'performance/index.html', {})
 
 
 class SkillView(CreateView):
@@ -30,7 +31,6 @@ class SkillView(CreateView):
             form.save()
             messages.success(request, f'Habilidade {ability} adicionada com successo!')
         return render(request, self.template_name, {'form': form})
-
 
 # class EvaluationView(CreateView):
 #     model = Evaluation

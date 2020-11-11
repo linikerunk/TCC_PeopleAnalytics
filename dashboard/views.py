@@ -8,36 +8,22 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from utils.decorators import first_register
 from ticket.models import Ticket
+from training.models import Event
 from chartjs.views.lines import BaseLineChartView, HighchartPlotLineChartView
 # from .models import
 
 
-@method_decorator(login_required, name='dispatch')
-class IndexDashboardView(ListView):
-    model = Ticket
-    template_name = 'dashboard/index.html'
-    queryset = Ticket.objects.all()
-    context_object_name = 'obj'
-    paginate_by = 5
-    
-    def get_context_data(self, **kwargs):
-        context = super(IndexDashboardView, self).get_context_data(**kwargs)
-        obj = self.get_queryset()
-        page = self.request.GET.get('page')
-        paginator = Paginator(employee , self.paginate_by)
-        try:
-            obj = paginator.page(page)
-        except PageNotAnInteger:
-            obj = paginator.page(1)
-        except EmptyPage:
-            obj  = paginator.page(paginator.num_pages)
-        context['obj'] = obj
-        return context
+@login_required
+def dashboard(request):
+    tickets = Ticket.objects.all().order_by('-id')
+    number_of_tickets = Ticket.objects.count()
+    training = Event.objects.count()
+    paginator = Paginator(tickets, 10)
+    page = request.GET.get('page', 1)
+    obj = paginator.get_page(page)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['obj'] = Ticket.objects.all()
-        return context
+    return render(request, 'dashboard/index.html', {'tickets': tickets,
+    'number_of_tickets': number_of_tickets, 'training': training, 'obj': obj})
 
 
 class ChangeEmployeeJSONView(BaseLineChartView):

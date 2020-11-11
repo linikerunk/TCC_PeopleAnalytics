@@ -8,7 +8,7 @@ app_name = "dashboard"
 
 
 urlpatterns = [
-    path('dashboard/', views.IndexDashboardView.as_view(), name="dashboard"),
+    path('dashboard/', views.dashboard, name="dashboard"),
     path('dashboard/change_employee/', views.ChangeEmployeeJSONView.as_view(), 
     name="change_employee"),
     path('dashboard/generate_hour_employee/', views.GenerateHourJSONView.as_view(), 
