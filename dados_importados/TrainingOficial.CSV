@@ -1,0 +1,6 @@
+id;training_name;category;content;required;resource;local;workload
+1;LGPD;Tecnologia da informação;Será apresentado nesse treinamento, leis de proteção de dados;Redes, Juridico, Programação;Notebook;Na empresa1;1
+2;Python Avançado;Tecnologia da informação;Aqui o funcionário irá desenvolver capacidades técnicas em python;Lógica de Programação, UML, Banco de Dados;Notebook;Ceunsp - Salto;50
+3;Data Science;Tecnologia da informação;O funcionário desenvolverá habilidades de organização de dados;Lógica de Programação, Power BI;Notebook;Data Science Academy;2
+4;Office 365;Tecnologia da informação;Aprenderá Excel avançado;Habilidades com panilhas;Computador;Udemy;20
+5;Liderança;Gestão;Aprenderá a efetuar gestão de pessoas;Desenvolvimento Pessoal;Notebook;Alfa Coach;22

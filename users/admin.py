@@ -1,6 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from .models import Employee, CostCenter, Unity
+from .resources import *
 
 
 @admin.register(Unity)
@@ -17,4 +18,5 @@ class EmployeeAdmin(ImportExportModelAdmin):
 
 @admin.register(CostCenter)
 class CostCenterAdmin(ImportExportModelAdmin):
+    resource_class  =  CostCenterAdminResource
     list_display = ['number', 'name_department', 'responsible']

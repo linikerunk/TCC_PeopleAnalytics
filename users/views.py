@@ -35,7 +35,7 @@ class EmployeeListView(ListView):
     template_name = 'users/index.html'
     queryset = Employee.objects.all()
     context_object_name = 'employee'
-    paginate_by = 5
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)

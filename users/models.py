@@ -26,7 +26,7 @@ class Base(models.Model):
         abstract = True
 
 
-class Unity(Base):
+class Unity(models.Model):
     name = models.CharField(max_length=64, unique=True)
 
     class Meta:
@@ -37,7 +37,7 @@ class Unity(Base):
         return self.name
 
 
-class CostCenter(Base):
+class CostCenter(models.Model):
     number = models.CharField('Centro de Custo', primary_key=True,
                               max_length=50, blank=False)
     name_department = models.CharField('Departamento', max_length=60)
@@ -60,7 +60,7 @@ class CostCenter(Base):
 #         return self.zip_code
 
 
-class Employee(Base):
+class Employee(models.Model):
     identifier = models.AutoField(auto_created = True, primary_key = True,
                                   serialize = False,  verbose_name ='ID')
     name = models.CharField("Nome Funcionário", max_length=130, null=False)

@@ -63,10 +63,20 @@
   </div>
 
     
-<strong id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-5 mt-4">   
+<strong id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-3 mt-4">   
 A sua senha deve ter pelo menos 8 caracteres e conter pelo menos: uma letra maiúscula,
  uma letra minúscula e um dígito.
 </strong>
+
+
+<div class="col-md-12">
+<div class="custom-control custom-checkbox mb-3">
+  <input type="checkbox" class="custom-control-input" id="defaultUnchecked" required>
+  <label class="custom-control-label" for="defaultUnchecked">
+    Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços, ao utilizar nossos serviços, você concorda com tal monitoramento, informamos ainda que atualizamos nossa política de privacidade.
+  </label>
+</div>
+</div>
 
 <div class="col-md-6 mt-2 mb-4">
   <a href="{% url 'users:login' %}" class="btn btn-warning  mt-2 btn-block"

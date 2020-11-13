@@ -1,0 +1,100 @@
+id;entity_name;social_reason;cnpj;contact_person;phone;zip_code;address;city;state;email
+1;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-20;Rick; 55(16) 9 8854-0471;13.344-350;RUA DOIS;Indaiatuba;São Paulo;diogoalves.oliveira2018@gmail.com
+2;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-21;Arquimedes; 55(21) 9 7171-0975;13.344-351;RUA TRÊS;Indaiatuba;SP;dorataxi@hotmail.com
+3;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-22;Arquimedes; 55(98) 9 8493-9263;13.344-352;RUA UM;Indaiatuba;SP;johnkennedyabtibol@gmail.com
+4;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-23;Arquimedes; 55(16) 9 9284-3443;13.344-353;RUA B ;Salto;SP;caiouyeda@hotmail.com
+5;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-24;Arquimedes; 55(16) 9 9284-3443;13.344-354;RUA QUATRO ;Boituva;SP;caiouyeda@hotmail.com
+6;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-25;Arquimedes; 54(62) 3 3144-6230;13.344-355;RUA PRINCIPAL;Indaiatuba;SP;williansguisp@gmail.com
+7;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-26;Arquimedes; 54(21) 3 3539-8320;13.344-356;RUA A;Salto;SP;claucirtafarel@hotmail.com
+8;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;15.948.797/0001-27;Arquimedes; 53(80) 3 3935-0410;13.344-357;RUA CINCO ;Boituva;SP;wandressonlucasdossanttoscolar@gmail.com
+9;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-17;Arquimedes; 53(39) 3 4330-2500;13.344-358;RUA SEIS;Indaiatuba;SP;dinho-luna@hotmail.com
+10;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-18;Arquimedes; 52(98) 3 4725-4590;13.344-359;RUA D ;Salto;SP;mariana.rviana@hotmail.com
+11;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-19;Arquimedes; 52(57) 3 5120-6680;13.344-360;RUA SETE;Indaiatuba;SP;darcy@netwi.net.br
+12;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-20;Arquimedes; 52(16) 3 5515-8770;13.344-361;RUA E ;Salto;SP;Suldeminasrol@yahoo.com.br
+13;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-21;Arquimedes; 51(75) 3 5911-0860;13.344-362;RUA F ;Boituva;SP;wandermitto@hotmail.com
+14;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-22;Arquimedes; 51(34) 3 6306-2950;13.344-363;RUA NOV;Indaiatuba;SP;gleyceldd@yahoo.com.br
+15;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-23;Arquimedes; 50(93) 3 6701-5040;13.344-364;RUA DEZ;Salto;SP;contecnicaltda_macae@hotmail.com
+16;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-24;Arquimedes; 50(52) 3 7096-7130;13.344-365;RUA G;Boituva;SP;Leandro.grupomotiva@gmail.com
+17;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-25;Arquimedes; 50(11) 3 7491-9220;13.344-366;RUA SAO JOSE ;Indaiatuba;SP;angelacaixias1@hotmail.com
+18;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-26;Arquimedes; 49(70) 3 7887-1310;13.344-367;RUA ONZE;Salto;SP;nilton-dias@uol.com.br
+19;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-27;Arquimedes; 49(29) 3 8282-3400;13.344-368;RUA H;Indaiatuba;SP;Hc.miranda@ig.com.br
+20;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-28;Arquimedes; 48(88) 3 8677-5490;13.344-369;RUA SAO PAULO;Salto;SP;carlosddd13@gmail.com
+21;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-29;Arquimedes; 48(47) 3 9072-7580;13.344-370;RUA DOZE ;Boituva;SP;claudia.abrao@portoseguro.com.br
+22;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-30;Arquimedes; 48(06) 3 9467-9670;13.344-371;RUA TREZE ;Indaiatuba;SP;msdo090468@gmail.com
+23;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-31;Arquimedes; 47(65) 3 9863-1760;13.344-372;RUA SANTO ANTONIO;Salto;SP;Hc.miranda@ig.com.br
+24;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-32;Arquimedes; 47(24) 4 0258-3850;13.344-373;AVENIDA BRASIL;Boituva;SP;jsl2019@hotmail.com
+25;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-33;Arquimedes; 46(83) 4 0653-5940;13.344-374;RUA I;Indaiatuba;SP;jonathanviegas10@gmail.com
+26;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-34;Arquimedes; 46(42) 4 1048-8030;13.344-375;RUA 2 ;Salto;SP;gtdnlucas@gmail.com
+27;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.988.666/0001-35;Arquimedes; 46(01) 4 1444-0120;13.344-376;RUA 1 ;Indaiatuba;SP;adailton.levin@hotmail.com
+28;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-18;Arquimedes; 45(60) 4 1839-2210;13.344-377;RUA 3 ;Salto;SP;Douglas.silva.1@hotmail.com
+29;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-19;Arquimedes; 45(19) 4 2234-4300;13.344-378;RUA SAO PEDRO;Boituva;SP;biraxsim@yahoo.com.br
+30;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-20;Arquimedes; 44(78) 4 2629-6390;13.344-379;RUA QUINZE;Indaiatuba;SP;fernandopereiraduarte12@gmail.com
+31;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-21;Arquimedes; 44(37) 4 3024-8480;13.344-380;RUA SAO JOAO ;Salto;SP;reneaugustolopes@gmail.com
+32;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-22;Arquimedes; 43(96) 4 3420-0570;13.344-381;RUA J ;Boituva;SP;luciana-moskaleski@hotmail.com
+33;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-23;Arquimedes; 43(55) 4 3815-2660;13.344-382;RUA QUATORZE ;Indaiatuba;SP;arthur250497@outlook.com
+34;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-24;Arquimedes; 43(14) 4 4210-4750;13.344-383;RUA SAO FRANCISCO ;Salto;SP;sandroosantos.sl@gmail.com
+35;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-25;Arquimedes; 42(73) 4 4605-6840;13.344-384;RUA SETE DE SETEMBRO ;Indaiatuba;SP;william_mendes_@hotmail.com
+36;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-26;Arquimedes; 42(32) 4 5000-8930;13.344-385;RUA 4;Salto;SP;william_mendes_@hotmail.com
+37;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-27;Arquimedes; 41(91) 4 5396-1020;13.344-386;RUA DEZESSEIS;Boituva;SP;elmoelias@uol.com.br
+38;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-28;Arquimedes; 41(50) 4 5791-3110;13.344-387;RUA QUINZE DE NOVEMBRO ;Indaiatuba;SP;douglassd88@gmail.com
+39;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-29;Arquimedes; 41(09) 4 6186-5200;13.344-388;RUA 5 ;Salto;SP;maxuelfracisco@gmail.com
+40;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-30;Arquimedes; 40(68) 4 6581-7290;13.344-389;RUA TIRADENTES;Boituva;SP;srodrigues.mauricio@gmail.com
+41;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-31;Arquimedes; 40(27) 4 6976-9380;13.344-390;RUA DEZESSETE ;Indaiatuba;SP;costinhacosta81@hotmail.com
+42;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-32;Arquimedes; 39(86) 4 7372-1470;13.344-391;RUA L ;Salto;SP;lucassilva.jose12@gmail.com
+43;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-33;Arquimedes; 39(45) 4 7767-3560;13.344-392;RUA VINTE ;Indaiatuba;SP;tiago_souzabatista@hotmail.com
+44;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-34;Arquimedes; 39(04) 4 8162-5650;13.344-393;RUA BAHIA ;Salto;SP;tiago_souzabatista@hotmail.com
+45;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-35;Arquimedes; 38(63) 4 8557-7740;13.344-394;RUA AMAZONAS;Boituva;SP;dereucapit11@gmail.com
+46;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-36;Arquimedes; 38(22) 4 8952-9830;13.344-395;RUA DEZOITO ;Indaiatuba;SP;luizdidier@hotmail.com
+47;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-37;Arquimedes; 37(81) 4 9348-1920;13.344-396;RUA SAO SEBASTIAO;Salto;SP;kakaoliveira035@gmail.com
+48;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-38;Arquimedes; 37(40) 4 9743-4010;13.344-397;RUA PARANA ;Boituva;SP;ighorabrito@gmail.com
+49;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-39;Arquimedes; 36(99) 5 0138-6100;13.344-398;RUA BELA VISTA;Indaiatuba;SP;felipe.nogueiiira@gmail.com
+50;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-40;Arquimedes; 36(58) 5 0533-8190;13.344-399;RUA M ;Salto;SP;samuel.realnet@gmail.com
+51;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;36.154.446/0001-41;Arquimedes; 36(17) 5 0929-0280;13.344-400;RUA 7 ;Indaiatuba;SP;samuel.realnet@gmail.com
+52;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-14;Arquimedes; 35(76) 5 1324-2370;13.344-401;RUA SANTA LUZIA ;Salto;SP;daniel_mmartin@hotmail.com
+53;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-15;Arquimedes; 35(35) 5 1719-4460;13.344-402;RUA SAO JORGE;Boituva;SP;zewesley5@gmail.com
+54;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-16;Arquimedes; 34(94) 5 2114-6550;13.344-403;RUA DEZENOVE;Indaiatuba;SP;romariobenicio@hotmail.com
+55;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-17;Arquimedes; 34(53) 5 2509-8640;13.344-404;RUA CASTRO ALVES ;Salto;SP;camposwidi@gmail.com
+56;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-18;Arquimedes; 34(12) 5 2905-0730;13.344-405;RUA DUQUE DE CAXIAS ;Boituva;SP;renan_isquierdo@icloud.com
+57;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-19;Arquimedes; 33(71) 5 3300-2820;13.344-406;RUA PROJETADA ;Indaiatuba;SP;edila_1986@hotmail.com
+58;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-20;Arquimedes; 33(30) 5 3695-4910;13.344-407;RUA RUI BARBOSA ;Salto;SP;anderson_borgo@hotmail.com
+59;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-21;Arquimedes; 32(89) 5 4090-7000;13.344-408;RUA SANTA CATARINA ;Indaiatuba;SP;cleonilson_santos@hotmail.com
+60;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;13.799.870/0001-22;Arquimedes; 32(48) 5 4485-9090;13.344-409;RUA MINAS GERAIS ;Salto;SP;macmaciel7869@gmail.com
+61;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-24;Arquimedes; 32(07) 5 4881-1180;13.344-410;RUA N ;Boituva;SP;gluber95@gmail.com
+62;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-25;Arquimedes; 31(66) 5 5276-3270;13.344-411;RUA SANTOS DUMONT ;Indaiatuba;SP;Carloshenriquegrafdasilva@gmail.com
+63;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-26;Arquimedes; 31(25) 5 5671-5360;13.344-412;RUA 8 ;Salto;SP;Pedrofernandes_sa@hotmail.com
+64;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-27;Arquimedes; 30(84) 5 6066-7450;13.344-413;RUA ESPIRITO SANTO ;Boituva;SP;padilha_futsal@hotmail.com
+65;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-28;Arquimedes; 30(43) 5 6461-9540;13.344-414;RUA VINTE E UM ;Indaiatuba;SP;kenrobertosilva@gmail.com
+66;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-29;Arquimedes; 30(02) 5 6857-1630;13.344-415;RUA VINTE E DOIS ;Salto;SP;elivandro1ferre@gmail.com
+67;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-30;Arquimedes; 29(61) 5 7252-3720;13.344-416;RUA DA PAZ - 294;Indaiatuba;SP;dead_alex@hotmail.com
+68;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-31;Arquimedes; 29(20) 5 7647-5810;13.344-417;RUA TREZE DE MAIO ;Salto;SP;leandrosarfrancisco@gmail.com
+69;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-32;Arquimedes; 28(79) 5 8042-7900;13.344-418;RUA K - 290;Boituva;SP;leandrosarfrancisco@gmail.com
+70;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;57.672.870/0001-33;Arquimedes; 28(38) 5 8437-9990;13.344-419;RUA RIO DE JANEIRO ;Indaiatuba;SP;diiegom13@gmail.com
+71;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-27;Arquimedes; 27(97) 5 8833-2080;13.344-420;RUA GOIÁS ;Salto;SP;juniorobs23@gmail.com
+72;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-28;Arquimedes; 27(56) 5 9228-4170;13.344-421;RUA CEARÁ;Boituva;SP;juniorobs23@gmail.com
+73;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-29;Arquimedes; 27(15) 5 9623-6260;13.344-422;RUA 10 ;Indaiatuba;SP;juniorobs23@gmail.com
+74;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-30;Arquimedes; 26(74) 6 0018-8350;13.344-423;RUA BELO HORIZONTE ;Salto;SP;sanvezzocomerciodecarnes@gmail.com
+75;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-31;Arquimedes; 26(33) 6 0414-0440;13.344-424;RUA DAS FLORES;Indaiatuba;SP;franciscocharlesdasilva3@gmail.com
+76;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-32;Arquimedes; 25(92) 6 0809-2530;13.344-425;RUA SERGIPE ;Salto;SP;wendel@nemunopar.com.br
+77;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-33;Arquimedes; 25(51) 6 1204-4620;13.344-426;RUA VITORIA ;Boituva;SP;marco_bizarro@yahoo.com.br
+78;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-34;Arquimedes; 25(10) 6 1599-6710;13.344-427;RUA JOSE BONIFACIO ;Indaiatuba;SP;h_dcj@yahoo.com.br
+79;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;74.321.473/0001-35;Arquimedes; 24(69) 6 1994-8800;13.344-428;RUA PERNAMBUCO;Salto;SP;Leonardocustodio353@gmail.com
+80;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-19;Arquimedes; 24(28) 6 2390-0890;13.344-429;RUA PIAUI ;Boituva;SP;valvesvilela@gmail.com
+81;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-20;Arquimedes; 23(87) 6 2785-2980;13.344-430;RUA VINTE E TRES;Indaiatuba;SP;israeloliveirateles@gmail.com
+82;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-21;Arquimedes; 23(46) 6 3180-5070;13.344-431;RUA 9 ;Salto;SP;wendel@nemunopar.com.br
+83;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-22;Arquimedes; 23(05) 6 3575-7160;13.344-432;RUA MATO GROSSO ;Indaiatuba;SP;wendel@nemunopar.com.br
+84;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-23;Arquimedes; 22(64) 6 3970-9250;13.344-433;RUA SANTA MARIA ;Salto;SP;sirlei.12gh@gmail.com
+85;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-24;Arquimedes; 22(23) 6 4366-1340;13.344-434;RUA DOM PEDRO II ;Boituva;SP;antoniopaulosantos2016@gmail.com
+86;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-25;Arquimedes; 21(82) 6 4761-3430;13.344-435;RUA PRIMEIRO DE MAIO ;Indaiatuba;SP;flaviomt35@hotmail.com
+87;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-26;Arquimedes; 21(41) 6 5156-5520;13.344-436;RUA PARÁ ;Salto;SP;wellingtonmascelino123@gmail.com
+88;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-27;Arquimedes; 21(00) 6 5551-7610;13.344-437;RUA MARANHÃO ;Boituva;SP;edeisonneves@bol.com.br
+89;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-28;Arquimedes; 20(59) 6 5946-9700;13.344-438;RUA ALAGOAS ;Indaiatuba;SP;alvesjacqueline@yahoo.com.br
+90;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-29;Arquimedes; 20(18) 6 6342-1790;13.344-439;RUA BOA VISTA;Salto;SP;codeco51@gmail.com
+91;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-30;Arquimedes; 19(77) 6 6737-3880;13.344-440;RUA SÃO LUIZ;Indaiatuba;SP;madsonktn44@gmail.com
+92;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-31;Arquimedes; 19(36) 6 7132-5970;13.344-441;RUA VINTE E QUATRO ;Salto;SP;gilsonjack29@gmail.com
+93;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-32;Arquimedes; 18(95) 6 7527-8060;13.344-442;RUA PARAÍBA ;Boituva;SP;lucianaosdomingos@gmail.com
+94;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-33;Arquimedes; 18(54) 6 7923-0150;13.344-443;RUA 12;Indaiatuba;SP;wyglyson@gmail.com
+95;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-34;Arquimedes; 18(13) 6 8318-2240;13.344-444;RUA O;Salto;SP;robertofurtado95@gmail.com
+96;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-35;Arquimedes; 17(72) 6 8713-4330;13.344-445;RUA SANTA RITA;Boituva;SP;alespmg@hotmail.com
+97;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-36;Arquimedes; 17(31) 6 9108-6420;13.344-446;RUA 11 ;Indaiatuba;SP;delleslopes@icloud.com
+98;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-37;Arquimedes; 16(90) 6 9503-8510;13.344-447;RUA 12;Salto;SP;hfequipamentosagroindustriais@gmail.com
+99;CEUNSP;Centro Universitario Nossa Senhora da Aparecida;50.133.741/0001-38;Arquimedes; 16(49) 6 9899-0600;13.344-448;RUA 13;Indaiatuba;SP;glemos1120@gmail.com
