@@ -68,7 +68,7 @@ class EmployeeCreateView(CreateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if request.user.employee.role != "RH":
+        if request.user.employee.cost_center.name_department != "RH":
             return render(request, 'registration/denied_permission.html', {})
         form = super(EmployeeCreateView, self).get_form()
         context = {'form': form}
@@ -118,10 +118,10 @@ class EmployeeDeleteView(DeleteView):
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users:users_list')
 
-    def get(self, request, *args, **kwargs):
-        if request.user.employee.role != "RH":
-            return render(request, 'registration/denied_permission.html', {})
-        return render(request,self.template_name, context)
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.employee.cost_center.name_department != "RH":
+    #         return render(request, 'registration/denied_permission.html', {})
+    #     return render(request,self.template_name, context)
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()

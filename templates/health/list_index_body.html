@@ -4,5 +4,46 @@
 {% block conteudo %}
 {% include 'parciais/errors.html' %}
 {% include 'parciais/_messages.html' %}
-<p>list index body</p>
+<h2 class="mb-4">Listagem de Massa Corporal</h2>
+<div class="row p-2">
+    <table class="table table-striped table-responsive border rounded bg-light shadow">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" style="width: 3%; text-align : center;"></th>
+          <th scope="col" style="width: 20%; text-align : center;">Nome</th>
+          <th scope="col" style="width: 6%; text-align : center;">Peso</th>
+          <th scope="col" style="width: 6%; text-align : center;">Altura</th>
+          <th scope="col" style="width: 14%; text-align : center;">Circunfência</th>
+          <th scope="col" style="width: 14%; text-align : center;">Pressão Sistólica</th>
+          <th scope="col" style="width: 14%; text-align : center;">Pressão Diastólica</th>
+          <th scope="col" style="width: 18%; text-align : center;">Classificação IMC</th>
+          <th scope="col" style="width: 7%; text-align : center;">IMC</th>
+        </tr>
+      </thead>
+      <tbody>   
+        <tr>
+        {% for data in obj %}
+          <td style="text-align : center;"><img class="img-circle img-bordered-sm" src="{{ data.identifier.photo.thumbnail.url }}" width=50 height=50></td>
+          <td style="text-align : center;">{{ data.identifier.name }}</td>
+          <td scope="row" style="text-align : center;">{{ data.weight }}</th>
+          <td style="text-align : center;">{{ data.height }}</td>
+          <td style="text-align : center;">{{ data.abdominal_circumference }}</td>
+          <td style="text-align : center;">{{ data.systolic_blood_pressure }}</td>
+          <td style="text-align : center;">{{ data.diastolic_blood_pressure }}</td>
+          <td style="text-align : center;">{{ data.classification_text }}</td>
+          {% if data.imc >= 18.5 and data.imc <= 25 %}
+          <td style="text-align : center; color: green;">{{ data.imc }}</td>
+          {% elif data.imc > 25 and data.imc  < 29.9 %}
+          <td style="text-align : center; color: orange;">{{ data.imc }}</td>
+          {% else %}
+          <td style="text-align : center; color: red;">{{ data.imc }}</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <tfoot>
+    {% include 'parciais/_pagination.html'%}
+        </tfoot>
+    </div>
 {% endblock %}

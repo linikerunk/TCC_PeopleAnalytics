@@ -11,7 +11,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      {% if request.user.employee.role == "RH" %}
+      {% if request.user.employee.cost_center.name_department == "RH" %}
       <div class="col-md-3 mb-3">
       <a type="button" href="{% url 'users:user_create' %}" class="btn btn-block btn-primary">Adicionar um novo Colaboradores</a>
       </div>
@@ -27,13 +27,13 @@
         <tr role="row">
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 2%;">Foto</th>
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 10%;">Nome do Funcionário</th>
-          {% if request.user.employee.role == "RH" %}          
+          {% if request.user.employee.cost_center.name_department == "RH" %}          
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 5%;">CPF</th>
           {% endif %}
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 7%;">E-mail</th>
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 7%;">Cargo</th>
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 5%;">Unidade</th>
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 0.5%;"></th></tr>
           {% endif %}
         </thead>
@@ -44,18 +44,18 @@
           <td class="">
             <img class="img-circle img-bordered-sm" src="{{ employee.photo.thumbnail.url }}" width=50 height=50>
           </td>
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <td class="pt-3"> <a href="{% url 'users:user_update' employee.pk %}"> {{ employee.name }} </a></td>
           {% else %}
           <td class="pt-3">{{ employee.name }}</td>
           {% endif %}
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <td class="pt-3">{{ employee.cpf }}</td>
           {% endif %}
           <td class="pt-3">{{ employee.email }}</td>
           <td class="pt-3">{{ employee.role }}</td>
           <td class="pt-3">{{ employee.unity }}</td>
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <td class="pt-3"><a href="{% url 'users:user_delete' employee.pk %}"><img src="{% static 'icons/cancel.png' %}"></a></td>
           {% endif %}
         </tr> 

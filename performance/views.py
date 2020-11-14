@@ -12,7 +12,7 @@ from .forms import EvaluationSkillForm, SkillForm, EvaluationForm
 from .models import Skill, EvaluationSkill, Evaluation
 
 def performance(request):
-    if request.user.employee.role != "RH":
+    if request.user.employee.cost_center.name_department != "RH":
         return render(request, 'registration/denied_permission.html', {})
     return render(request, 'performance/index.html', {})
 

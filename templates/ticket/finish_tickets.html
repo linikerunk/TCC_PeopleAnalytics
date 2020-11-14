@@ -101,7 +101,7 @@
 
 <div class="form-group  col-md-12 mt-4 p-2">
   <button type="submit" class="btn btn-primary w-50" id="awnser_ticket">Responder</button> 
-  {% if request.user.employee.role is "RH" %} 
+  {% if request.user.employee.cost_center.name_department == "RH" %}
 <button type="submit" id="finish_ticket" class="btn btn-success" id="finish">Finalizar</button>
 <a type="button" id="finish_ticket_back" href="{% url 'ticket:list_tickets' %}" class="btn btn-warning">&nbsp;&nbsp;&nbsp; Voltar &nbsp;&nbsp;&nbsp;</a>
   {% else %}

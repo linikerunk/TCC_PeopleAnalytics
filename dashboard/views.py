@@ -15,7 +15,7 @@ from chartjs.views.lines import BaseLineChartView, HighchartPlotLineChartView
 
 @login_required
 def dashboard(request):
-    if request.user.employee.role != "RH":
+    if request.user.employee.cost_center.name_department != "RH":
         return render(request, 'registration/denied_permission.html', {})
     tickets = Ticket.objects.all().order_by('-id')
     number_of_tickets = Ticket.objects.count()

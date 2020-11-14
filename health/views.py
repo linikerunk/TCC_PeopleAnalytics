@@ -119,4 +119,26 @@ def search_employee(request):
 
 @login_required
 def list_index_body(request):
-    return render(request, 'health/list_index_body.html', {})
+    if request.user.employee.cost_center.name_department != "RH":
+        imc = BodyMassIndex.objects.all().filter(
+            identifier=request.user.employee.pk).order_by('-id')
+    else:
+        imc = BodyMassIndex.objects.all().order_by('-id')
+    paginator = Paginator(imc, 10)
+    page = request.GET.get('page', 1)
+    obj = paginator.get_page(page)
+    return render(request, 'health/list_index_body.html', {'imc': imc,
+                                                            'obj': obj})
+
+
+# def list_tickets(request):
+#     if request.user.employee.cost_center.name_department != "RH":
+#         tickets = Ticket.objects.all().filter(
+#                             employee=request.user.employee).order_by('-id')
+#     else:
+#         tickets = Ticket.objects.all().order_by('-id')
+#     paginator = Paginator(tickets, 10)
+#     page = request.GET.get('page', 1)
+#     obj = paginator.get_page(page)
+#     return render(request, 'ticket/list_tickets.html', {'tickets': tickets,
+#                                                         'obj': obj})

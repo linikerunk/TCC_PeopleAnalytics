@@ -42,7 +42,7 @@
                 <p class="font-weight-bolder ml-3">Colaboradores</p></a>
           </li>
 
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <li class="nav-item">
             <a href="{% url 'dashboard:dashboard' %}" id="li-dashboard" class="nav-link">
               <img src="{% static 'icons/pie-chart.svg' %}" alt="Dashboard"  />
@@ -52,10 +52,10 @@
 
           <li class="nav-item">
             <a href="{% url 'ticket:ticket' %}" id="li-tickets" class="nav-link">
-              <img src="{% static 'icons/clipboard.svg' %}" alt="Tickets" />
+              <img src="{% static 'icons/clipboard.svg' %}" alt="Ticksets" />
               <p class="font-weight-bolder ml-3">Chamados</p></a>
           </li>
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <li class="nav-item">
             <a href="{% url 'performance:performance_list' %}" id="li-performance" class="nav-link">
               <img src="{% static 'icons/trending-up.svg' %}" alt="Performance" />
@@ -63,7 +63,7 @@
           </li>
           {% endif %}
 
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <li class="nav-item">
             <a href="{% url 'hour:hour' %}" id="li-hour_management" class="nav-link">
               <img src="{% static 'icons/clock.svg' %}" alt="Time Management" />
@@ -83,7 +83,7 @@
               <p class="font-weight-bolder ml-3">Négócios</p></a>
           </li> -->
 
-          {% if request.user.employee.role == "RH" %}
+          {% if request.user.employee.cost_center.name_department == "RH" %}
           <li class="nav-item">
             <a href="{% url 'health:periodic_exam' %}" id="li-health" class="nav-link">
               <img src="{% static 'icons/activity.svg' %}" alt="Health" />
