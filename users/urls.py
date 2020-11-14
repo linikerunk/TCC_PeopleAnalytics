@@ -15,7 +15,7 @@ urlpatterns = [
     name="user_create"),
     path('users/user_update/<int:pk>/', views.EmployeeUpdateView.as_view(),
     name="user_update"),
-    path('dismissal/user_delete/<int:pk>/', views.EmployeeDeleteView.as_view(),
+    path('users/user_delete/<int:pk>/', views.EmployeeDeleteView.as_view(),
     name="user_delete"),
     path('users/first_register/', views.FirstRegisterView.as_view(), 
     name="first_register"),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('register/', views.SignUpView.as_view(), name="signup"),  
     path('activate/<uidb64>/<token>/', views.ActivateAccount.as_view(),
     name='activate'),
+    path('denied_permission/', views.denied_permission, name="denied_permission"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

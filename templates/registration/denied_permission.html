@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Desempenho{% endblock %}
+{% block conteudo %}
+  <div class="card card-danger">
+    <div class="card-header">
+      <h3 class="card-title">Permissão negada para o usuário {{ request.user.employee.name }} </h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+          <i class="fas fa-minus"></i></button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+          <i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="card-body">
+      
+      <h6><i class="fas fa-exclamation-triangle"></i>  
+          Essa página só pode ser acessada por um usuário do setor de RH ou Administrador.</h6>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+    </div>
+    <!-- /.card-footer-->
+  </div>
+
+{% endblock %}

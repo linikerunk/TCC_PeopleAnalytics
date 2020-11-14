@@ -68,6 +68,8 @@ class EmployeeCreateView(CreateView):
         return context
 
     def get(self, request, *args, **kwargs):
+        if request.user.employee.role != "RH":
+            return render(request, 'registration/denied_permission.html', {})
         form = super(EmployeeCreateView, self).get_form()
         context = {'form': form}
         initial_base = self.get_initial()
@@ -115,6 +117,11 @@ class EmployeeDeleteView(DeleteView):
     model = Employee
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users:users_list')
+
+    def get(self, request, *args, **kwargs):
+        if request.user.employee.role != "RH":
+            return render(request, 'registration/denied_permission.html', {})
+        return render(request,self.template_name, context)
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -250,3 +257,8 @@ class ActivateAccount(View):
             messages.warning(request, ('A link de confirmação está inválido, \
                 possivelmente esse token já está sendo usado.'))
             return redirect('dashboard:dashboard')
+
+
+def denied_permission(request):
+    print("Estou em uma página de acesso negado.")
+    return render(request, 'registration/denied_permission.html', {})

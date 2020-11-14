@@ -7,8 +7,8 @@ from users.models import Employee, Base
 
 current_time = datetime.now().strftime("%d/%m/%Y")
 
-CLASSIFICATION = (("Verde", "Verde"), ("Amarelo", "Amarelo"),
-                  ("Vermelho", "Vermelho"), ("Azul", "Azul"),)
+CLASSIFICATION = (("Verde", "Saudável"), ("Amarelo", "Sedentário"),
+                  ("Vermelho", "Precisa de Acompanhamento Médico"), ("Azul", "Risco de Morte"),)
 IMC = (("Magreza grave", "Magreza grave"), 
         ("Magreza moderada", "Magreza moderada"),
         ("Magreza leve", "Magreza leve"), ("Saudável", "Saudável"),

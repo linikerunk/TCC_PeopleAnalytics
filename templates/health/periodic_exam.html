@@ -260,19 +260,12 @@
                 {% else %}
                 {% endif %}
                 </div>
-                <div class="col-5 text-center pt-5">
-                      <img src="{{ body_mass.identifier.photo.url }}" class="img-circle img-fluid">
-                </div>
+                <a href="{% url 'health:list_index_body'  %}" class="btn btn-primary w-100">Verificar Indice de Massa Corporal</a>
                 </div>
                 </div>
                 <div class="card-footer">
                   <div class="text-right ">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="{% url 'users:user_update' 14  %}" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> Ver Detalhes do Funcionário
-                    </a>
+                   
                   </div>
                 </div>
               </div>

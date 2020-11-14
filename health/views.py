@@ -97,8 +97,16 @@ def health_calculus(request):
 def search_employee(request):
     # Your code
     if request.method == 'GET': # If the form is submitted
-        search_query = request.GET.get('employee', None)
-        body_mass = BodyMassIndex.objects.filter(identifier=search_query).last()
+        try:
+            search_query = request.GET.get('employee', None)
+            body_mass = BodyMassIndex.objects.filter(identifier=search_query).last()
+            if not body_mass:
+                messages.error(request, f'Erro : Não existe um funcionário com o  id digitado.')
+                return render(request, 'health/indice_mass_error.html', {})
+        except Exception as e:
+            body_mass = 0
+            messages.error(request, f'Erro : {e}')
+            return render(request, 'health/indice_mass_error.html', {})
         if not body_mass:
             messages.error(request, "Funcionário não encontrado.")
             return render(request, 'health/indice_mass.html', {})
@@ -107,3 +115,8 @@ def search_employee(request):
         return render(request, 'health/indice_mass.html', context)
     context = {'body_mass' : body_mass}
     return render(request, 'health/indice_mass.html', context)
+
+
+@login_required
+def list_index_body(request):
+    return render(request, 'health/list_index_body.html', {})

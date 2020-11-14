@@ -12,7 +12,8 @@ from .forms import EvaluationSkillForm, SkillForm, EvaluationForm
 from .models import Skill, EvaluationSkill, Evaluation
 
 def performance(request):
-    print("To aqui")
+    if request.user.employee.role != "RH":
+        return render(request, 'registration/denied_permission.html', {})
     return render(request, 'performance/index.html', {})
 
 

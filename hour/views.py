@@ -37,6 +37,7 @@ class IndexHour(TemplateView):
         return self.render_to_response(context)
 
 
+@login_required
 def absenteeism_rate(request):
     form = AbsenteeismRateForm(request.POST or None)
     employee_field = request.POST.get('employee', None)
@@ -46,6 +47,10 @@ def absenteeism_rate(request):
     except:
         print("Funcionário não encontrado.")
     if request.method == "POST":
+        # validation 
+        if request.POST.get('absenteeism_days', None) > request.POST.get('days_month', None):
+            messages.error(request, "Dias de falta maiores do que dias existentes.")
+            return render(request, 'hour/index.html', {})
         if form.is_valid():
             form.save()
             absenteeism = AbsenteeismRate.objects.last()
@@ -57,6 +62,7 @@ def absenteeism_rate(request):
     return render(request, 'hour/index.html', context)
 
 
+@login_required
 def absenteeism_list(request):
     obj = AbsenteeismRate.objects.all().order_by('-id')
     paginator = Paginator(obj, 10)
@@ -66,6 +72,7 @@ def absenteeism_list(request):
     return render(request, 'hour/list_absenteeism.html', context)
 
 
+@login_required
 def fouls_forecast(request):
     if request.method == "POST":
         token = settings.API_TOKEN
@@ -80,3 +87,8 @@ def fouls_forecast(request):
         # except Exception as e:
             # messages.error(request, "A cidade não é válida")
     return render(request, 'hour/index.html', {})
+
+
+@login_required
+def list_hour_employee(request):
+    return render(request, 'hour/list_hour_employee.html', {})

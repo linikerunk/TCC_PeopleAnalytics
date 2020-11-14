@@ -46,7 +46,11 @@ def send_ticket(request):
 
 
 def list_tickets(request):
-    tickets = Ticket.objects.all().order_by('-id')
+    if request.user.employee.role != "RH":
+        tickets = Ticket.objects.all().filter(
+                            employee=request.user.employee).order_by('-id')
+    else:
+        tickets = Ticket.objects.all().order_by('-id')
     paginator = Paginator(tickets, 10)
     page = request.GET.get('page', 1)
     obj = paginator.get_page(page)
@@ -56,6 +60,8 @@ def list_tickets(request):
 
 def finish_ticket(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
+    if request.user.employee.pk != ticket.employee.pk and request.user.employee.role != "RH":
+        return render(request, 'registration/denied_permission.html', {})
     employee = request.user.employee
     historic = TicketHistory.objects.filter(ticket__id=ticket.id)
     awnser = request.POST.get('awnser', None)
