@@ -51,6 +51,8 @@ class TrainingCreateView(CreateView):
         return context
 
     def get(self, request, *args, **kwargs):
+        if request.user.employee.cost_center.name_department != "RH":
+            return render(request, 'registration/denied_permission.html', {})
         form = super(TrainingCreateView, self).get_form()
         context = {'form': form}
         initial_base = self.get_initial()

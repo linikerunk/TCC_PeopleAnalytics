@@ -14,6 +14,11 @@ GENDER_CHOICES = (
         ('Feminino', 'Feminino'),
         ('Masculino', 'Masculino'),
         ('N/A', 'N/A'),)
+LOCOMOTION = (
+        ('Carro', 'Carro'),
+        ('Moto', 'Moto'),
+        ('Transporte Publico', 'Transporte publico'),
+        ('Caminhada a pé', 'Caminhada a pé'),)
 current_date = datetime.now()
 
 
@@ -80,6 +85,7 @@ class Employee(models.Model):
     phone = models.CharField('Telefone', max_length=15, null=True)
     cpf = models.CharField('CPF', max_length=11, blank=False)
     role = models.CharField('Cargo', max_length=60, blank=False)
+    locomotion = models.CharField('Locomoção', max_length=60, choices=LOCOMOTION)
     cost_center = models.ForeignKey(CostCenter, null=True, 
                                     verbose_name="Centro de Custo",
                                     on_delete=models.PROTECT)

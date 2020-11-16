@@ -8,8 +8,8 @@ from users.models import Employee
 current_date = datetime.now()
 
 class AbsenteeismRate(models.Model):
-    employee = models.ForeignKey(Employee, null=True, 
-            verbose_name="Funcionário", on_delete=models.PROTECT)
+    employee = models.ForeignKey(Employee, related_name='rate_abis' , null=True, 
+            verbose_name="Funcionário",  on_delete=models.PROTECT)
     absenteeism_days = models.IntegerField("Dias de absenteismo")
     days_month = models.IntegerField("Dias no mês")
     date_register = models.DateTimeField("Mês referente ao calculo",

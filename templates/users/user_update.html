@@ -83,7 +83,9 @@
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Linha do Tempo</a></li>
               <li class="nav-item"><a class="nav-link" href="#skills" data-toggle="tab">Habilidades</a></li>
+              {% if request.user.employee.cost_center.name_department == "RH" %}
               <li class="nav-item"><a class="nav-link" href="#training" data-toggle="tab">Treinamentos</a></li>
+              {% endif %}
             </ul>
           </div><!-- /.card-header -->
           <div class="card-body">
@@ -374,20 +376,18 @@
               <div class="tab-pane" id="training">
                 <div class="row">
                 <div class="col-md-12">
-                <p class="lead"> Adicionar um treinamento para o funcionário [Nome Funcionário]</p>
+                <p class="lead"> Adicionar um treinamento para o funcionário {{ request.user.employee.name }}</p>
                 <form action="">
                   <div class="col-md-12">
                   <label for="">Nome do Treinamento : </label>
-                  <select  class="form-control" name="treinamento" id="treinamento">
-                    <option value="">Treinamento 1</option>
-                    <option value="">Treinamento 2</option>
-                    <option value="">Treinamento 3</option>
-                    <option value="">Treinamento 4</option>
-                    <option value="">Treinamento 5</option>
-                  </select>
+                  <select class="form-control" name="training" id="training">
+                    {% for training in training  %}
+                    <option  value="{{ training.id }}">{{ training }}</option>
+                    {% endfor %}
+                    </select>
                 </div>
                 <div class="col-md-12 mt-2">
-                  <a href="#" class="btn btn-primary float-right">Adicionar Treinamento</a>
+                  <a href="#" id="adicionar_treinamento" class="btn btn-primary float-right">Adicionar Treinamento</a>
                 </div>
                 </form>
 
@@ -407,7 +407,7 @@
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
+                        <table id="table_training_user" class="table table-hover text-nowrap">
                           <thead>
                             <tr>
                               <th>ID</th>
@@ -416,7 +416,7 @@
                               <th>Status</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="body_table">
                             <tr>
                               <td>183</td>
                               <td>Excell Avançado.</td>

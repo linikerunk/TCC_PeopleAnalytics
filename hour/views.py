@@ -74,6 +74,7 @@ def absenteeism_list(request):
 
 @login_required
 def fouls_forecast(request):
+    employee = Employee.objects.all()
     if request.method == "POST":
         token = settings.API_TOKEN
         api_url = f"https://api.hgbrasil.com/weather?key={token}&city_name="
@@ -82,13 +83,30 @@ def fouls_forecast(request):
         url = api_url + city 
         context = {'today': get_weather('today', url),
                    'next_two_days': get_weather('next_two_days', url),
-                   'next_four_days': get_weather('next_four_days', url),}
+                   'next_four_days': get_weather('next_four_days', url),
+                   'employee': employee}
         return render(request, 'hour/fouls_forecast.html', context)
         # except Exception as e:
             # messages.error(request, "A cidade não é válida")
-    return render(request, 'hour/index.html', {})
+    return render(request, 'hour/index.html', {'employee': employee})
 
 
 @login_required
 def list_hour_employee(request):
-    return render(request, 'hour/list_hour_employee.html', {})
+    obj = AbsenteeismRate.objects.all().filter(
+        employee=request.user.employee.pk).order_by('-id')
+    paginator = Paginator(obj, 10)
+    page = request.GET.get('page', 1)
+    obj = paginator.get_page(page)
+    context = {'obj': obj}
+    return render(request, 'hour/list_hour_employee.html', context)
+
+
+@login_required
+def verify_absent(request):
+    name_employee = request.POST.get('employee', None)
+    weather = request.POST.get('weather', None)
+    context = {'name_employee': name_employee,
+               'weather': weather}
+    
+    return render(request, 'hour/absenteism.html', context)

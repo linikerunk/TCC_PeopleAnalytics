@@ -25,6 +25,7 @@ from utils.decorators import FirstRegisterMixin
 from .forms import SignUpForm
 from .tokens import account_activation_token
 from .models import Employee, Unity, CostCenter
+from training.models import Training
 
 UserModel = get_user_model()
 
@@ -106,6 +107,11 @@ class EmployeeUpdateView(UpdateView):
     fields = '__all__'
     slug_field = 'employee_slug'
     success_url = reverse_lazy('users:users_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['training'] = Training.objects.all()
+        return context
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()

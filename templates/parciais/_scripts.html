@@ -186,4 +186,44 @@ jQuery("#category").change(function () {
   });
 </script>
 
+<script>
+  $('#adicionar_treinamento').click(function () {
+    alert(`Adicionou um novo treinamento !`)
+    $("#body_table").append(
+        `<tr><td>${Math.floor(Math.random() * 30 + 1)}</td><td>${$('#training :selected').text()}</td><td>${new Date().toLocaleDateString()}</td><td>A Realizar</td></tr>`)
+  });
+</script>
 
+<!-- <script>
+const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+var weather = document.getElementById("info_about_weather").textContent;
+var locomotion = document.getElementById("info_about_weather").textContent;
+jQuery("#send-answer").click(function () {
+
+    let url = "/hour_management/verify_absent/" + weather + "/";
+    jQuery.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        weather : weather,
+        locomotion : locomotion,
+      },
+
+      beforeSend: function (xhr) {
+      },
+
+      success: function (data) {
+        console.log("Weather : ", weather)
+        console.log("Locomotion : ", locomotion)
+      },
+
+      error: function (xhr) {
+        console.log(xhr.error)
+        
+      },
+      complete: function () {
+        // body...
+      }
+    })
+  });
+</script> -->

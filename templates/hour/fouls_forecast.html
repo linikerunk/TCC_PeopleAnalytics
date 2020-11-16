@@ -132,47 +132,39 @@ do negócio.
         
                     <thead>
                     <tr role="row">
-                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 15%;">Nome do Colaborador</th>
-                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 3%;">Cargo</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 12%;">Nome do Colaborador</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 13%;">Cargo</th>
                       <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 7%;">Locomoção</th>
-                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 3%;">Absenteísmo</th>
-                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 10%;">Probabilidade de falta</th>
+                      <th class="table-dark" tabindex="0" rowspan="1" colspan="1" style="width: 13%;">Absenteísmo</th>
                     </thead>
                 
                     <tbody>
+
+                      <div class="active tab-pane" id="previ-falta">
+                        <form action="{% url 'hour:verify_absent' %}"method="POST">
+                          {% csrf_token %}
+                          <div class="row">
+                          <div class="col-md-5 mb-2">
+                            <label>Digite o nome do colaborador que deseja fazer a previsão : </label>
+                            <input type="text" class="form-control" name="employee" placeholder="Digite o nome do colaborador">
+                            <input type="text" class="form-control" name="weather">
+                          </div>
+                          <div class="col-md-5 mt-4 pt-2">
+                            <button type="submit" class="btn btn-success pr-2 pl-2 w-50">Verificar Chance de Falta</button>
+                          </div>
+                        </form>
+                        </div> <!-- ./row -->
                       
+                      {% for employee in employee %}
                     <tr role="row">
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
+                      <td class="pt-3">{{ employee.name }}</td>
+                      <td class="pt-3">{{ employee.role }}</td>
+                      <td class="pt-3">{{ employee.locomotion }}</td>
+                      <td class="pt-3"> {% for absenteeism in employee.rate_abis.all %}
+                        <span> <strong>{{ forloop.counter }}:   </strong></span>{{ absenteeism.absenteeism }}% {% endfor %}</td>
                     </tr> 
+                    {% endfor %}
 
-                    <tr role="row">
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                    </tr> 
-
-                    <tr role="row">
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                    </tr> 
-
-                    <tr role="row">
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                      <td class="pt-3">x</td>
-                    </tr> 
-                  
                     </tbody>
             
                     <tfoot>

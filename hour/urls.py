@@ -16,6 +16,8 @@ urlpatterns = [
     path('hour_management/fouls_forecast/', views.fouls_forecast,
     name="fouls_forecast"),
     path('hour_management/list_hour_employee/', views.list_hour_employee,
-    name="list_hour_employee")
+    name="list_hour_employee"),
+    path("hour_management/verify_absent/", views.verify_absent,
+    name="verify_absent"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
