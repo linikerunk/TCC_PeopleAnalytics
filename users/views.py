@@ -66,6 +66,7 @@ class EmployeeCreateView(CreateView):
         context['unity'] = Unity.objects.all()
         context['cost_center'] = CostCenter.objects.all()
         context['user'] = User.objects.all()
+        
         return context
 
     def get(self, request, *args, **kwargs):

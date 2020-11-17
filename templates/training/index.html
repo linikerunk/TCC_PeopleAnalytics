@@ -19,7 +19,7 @@
 
           <div class="active tab-pane" id="treinamento">
             <div class="col-md-3 mb-3">
-              {% if request.user.employee.cost_center == "RH" %}
+              {% if request.user.employee.cost_center.name_department == "RH" %}
               <a type="button" href="{% url 'training:training_create' %}" class="btn btn-block btn-primary">Adicionar um novo Treinamento</a>
                {% endif %}  
             </div>
@@ -33,7 +33,7 @@
                       <th class="table-dark" style="text-align : center; width: 10%;">Requisito</th>
                       <th class="table-dark" style="text-align : center; width: 10%;">Local</th>
                       <th class="table-dark" style="text-align : center; width: 10%;">Carga Horária</th>
-                      {% if request.user.employee.cost_center == "RH" %}
+                      {% if request.user.employee.cost_center.name_department == "RH" %}
                       <th class="table-dark" style="text-align : center; width: 2.5%;">Deletar</th>
                       {% endif %}
                      <!-- <th class="table-info" style="text-align : center; width: 15%;">Gráfico</th> -->
@@ -48,7 +48,7 @@
                       <td>{{ obj.required }}</td>
                       <td>{{ obj.resource }}</td>
                       <td>{{ obj.workload }} Horas</td>
-                      {% if request.user.employee.cost_center == "RH" %}
+                      {% if request.user.employee.cost_center.name_department == "RH" %}
                       <td class="center"><a href="{% url 'training:training_delete' obj.pk %}"><img class="m-3" 
                         src="{% static 'icons/cancel.png' %}"></a></td>
                       {% endif %}
@@ -100,7 +100,7 @@
 
           <div class="tab-pane" id="entidade">
             <div class="col-md-3 mb-3">
-              {% if request.user.employee.cost_center == "RH" %}
+              {% if request.user.employee.cost_center.name_department == "RH" %}
               <a type="button" href="{% url 'training:entity_create' %}" class="btn btn-block btn-primary">Adicionar um nova Entidade </a>
               {% endif %}  
             </div>
@@ -115,7 +115,7 @@
                     <th class="table-dark" style="text-align : center; width: 10%;">Telefone</th>
                     <th class="table-dark" style="text-align : center; width: 10%;">Endereço</th>
                     <th class="table-dark" style="text-align : center; width: 7%;">Cidade</th>
-                    {% if request.user.employee.cost_center == "RH" %}
+                    {% if request.user.employee.cost_center.name_department == "RH" %}
                     <th class="table-dark" style="text-align : center; width: 5%;">Deletar</th>
                     {% endif %}
                 </tr>
@@ -130,7 +130,7 @@
                       <td>{{ obj.phone }}</td>
                       <td>{{ obj.address }}</td>
                       <td>{{ obj.city }}</td>
-                      {% if request.user.employee.cost_center == "RH" %}
+                      {% if request.user.employee.cost_center.name_department == "RH" %}
                       <td class="mt-3"><a href="{% url 'training:entity_delete' obj.pk %}"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
                       {% endif %}
                     </tr>
@@ -181,7 +181,7 @@
 
           <div class="tab-pane" id="instrutor">
             <div class="col-md-5 offset-md-1 mb-3">
-              {% if request.user.employee.cost_center == "RH" %}
+              {% if request.user.employee.cost_center.name_department == "RH" %}
               <a type="button" href="{% url 'training:instructor_create' %}" class="btn btn-block btn-primary">Adicionar um novo Instrutor </a>
               {% endif %} 
             </div>
@@ -193,7 +193,7 @@
                     <th class="table-dark" style="text-align : center; width: 1%;">RE Instrutor</th>
                     <th class="table-dark" style="text-align : center; width: 10%">Nome do Instrutor</th>
                     <th class="table-dark" style="text-align : center; width: 10%;">Treinamento Habilitado</th>
-                    {% if request.user.employee.cost_center == "RH" %}
+                    {% if request.user.employee.cost_center != "RH" %}
                     <th class="table-dark" style="text-align : center; width: 1%;">Deletar</th>
                     {% endif %}
                   </tr>
@@ -206,7 +206,7 @@
                       <td style="text-align : center;">{% for training in obj.training.all %}
                         <p>{{ training }}</p>
                         {% endfor %}</td>
-                        {% if request.user.employee.cost_center == "RH" %}
+                        {% if request.user.employee.cost_center.name_department == "RH" %}
                       <td class="mt-3"><a href="{% url 'training:instructor_delete' obj.pk %}"><img class="m-3" 
                          src="{% static 'icons/cancel.png' %}"></a></td>
                         {% endif %}
@@ -258,7 +258,7 @@
 
           <div class="tab-pane" id="evento">
             <div class="col-md-3 mb-3">
-              {% if request.user.employee.cost_center == "RH" %}
+              {% if request.user.employee.cost_center.name_department == "RH" %}
               <a type="button" href="{% url 'training:event_create' %}" class="btn btn-block btn-primary">Adicionar um novo Evento</a>
               {% endif %}  
             </div>
@@ -272,7 +272,7 @@
                     <th class="table-dark" style="text-align : left; width: 10%;">Instrutor</th>
                     <th class="table-dark" style="text-align : left; width: 10%;">Data do Evento</th>
                     <th class="table-dark" style="text-align : left; width: 4%;">Valor</th>
-                    {% if request.user.employee.cost_center == "RH" %}
+                    {% if request.user.employee.cost_center.name_department == "RH" %}
                     <th class="table-dark" style="text-align : left; width: 4%;">Deletar</th>
                     {% endif %}
                 </tr>
@@ -286,7 +286,7 @@
                       <td>{{ obj.instructor }}</td>
                       <td>{{ obj.event_date }}</td>
                       <td>{{ obj.value }}</td>
-                      {% if request.user.employee.cost_center == "RH" %}
+                      {% if request.user.employee.cost_center.name_department == "RH" %}
                       <td class="pt-3"><a href="{% url 'training:event_delete' obj.pk %}"><img class="m-3"  src="{% static 'icons/cancel.png' %}"></a></td>
                       {% endif %}
                     </tr>
