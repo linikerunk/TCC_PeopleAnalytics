@@ -18,7 +18,7 @@
           class="img-circle elevation-2 mt-2" alt="Employee">
         </div>
         <div class="info">
-          <a href="{% url 'users:users_list' %}" class="font-weight-bolder d-block">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</a>
+          <a href="{% url 'users:user_update' request.user.employee.pk %}" class="font-weight-bolder d-block">{{ request.user.first_name|title }} {{ request.user.last_name|title }}</a>
           <p class="font-weight-bolder mb-0 mt-1">
             {% if request.user.employee.role %}
             <a href="{% url 'users:users_list' %}">Cargo : {{ request.user.employee.role }}</a></p>
