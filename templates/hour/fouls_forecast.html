@@ -10,8 +10,6 @@
         <ul class="nav nav-pills">
           <li class="nav-item"><a class="nav-link" href="#absenteismo" data-toggle="tab">Absenteísmo</a></li>
           <li class="nav-item"><a class="nav-link active" href="#previ-falta" data-toggle="tab">Previsão Faltas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#horas-adicionais" data-toggle="tab">Horas Adicionais</a></li>
-          <li class="nav-item"><a class="nav-link" href="#previ-horas-adicionais" data-toggle="tab">Previsão Horas Adicionais</a></li>
         </ul>
       </div><!-- /.card-header -->
       <div class="card-body">
@@ -147,7 +145,7 @@ do negócio.
                           <div class="col-md-5 mb-2">
                             <label>Digite o nome do colaborador que deseja fazer a previsão : </label>
                             <input type="text" class="form-control" name="employee" placeholder="Digite o nome do colaborador">
-                            <input type="text" class="form-control" name="weather">
+                            <input type="text" class="form-control" id="input_weather" name="weather" hidden>
                           </div>
                           <div class="col-md-5 mt-4 pt-2">
                             <button type="submit" class="btn btn-success pr-2 pl-2 w-50">Verificar Chance de Falta</button>
@@ -182,15 +180,6 @@ do negócio.
 </div>
 <!-- /.tab-pane -->
 
-          <div class="tab-pane" id="horas-adicionais">
-            <p> Horas Adicionais </p>
-          </div>
-          <!-- /.tab-pane -->
-
-
-          <div class="tab-pane" id="previ-horas-adicionais">
-            <p> Previsão Horas Adicionais </p>
-          </div>
 
         </div>
         <!-- /.tab-content -->

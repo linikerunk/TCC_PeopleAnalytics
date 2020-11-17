@@ -7,7 +7,7 @@
 
 <div class="row">
 
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Verificação de change de falta</h3>
@@ -15,29 +15,25 @@
             <div class="card-body pt-0">
              
               <div class="row">
-                <div class="form-group col-md-8">
-                  <label class="mt-4">Pesquisar Funcionário Saúde :</label>
-                </div>
 
+            <div class="col-12 mt-4">
+            <p class="text-muted"><b id="name_employee"><b>Situação Climatica: </b>{{ weather }}</b></p>
+            <p class="text-muted"><b id="name_employee"><b>Nome:  </b></b>{{ employee.name }}</p>
+            <p class="text-muted"><b>Bio: </b> <span id="bio_employee">{{ employee.bio }}</span></p>
+            <p class="text-muted"><b>Cargo: </b> <span id="#">{{ employee.role }}</span></p>
+            <p class="text-muted"><b>Locomoção: </b> <span id="#">{{ employee.locomotion }}</span></p>
+            <p class="text-muted"><b>Endereço: </b> <span id="#">{{ employee.andress }}</span></p>
+            <p class="text-muted"><b>Média de Absenteismo: </b> <span id="#">{{ avegare_absenteism }} %</span></p>
+            <p class="text-muted"><b>Probabilidade de falta: </b> <span id="#" style="color: blueviolet"><b>{{ rate_absenteism }} %</b></span></p>
+            <img class="img-circle img-bordered" id="img_user_prev_weather" src="{{ employee.photo.thumbnail.url }}" width=80 height=80></td>
+          </div>
 
-            <div class="col-7">
-            <p class="text-muted text-sm"><b id="name_employee"><b>Nome: </b>{{ body_mass }}</b></p>
-            <p class="text-muted text-sm"><b>Bio: </b> <span id="bio_employee">{{ body_mass.identifier.bio }}</span></p>
-            <p class="text-muted"><b>Saúde : </b> <span id="health_employee"> {{ body_mass.classification_text }} </span></p>
-            <p class="text-muted"><b>IMC : </b> <span id="index_mass_employee"> {{ body_mass.imc }} </span></p>
-            <ul class="ml-4 mb-0 fa-ul text-muted">
-              <li><span class="fa-li "><i class="fas fa-lg fa-building"></i></span>
-                  <p> Endereço : <span id="address_employee">{{ body_mass.identifier.andress }}, {{ body_mass.identifier.andress_number }}</span> </p></li>
-              <li><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>
-                  <p> Telefone :  <span id="phone_employee">{{ body_mass.identifier.phone }}</span> </p></li>
-            </ul>
-           
-            </div>
             </div>
             </div>
             <div class="card-footer">
-              <div class="text-right ">
-               
+
+              <div class="text-right">
+               <a href="{% url 'hour:hour' %}" class="btn btn-warning float-right pl-5 pr-5 w-100">Voltar</a>
               </div>
             </div>
           </div>

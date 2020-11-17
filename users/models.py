@@ -17,8 +17,9 @@ GENDER_CHOICES = (
 LOCOMOTION = (
         ('Carro', 'Carro'),
         ('Moto', 'Moto'),
-        ('Transporte Publico', 'Transporte publico'),
+        ('Transporte Público', 'Transporte público'),
         ('Caminhada a pé', 'Caminhada a pé'),)
+        
 current_date = datetime.now()
 
 

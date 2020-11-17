@@ -22,4 +22,4 @@ class AbsenteeismRate(models.Model):
         super(AbsenteeismRate, self).save(*args, **kwargs) 
 
     def __str__(self):
-        return f'{self.employee} nível de falta : {self.absenteeism}'
+        return f'{self.absenteeism}'
